@@ -3,9 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
+import clases.Conexion;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.sql.Connection;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -30,6 +34,26 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         campoBusqueda.putClientProperty("JComponent.roundRect", true);
 
     }
+    
+    public void mostrarUsuario(){
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Matricula");
+        modelo.addColumn("Estudiante");
+        modelo.addColumn("Carrera");
+        modelo.addColumn("Grupo");
+        modelo.addColumn("Fecha Registro");
+        
+        try {
+            Conexion conexion = new Conexion();
+            Connection con = conexion.con;
+            
+            String sql = "";
+        
+        }catch(Exception e){
+            showMessageDialog(null, "Error al cargar los datos" + e.getMessage());
+        }
+            
+        };
 
     /**
      * This method is called from within the constructor to initialize the form.
