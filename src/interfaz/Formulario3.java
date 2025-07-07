@@ -242,7 +242,7 @@ public class Formulario3 extends javax.swing.JFrame {
         jLabel92 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(760, 520));
+        setMinimumSize(new java.awt.Dimension(760, 559));
         getContentPane().setLayout(null);
 
         jPanel5.setMinimumSize(new java.awt.Dimension(740, 530));

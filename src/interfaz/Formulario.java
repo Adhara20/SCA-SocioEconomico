@@ -642,7 +642,7 @@ public class Formulario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox3);
-        jCheckBox3.setBounds(190, 690, 60, 24);
+        jCheckBox3.setBounds(190, 690, 61, 24);
 
         jCheckBox4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox4.setText("Otro");
@@ -662,7 +662,7 @@ public class Formulario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox5);
-        jCheckBox5.setBounds(120, 690, 53, 24);
+        jCheckBox5.setBounds(120, 690, 54, 24);
 
         jCheckBox6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox6.setText("Cartón");
@@ -1059,7 +1059,7 @@ public class Formulario extends javax.swing.JFrame {
         jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel45.setText("Apellido Paterno:");
         jPanel1.add(jLabel45);
-        jLabel45.setBounds(370, 1780, 118, 22);
+        jLabel45.setBounds(370, 1780, 121, 22);
 
         jTextField23.setBackground(new java.awt.Color(216, 216, 216));
         jTextField23.addActionListener(new java.awt.event.ActionListener() {
