@@ -12,14 +12,14 @@ import javax.swing.UnsupportedLookAndFeelException;
  *
  * @author jobno
  */
-public class Formulario extends javax.swing.JFrame {
+public class VerFormulario extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Formulario.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VerFormulario.class.getName());
 
     /**
      * Creates new form MenuEstudiantes
      */
-    public Formulario() {
+    public VerFormulario() {
         initComponents();
         DarEstilos();
     }
@@ -89,17 +89,25 @@ public class Formulario extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jCheckBox6 = new javax.swing.JCheckBox();
         jLabel24 = new javax.swing.JLabel();
         jTextField18 = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel27 = new javax.swing.JLabel();
         jTextField19 = new javax.swing.JTextField();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jTextField20 = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
         jLabel28 = new javax.swing.JLabel();
         jTextField21 = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
@@ -110,6 +118,7 @@ public class Formulario extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel36 = new javax.swing.JLabel();
+        jCheckBox7 = new javax.swing.JCheckBox();
         jCheckBox8 = new javax.swing.JCheckBox();
         jCheckBox9 = new javax.swing.JCheckBox();
         jCheckBox11 = new javax.swing.JCheckBox();
@@ -125,6 +134,8 @@ public class Formulario extends javax.swing.JFrame {
         jCheckBox20 = new javax.swing.JCheckBox();
         jCheckBox21 = new javax.swing.JCheckBox();
         jLabel37 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         jLabel17 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -229,22 +240,12 @@ public class Formulario extends javax.swing.JFrame {
         jLabel95 = new javax.swing.JLabel();
         jLabel91 = new javax.swing.JLabel();
         jLabel92 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
-        cbxOtro = new javax.swing.JCheckBox();
-        cbxCarton = new javax.swing.JCheckBox();
-        cbxPalma = new javax.swing.JCheckBox();
-        cbxTejas = new javax.swing.JCheckBox();
-        cbxMaterial = new javax.swing.JCheckBox();
-        jLabel93 = new javax.swing.JLabel();
-        jTextField59 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(720, 410));
+        setMinimumSize(new java.awt.Dimension(760, 559));
         getContentPane().setLayout(null);
 
+        jPanel5.setMinimumSize(new java.awt.Dimension(740, 530));
         jPanel5.setPreferredSize(new java.awt.Dimension(720, 520));
         jPanel5.setLayout(null);
 
@@ -325,27 +326,20 @@ public class Formulario extends javax.swing.JFrame {
         jPanel5.add(jPanel2);
         jPanel2.setBounds(0, 40, 750, 23);
 
-        getContentPane().add(jPanel5);
-        jPanel5.setBounds(0, 0, 750, 530);
-
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 600, 110, 110);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(null);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoUtec (New).png"))); // NOI18N
         jLabel2.setEnabled(false);
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 30, 80, 70);
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 80, 70));
 
         jLabel94.setText(".");
         jLabel94.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Triangulo.png"))); // NOI18N
         jLabel94.setEnabled(false);
-        jPanel1.add(jLabel94);
-        jLabel94.setBounds(90, 50, 80, 60);
+        jPanel1.add(jLabel94, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 80, 60));
 
         jPanel7.setBackground(new java.awt.Color(43, 138, 127));
 
@@ -360,8 +354,7 @@ public class Formulario extends javax.swing.JFrame {
             .addGap(0, 39, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel7);
-        jPanel7.setBounds(0, 80, 720, 39);
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(43, 138, 127));
         jPanel6.setMaximumSize(new java.awt.Dimension(500, 500));
@@ -377,28 +370,23 @@ public class Formulario extends javax.swing.JFrame {
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel6);
-        jPanel6.setBounds(0, 50, 120, 30);
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("UNIVERSIDAD TECNOLÓGICA DE ESCUINAPA");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(170, 50, 370, 25);
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 370, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Padre/Esposo/Tutor");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(20, 2680, 180, 25);
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2680, 180, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel5.setText("Fecha:");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(570, 130, 70, 22);
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 70, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel6.setText("Apellido Materno:");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(500, 210, 130, 22);
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 130, -1));
 
         jTextField1.setBackground(new java.awt.Color(217, 217, 217));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -406,13 +394,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(570, 160, 130, 30);
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 130, 30));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel7.setText("Religion:");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(460, 290, 70, 22);
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 70, -1));
 
         jTextField4.setBackground(new java.awt.Color(216, 216, 216));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -420,8 +406,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField4);
-        jTextField4.setBounds(460, 320, 170, 30);
+        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 170, 30));
 
         jTextField3.setBackground(new java.awt.Color(217, 217, 217));
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -429,13 +414,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField3);
-        jTextField3.setBounds(500, 240, 210, 30);
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, 210, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel8.setText("Apellido Paterno:");
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(270, 210, 130, 22);
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 120, -1));
 
         jTextField5.setBackground(new java.awt.Color(217, 217, 217));
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
@@ -443,13 +426,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField5);
-        jTextField5.setBounds(270, 240, 210, 30);
+        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 210, 30));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel9.setText("Nombre:");
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(20, 210, 70, 22);
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 70, -1));
 
         jTextField6.setBackground(new java.awt.Color(216, 216, 216));
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
@@ -457,13 +438,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField6);
-        jTextField6.setBounds(20, 240, 230, 30);
+        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 230, 30));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel10.setText("Localidad:");
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(490, 370, 80, 22);
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 80, -1));
 
         jTextField7.setBackground(new java.awt.Color(216, 216, 216));
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
@@ -471,8 +450,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField7);
-        jTextField7.setBounds(490, 400, 220, 30);
+        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 220, 30));
 
         jTextField8.setBackground(new java.awt.Color(216, 216, 216));
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
@@ -480,18 +458,15 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField8);
-        jTextField8.setBounds(320, 320, 80, 30);
+        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 80, 30));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel11.setText("Grupo:");
-        jPanel1.add(jLabel11);
-        jLabel11.setBounds(320, 290, 70, 22);
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 70, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel12.setText("Carrera:");
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(20, 290, 70, 22);
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 70, -1));
 
         jTextField9.setBackground(new java.awt.Color(216, 216, 216));
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
@@ -499,13 +474,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField9ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField9);
-        jTextField9.setBounds(20, 320, 270, 30);
+        jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 270, 30));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel13.setText("Número de casa:");
-        jPanel1.add(jLabel13);
-        jLabel13.setBounds(510, 450, 130, 22);
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 130, -1));
 
         jTextField10.setBackground(new java.awt.Color(216, 216, 216));
         jTextField10.addActionListener(new java.awt.event.ActionListener() {
@@ -513,13 +486,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField10ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField10);
-        jTextField10.setBounds(510, 480, 130, 30);
+        jPanel1.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 130, 30));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel14.setText("Municipio:");
-        jPanel1.add(jLabel14);
-        jLabel14.setBounds(260, 370, 80, 22);
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 80, -1));
 
         jTextField11.setBackground(new java.awt.Color(216, 216, 216));
         jTextField11.addActionListener(new java.awt.event.ActionListener() {
@@ -527,13 +498,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField11ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField11);
-        jTextField11.setBounds(260, 400, 220, 30);
+        jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 220, 30));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel15.setText("Estado:");
-        jPanel1.add(jLabel15);
-        jLabel15.setBounds(20, 370, 70, 22);
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 70, -1));
 
         jTextField12.setBackground(new java.awt.Color(216, 216, 216));
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
@@ -541,13 +510,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField12ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField12);
-        jTextField12.setBounds(20, 400, 230, 30);
+        jPanel1.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 230, 30));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel16.setText("Contacto Familiar:");
-        jPanel1.add(jLabel16);
-        jLabel16.setBounds(520, 530, 130, 22);
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 530, 130, -1));
 
         jTextField13.setBackground(new java.awt.Color(216, 216, 216));
         jTextField13.addActionListener(new java.awt.event.ActionListener() {
@@ -555,8 +522,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField13ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField13);
-        jTextField13.setBounds(270, 560, 230, 30);
+        jPanel1.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 230, 30));
 
         jTextField14.setBackground(new java.awt.Color(216, 216, 216));
         jTextField14.addActionListener(new java.awt.event.ActionListener() {
@@ -564,13 +530,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField14ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField14);
-        jTextField14.setBounds(260, 480, 230, 30);
+        jPanel1.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 230, 30));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel18.setText("Colonia:");
-        jPanel1.add(jLabel18);
-        jLabel18.setBounds(20, 450, 70, 22);
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 70, -1));
 
         jTextField15.setBackground(new java.awt.Color(216, 216, 216));
         jTextField15.addActionListener(new java.awt.event.ActionListener() {
@@ -578,8 +542,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField15ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField15);
-        jTextField15.setBounds(20, 480, 230, 30);
+        jPanel1.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 230, 30));
 
         jTextField16.setBackground(new java.awt.Color(216, 216, 216));
         jTextField16.addActionListener(new java.awt.event.ActionListener() {
@@ -587,8 +550,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField16ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField16);
-        jTextField16.setBounds(520, 560, 180, 30);
+        jPanel1.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 560, 180, 30));
 
         jTextField17.setBackground(new java.awt.Color(216, 216, 216));
         jTextField17.addActionListener(new java.awt.event.ActionListener() {
@@ -596,33 +558,27 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField17ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField17);
-        jTextField17.setBounds(230, 930, 120, 30);
+        jPanel1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 930, 120, 30));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel19.setText("¿De que material está hecho la casa?");
-        jPanel1.add(jLabel19);
-        jLabel19.setBounds(30, 660, 260, 22);
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 660, 260, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel20.setText("Familiar:");
-        jPanel1.add(jLabel20);
-        jLabel20.setBounds(270, 530, 70, 22);
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 530, 70, -1));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel21.setText("Datos del alumno:");
-        jPanel1.add(jLabel21);
-        jLabel21.setBounds(290, 150, 160, 25);
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 160, -1));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel22.setText("¿Se cuenta con espacio para tareas?");
-        jPanel1.add(jLabel22);
-        jLabel22.setBounds(30, 1050, 250, 22);
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 1050, 250, -1));
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel23.setText("Calle:");
-        jPanel1.add(jLabel23);
-        jLabel23.setBounds(260, 450, 70, 22);
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, 70, -1));
 
         jCheckBox2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox2.setText("Celular(es)");
@@ -631,13 +587,47 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(440, 1290, 200, 24);
+        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 1290, 200, -1));
+
+        jCheckBox3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jCheckBox3.setText("Palma");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 690, -1, -1));
+
+        jCheckBox4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jCheckBox4.setText("Otro");
+        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 690, 70, -1));
+
+        jCheckBox5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jCheckBox5.setText("Tejas");
+        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 690, -1, -1));
+
+        jCheckBox6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jCheckBox6.setText("Cartón");
+        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 690, 70, -1));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel24.setText("Teléfono:");
-        jPanel1.add(jLabel24);
-        jLabel24.setBounds(20, 530, 70, 22);
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 70, -1));
 
         jTextField18.setBackground(new java.awt.Color(216, 216, 216));
         jTextField18.addActionListener(new java.awt.event.ActionListener() {
@@ -645,13 +635,15 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField18ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField18);
-        jTextField18.setBounds(20, 560, 230, 30);
+        jPanel1.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 230, 30));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel25.setText("Observaciones de la vivienda:");
-        jPanel1.add(jLabel25);
-        jLabel25.setBounds(10, 1370, 310, 22);
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 1370, 310, -1));
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel26.setText("Número de plantas de la casa:");
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 730, 210, -1));
 
         jComboBox1.setBackground(new java.awt.Color(216, 216, 216));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -659,13 +651,11 @@ public class Formulario extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(430, 1880, 60, 30);
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 1880, 60, 30));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel27.setText("Numero de plantas de la casa:");
-        jPanel1.add(jLabel27);
-        jLabel27.setBounds(30, 730, 210, 22);
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 730, 210, -1));
 
         jTextField19.setBackground(new java.awt.Color(216, 216, 216));
         jTextField19.addActionListener(new java.awt.event.ActionListener() {
@@ -673,27 +663,30 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField19ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField19);
-        jTextField19.setBounds(30, 760, 80, 30);
+        jPanel1.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 760, 80, 30));
 
         jComboBox2.setBackground(new java.awt.Color(216, 216, 216));
-        jPanel1.add(jComboBox2);
-        jComboBox2.setBounds(380, 760, 180, 30);
+        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 760, 180, 30));
+
+        jComboBox3.setBackground(new java.awt.Color(216, 216, 216));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 1010, 180, 30));
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel29.setText("Esposa(o)");
-        jPanel1.add(jLabel29);
-        jLabel29.setBounds(390, 1760, 70, 22);
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 1760, 70, -1));
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel30.setText("La casa es:");
-        jPanel1.add(jLabel30);
-        jLabel30.setBounds(380, 730, 90, 22);
+        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 730, 90, -1));
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel31.setText("Compartido con:");
-        jPanel1.add(jLabel31);
-        jLabel31.setBounds(110, 930, 120, 30);
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 930, 120, 30));
 
         jTextField20.setBackground(new java.awt.Color(216, 216, 216));
         jTextField20.addActionListener(new java.awt.event.ActionListener() {
@@ -701,13 +694,18 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField20ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField20);
-        jTextField20.setBounds(540, 1880, 170, 30);
+        jPanel1.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 1880, 170, 30));
+
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel32.setText("¿La casa es?");
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 810, 90, -1));
+
+        jComboBox4.setBackground(new java.awt.Color(216, 216, 216));
+        jPanel1.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 840, 180, 30));
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel28.setText("¿De cuantas piezas de conforma la casa?");
-        jPanel1.add(jLabel28);
-        jLabel28.setBounds(30, 810, 290, 22);
+        jLabel28.setText("Número de cuartos para dormir:");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 810, 230, -1));
 
         jTextField21.setBackground(new java.awt.Color(216, 216, 216));
         jTextField21.addActionListener(new java.awt.event.ActionListener() {
@@ -715,13 +713,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField21ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField21);
-        jTextField21.setBounds(380, 840, 80, 30);
+        jPanel1.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 840, 80, 30));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel33.setText("¿Tiene cuarto propio?");
-        jPanel1.add(jLabel33);
-        jLabel33.setBounds(30, 900, 170, 22);
+        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 900, 150, -1));
 
         jComboBox5.setBackground(new java.awt.Color(216, 216, 216));
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
@@ -729,13 +725,11 @@ public class Formulario extends javax.swing.JFrame {
                 jComboBox5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox5);
-        jComboBox5.setBounds(30, 930, 80, 30);
+        jPanel1.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 930, 80, 30));
 
         jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel34.setText("¿Cuenta con un pario y/o cochera?");
-        jPanel1.add(jLabel34);
-        jLabel34.setBounds(380, 900, 270, 22);
+        jPanel1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 900, 240, -1));
 
         jComboBox6.setBackground(new java.awt.Color(216, 216, 216));
         jComboBox6.addActionListener(new java.awt.event.ActionListener() {
@@ -743,26 +737,31 @@ public class Formulario extends javax.swing.JFrame {
                 jComboBox6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox6);
-        jComboBox6.setBounds(380, 930, 180, 30);
+        jPanel1.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 930, 180, 30));
 
         jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel35.setText("¿En que se transladara a la universidad?");
-        jPanel1.add(jLabel35);
-        jLabel35.setBounds(380, 980, 280, 22);
+        jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 980, 280, -1));
 
         jTextArea1.setBackground(new java.awt.Color(216, 216, 216));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
-        jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(10, 1580, 700, 100);
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 1580, 700, 100));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel36.setText("¿Enfermedad cronica y/o psicomotrices en tu familia?");
-        jPanel1.add(jLabel36);
-        jLabel36.setBounds(320, 1060, 380, 22);
+        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 1050, 370, -1));
+
+        jCheckBox7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jCheckBox7.setText("Material");
+        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 690, -1, -1));
 
         jCheckBox8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox8.setText("Minisplit");
@@ -771,8 +770,7 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox8);
-        jCheckBox8.setBounds(10, 1330, 130, 24);
+        jPanel1.add(jCheckBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 1330, 130, -1));
 
         jCheckBox9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox9.setText("Abanico");
@@ -781,8 +779,7 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox9ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox9);
-        jCheckBox9.setBounds(150, 1330, 120, 24);
+        jPanel1.add(jCheckBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 1330, 120, -1));
 
         jCheckBox11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox11.setText("Agua/drenaje");
@@ -791,8 +788,7 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox11ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox11);
-        jCheckBox11.setBounds(10, 1210, 130, 24);
+        jPanel1.add(jCheckBox11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 1210, 130, -1));
 
         jCheckBox12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox12.setText("Luz");
@@ -801,8 +797,7 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox12ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox12);
-        jCheckBox12.setBounds(150, 1210, 120, 24);
+        jPanel1.add(jCheckBox12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 1210, 120, -1));
 
         jCheckBox13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox13.setText("Piso");
@@ -811,8 +806,7 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox13ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox13);
-        jCheckBox13.setBounds(280, 1330, 150, 24);
+        jPanel1.add(jCheckBox13, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 1330, 150, -1));
 
         jCheckBox14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox14.setText("Cable/telefono");
@@ -821,8 +815,7 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox14ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox14);
-        jCheckBox14.setBounds(280, 1210, 150, 24);
+        jPanel1.add(jCheckBox14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 1210, 150, -1));
 
         jCheckBox10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox10.setText("Estufa a gas/hornilla");
@@ -831,8 +824,7 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox10ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox10);
-        jCheckBox10.setBounds(440, 1210, 200, 24);
+        jPanel1.add(jCheckBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 1210, 200, -1));
 
         jCheckBox15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox15.setText("Refrigerador");
@@ -841,8 +833,7 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox15ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox15);
-        jCheckBox15.setBounds(10, 1250, 130, 24);
+        jPanel1.add(jCheckBox15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 1250, 130, -1));
 
         jCheckBox16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox16.setText("Television");
@@ -851,8 +842,7 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox16ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox16);
-        jCheckBox16.setBounds(150, 1250, 120, 24);
+        jPanel1.add(jCheckBox16, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 1250, 120, -1));
 
         jCheckBox17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox17.setText("Lavadora");
@@ -861,8 +851,7 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox17ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox17);
-        jCheckBox17.setBounds(280, 1250, 150, 24);
+        jPanel1.add(jCheckBox17, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 1250, 150, -1));
 
         jCheckBox18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox18.setText("Computadora");
@@ -871,8 +860,7 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox18ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox18);
-        jCheckBox18.setBounds(440, 1250, 200, 24);
+        jPanel1.add(jCheckBox18, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 1250, 200, -1));
 
         jCheckBox19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox19.setText("Microondas");
@@ -881,8 +869,7 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox19ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox19);
-        jCheckBox19.setBounds(10, 1290, 130, 24);
+        jPanel1.add(jCheckBox19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 1290, 130, -1));
 
         jCheckBox20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox20.setText("Comedor");
@@ -891,8 +878,7 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox20ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox20);
-        jCheckBox20.setBounds(150, 1290, 120, 24);
+        jPanel1.add(jCheckBox20, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 1290, 120, -1));
 
         jCheckBox21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox21.setText("Sala");
@@ -901,41 +887,41 @@ public class Formulario extends javax.swing.JFrame {
                 jCheckBox21ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox21);
-        jCheckBox21.setBounds(280, 1290, 150, 24);
+        jPanel1.add(jCheckBox21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 1290, 150, -1));
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel37.setText("Número de integrantes que viven en la casa:");
-        jPanel1.add(jLabel37);
-        jLabel37.setBounds(30, 980, 310, 22);
+        jPanel1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 980, 310, -1));
+
+        jTextArea2.setBackground(new java.awt.Color(216, 216, 216));
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane3.setViewportView(jTextArea2);
+
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 1080, 360, -1));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel17.setText("Condiciones de la vivienda");
-        jPanel1.add(jLabel17);
-        jLabel17.setBounds(270, 620, 230, 25);
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 620, 230, -1));
 
         jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel38.setText("¿Con que servicio y equipamiento cuenta la vivienda?");
-        jPanel1.add(jLabel38);
-        jLabel38.setBounds(10, 1180, 400, 22);
+        jPanel1.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 1180, 370, -1));
 
         jTextArea3.setBackground(new java.awt.Color(216, 216, 216));
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
         jScrollPane4.setViewportView(jTextArea3);
 
-        jPanel1.add(jScrollPane4);
-        jScrollPane4.setBounds(10, 1400, 700, 100);
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 1400, 700, 100));
 
         jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel39.setText("Información Extra");
-        jPanel1.add(jLabel39);
-        jLabel39.setBounds(280, 1510, 160, 25);
+        jPanel1.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 1510, 160, -1));
 
         jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel40.setText("¿Donde?");
-        jPanel1.add(jLabel40);
-        jLabel40.setBounds(160, 1930, 70, 22);
+        jPanel1.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 1930, 70, -1));
 
         jComboBox7.setBackground(new java.awt.Color(216, 216, 216));
         jComboBox7.addActionListener(new java.awt.event.ActionListener() {
@@ -943,23 +929,19 @@ public class Formulario extends javax.swing.JFrame {
                 jComboBox7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox7);
-        jComboBox7.setBounds(30, 1080, 80, 30);
+        jPanel1.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 1080, 80, 30));
 
         jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel41.setText("Horario:");
-        jPanel1.add(jLabel41);
-        jLabel41.setBounds(450, 1930, 70, 22);
+        jPanel1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 1930, 70, -1));
 
         jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel42.setText("(En caso de que el alumno tenga pareja)");
-        jPanel1.add(jLabel42);
-        jLabel42.setBounds(300, 1740, 290, 22);
+        jPanel1.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 1740, 290, -1));
 
         jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel43.setText("5.-¿Qué gastos personales pagas?");
-        jPanel1.add(jLabel43);
-        jLabel43.setBounds(370, 2010, 300, 22);
+        jPanel1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 2010, 300, -1));
 
         jTextField22.setBackground(new java.awt.Color(216, 216, 216));
         jTextField22.addActionListener(new java.awt.event.ActionListener() {
@@ -967,18 +949,15 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField22ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField22);
-        jTextField22.setBounds(30, 1010, 80, 30);
+        jPanel1.add(jTextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 1010, 80, 30));
 
         jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel44.setText("Cuantos:");
-        jPanel1.add(jLabel44);
-        jLabel44.setBounds(90, 1880, 60, 30);
+        jPanel1.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 1880, -1, 30));
 
         jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel45.setText("Apellido Paterno:");
-        jPanel1.add(jLabel45);
-        jLabel45.setBounds(370, 1780, 130, 22);
+        jPanel1.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 1780, -1, -1));
 
         jTextField23.setBackground(new java.awt.Color(216, 216, 216));
         jTextField23.addActionListener(new java.awt.event.ActionListener() {
@@ -986,8 +965,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField23ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField23);
-        jTextField23.setBounds(370, 1810, 160, 30);
+        jPanel1.add(jTextField23, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 1810, 160, 30));
 
         jTextField24.setBackground(new java.awt.Color(216, 216, 216));
         jTextField24.addActionListener(new java.awt.event.ActionListener() {
@@ -995,18 +973,15 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField24ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField24);
-        jTextField24.setBounds(450, 1960, 240, 30);
+        jPanel1.add(jTextField24, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 1960, 240, 30));
 
         jLabel46.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel46.setText("Nombres:");
-        jPanel1.add(jLabel46);
-        jLabel46.setBounds(180, 1780, 100, 22);
+        jPanel1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 1780, 100, -1));
 
         jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel47.setText("1.-¿Estado civil?");
-        jPanel1.add(jLabel47);
-        jLabel47.setBounds(20, 1780, 120, 22);
+        jPanel1.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 1780, 120, -1));
 
         jComboBox8.setBackground(new java.awt.Color(216, 216, 216));
         jComboBox8.addActionListener(new java.awt.event.ActionListener() {
@@ -1014,8 +989,7 @@ public class Formulario extends javax.swing.JFrame {
                 jComboBox8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox8);
-        jComboBox8.setBounds(20, 1810, 150, 30);
+        jPanel1.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 1810, 150, 30));
 
         jTextField25.setBackground(new java.awt.Color(216, 216, 216));
         jTextField25.addActionListener(new java.awt.event.ActionListener() {
@@ -1023,13 +997,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField25ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField25);
-        jTextField25.setBounds(180, 1810, 180, 30);
+        jPanel1.add(jTextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 1810, 180, 30));
 
         jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel48.setText("¿Hay alguna situación que está afectando tu desempeño academico?");
-        jPanel1.add(jLabel48);
-        jLabel48.setBounds(10, 1550, 480, 22);
+        jPanel1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 1550, 480, -1));
 
         jComboBox9.setBackground(new java.awt.Color(216, 216, 216));
         jComboBox9.addActionListener(new java.awt.event.ActionListener() {
@@ -1037,8 +1009,7 @@ public class Formulario extends javax.swing.JFrame {
                 jComboBox9ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox9);
-        jComboBox9.setBounds(130, 2430, 270, 30);
+        jPanel1.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 2430, 270, 30));
 
         jTextField26.setBackground(new java.awt.Color(216, 216, 216));
         jTextField26.addActionListener(new java.awt.event.ActionListener() {
@@ -1046,23 +1017,19 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField26ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField26);
-        jTextField26.setBounds(540, 1810, 170, 30);
+        jPanel1.add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 1810, 170, 30));
 
         jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel49.setText("Apellido Materno:");
-        jPanel1.add(jLabel49);
-        jLabel49.setBounds(540, 1780, 130, 22);
+        jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 1780, 130, -1));
 
         jLabel50.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel50.setText("2.-¿Tiene hijos?");
-        jPanel1.add(jLabel50);
-        jLabel50.setBounds(20, 1850, 110, 22);
+        jPanel1.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 1850, 110, -1));
 
         jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel51.setText("¿Trabaja?");
-        jPanel1.add(jLabel51);
-        jLabel51.setBounds(430, 1850, 70, 22);
+        jPanel1.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 1850, 70, -1));
 
         jComboBox10.setBackground(new java.awt.Color(216, 216, 216));
         jComboBox10.addActionListener(new java.awt.event.ActionListener() {
@@ -1070,8 +1037,7 @@ public class Formulario extends javax.swing.JFrame {
                 jComboBox10ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox10);
-        jComboBox10.setBounds(20, 1880, 60, 30);
+        jPanel1.add(jComboBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 1880, 60, 30));
 
         jTextField27.setBackground(new java.awt.Color(216, 216, 216));
         jTextField27.addActionListener(new java.awt.event.ActionListener() {
@@ -1079,13 +1045,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField27ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField27);
-        jTextField27.setBounds(600, 2120, 110, 30);
+        jPanel1.add(jTextField27, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 2120, 110, 30));
 
         jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel52.setText("Tiempo de casados:");
-        jPanel1.add(jLabel52);
-        jLabel52.setBounds(540, 1850, 140, 22);
+        jPanel1.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 1850, 140, -1));
 
         jTextField28.setBackground(new java.awt.Color(216, 216, 216));
         jTextField28.addActionListener(new java.awt.event.ActionListener() {
@@ -1093,18 +1057,15 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField28ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField28);
-        jTextField28.setBounds(370, 2040, 310, 30);
+        jPanel1.add(jTextField28, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 2040, 310, 30));
 
         jLabel53.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel53.setText("3.-¿Usted trabaja?");
-        jPanel1.add(jLabel53);
-        jLabel53.setBounds(20, 1930, 130, 20);
+        jPanel1.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 1930, 130, 20));
 
         jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel54.setText("Año que egresó:");
-        jPanel1.add(jLabel54);
-        jLabel54.setBounds(600, 2090, 120, 22);
+        jPanel1.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 2090, 120, -1));
 
         jTextField29.setBackground(new java.awt.Color(216, 216, 216));
         jTextField29.addActionListener(new java.awt.event.ActionListener() {
@@ -1112,8 +1073,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField29ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField29);
-        jTextField29.setBounds(160, 1960, 270, 30);
+        jPanel1.add(jTextField29, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 1960, 270, 30));
 
         jTextField30.setBackground(new java.awt.Color(216, 216, 216));
         jTextField30.addActionListener(new java.awt.event.ActionListener() {
@@ -1121,13 +1081,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField30ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField30);
-        jTextField30.setBounds(20, 2040, 280, 30);
+        jPanel1.add(jTextField30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2040, 280, 30));
 
         jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel55.setText("4.-¿Quién costea los gastos del estudiante?");
-        jPanel1.add(jLabel55);
-        jLabel55.setBounds(20, 2010, 300, 20);
+        jPanel1.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2010, 300, 20));
 
         jComboBox11.setBackground(new java.awt.Color(216, 216, 216));
         jComboBox11.addActionListener(new java.awt.event.ActionListener() {
@@ -1135,13 +1093,11 @@ public class Formulario extends javax.swing.JFrame {
                 jComboBox11ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox11);
-        jComboBox11.setBounds(20, 1960, 60, 30);
+        jPanel1.add(jComboBox11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 1960, 60, 30));
 
         jLabel56.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel56.setText("7.-Preparatoria Cursada:");
-        jPanel1.add(jLabel56);
-        jLabel56.setBounds(270, 2090, 200, 20);
+        jPanel1.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 2090, 200, 20));
 
         jTextField31.setBackground(new java.awt.Color(216, 216, 216));
         jTextField31.addActionListener(new java.awt.event.ActionListener() {
@@ -1149,13 +1105,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField31ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField31);
-        jTextField31.setBounds(160, 1880, 60, 30);
+        jPanel1.add(jTextField31, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 1880, 60, 30));
 
         jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel57.setText("9.-¿fumas, bebes alchol o alguna otra addición?");
-        jPanel1.add(jLabel57);
-        jLabel57.setBounds(380, 2170, 340, 20);
+        jPanel1.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 2170, 330, 20));
 
         jTextField32.setBackground(new java.awt.Color(216, 216, 216));
         jTextField32.addActionListener(new java.awt.event.ActionListener() {
@@ -1163,13 +1117,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField32ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField32);
-        jTextField32.setBounds(150, 2120, 110, 30);
+        jPanel1.add(jTextField32, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 2120, 110, 30));
 
         jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel58.setText("¿Cuál?");
-        jPanel1.add(jLabel58);
-        jLabel58.setBounds(90, 2120, 50, 30);
+        jPanel1.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 2120, 50, 30));
 
         jTextField33.setBackground(new java.awt.Color(216, 216, 216));
         jTextField33.addActionListener(new java.awt.event.ActionListener() {
@@ -1177,13 +1129,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField33ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField33);
-        jTextField33.setBounds(380, 2200, 330, 30);
+        jPanel1.add(jTextField33, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 2200, 330, 30));
 
         jLabel59.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel59.setText("Apellido Materno:");
-        jPanel1.add(jLabel59);
-        jLabel59.setBounds(480, 2330, 130, 22);
+        jPanel1.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 2330, 130, -1));
 
         jTextField34.setBackground(new java.awt.Color(216, 216, 216));
         jTextField34.addActionListener(new java.awt.event.ActionListener() {
@@ -1191,13 +1141,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField34ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField34);
-        jTextField34.setBounds(450, 2120, 140, 30);
+        jPanel1.add(jTextField34, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 2120, 140, 30));
 
         jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel60.setText("6.-¿Cuenta con alguna beca?");
-        jPanel1.add(jLabel60);
-        jLabel60.setBounds(20, 2090, 200, 20);
+        jPanel1.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2090, 200, 20));
 
         jTextField35.setBackground(new java.awt.Color(216, 216, 216));
         jTextField35.addActionListener(new java.awt.event.ActionListener() {
@@ -1205,13 +1153,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField35ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField35);
-        jTextField35.setBounds(270, 2120, 170, 30);
+        jPanel1.add(jTextField35, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 2120, 170, 30));
 
         jLabel61.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel61.setText("8.-¿Dónde pasas tu tiempo libre?");
-        jPanel1.add(jLabel61);
-        jLabel61.setBounds(20, 2170, 230, 20);
+        jPanel1.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2170, 230, 20));
 
         jTextField36.setBackground(new java.awt.Color(216, 216, 216));
         jTextField36.addActionListener(new java.awt.event.ActionListener() {
@@ -1219,23 +1165,19 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField36ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField36);
-        jTextField36.setBounds(430, 2430, 220, 30);
+        jPanel1.add(jTextField36, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 2430, 220, 30));
 
         jLabel62.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel62.setText("Informacion sobre gastos del estudiante");
-        jPanel1.add(jLabel62);
-        jLabel62.setBounds(200, 1700, 350, 25);
+        jPanel1.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 1700, 350, -1));
 
         jLabel63.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel63.setText("Datos Familiares");
-        jPanel1.add(jLabel63);
-        jLabel63.setBounds(300, 2260, 150, 25);
+        jPanel1.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 2260, 140, -1));
 
         jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel64.setText("Localidad:");
-        jPanel1.add(jLabel64);
-        jLabel64.setBounds(450, 2090, 80, 22);
+        jPanel1.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 2090, 80, -1));
 
         jTextField37.setBackground(new java.awt.Color(216, 216, 216));
         jTextField37.addActionListener(new java.awt.event.ActionListener() {
@@ -1243,13 +1185,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField37ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField37);
-        jTextField37.setBounds(20, 2200, 340, 30);
+        jPanel1.add(jTextField37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2200, 340, 30));
 
         jLabel65.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel65.setText("Colonia:");
-        jPanel1.add(jLabel65);
-        jLabel65.setBounds(20, 2590, 60, 22);
+        jPanel1.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2590, 60, -1));
 
         jTextField38.setBackground(new java.awt.Color(216, 216, 216));
         jTextField38.addActionListener(new java.awt.event.ActionListener() {
@@ -1257,8 +1197,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField38ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField38);
-        jTextField38.setBounds(20, 2430, 80, 30);
+        jPanel1.add(jTextField38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2430, 80, 30));
 
         jTextField39.setBackground(new java.awt.Color(216, 216, 216));
         jTextField39.addActionListener(new java.awt.event.ActionListener() {
@@ -1266,18 +1205,15 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField39ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField39);
-        jTextField39.setBounds(250, 2540, 220, 30);
+        jPanel1.add(jTextField39, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 2540, 220, 30));
 
         jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel66.setText("Ingreso semanal:");
-        jPanel1.add(jLabel66);
-        jLabel66.setBounds(430, 2400, 120, 22);
+        jPanel1.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 2400, 120, -1));
 
         jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel67.setText("Nombres:");
-        jPanel1.add(jLabel67);
-        jLabel67.setBounds(20, 2330, 80, 22);
+        jPanel1.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2330, 80, -1));
 
         jTextField40.setBackground(new java.awt.Color(216, 216, 216));
         jTextField40.addActionListener(new java.awt.event.ActionListener() {
@@ -1285,8 +1221,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField40ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField40);
-        jTextField40.setBounds(530, 2620, 160, 30);
+        jPanel1.add(jTextField40, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 2620, 160, 30));
 
         jComboBox12.setBackground(new java.awt.Color(216, 216, 216));
         jComboBox12.addActionListener(new java.awt.event.ActionListener() {
@@ -1294,18 +1229,15 @@ public class Formulario extends javax.swing.JFrame {
                 jComboBox12ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox12);
-        jComboBox12.setBounds(20, 2120, 60, 30);
+        jPanel1.add(jComboBox12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2120, 60, 30));
 
         jLabel68.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel68.setText("Número de casa:");
-        jPanel1.add(jLabel68);
-        jLabel68.setBounds(530, 2590, 120, 22);
+        jPanel1.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 2590, 120, -1));
 
         jLabel69.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel69.setText("Escolaridad:");
-        jPanel1.add(jLabel69);
-        jLabel69.setBounds(130, 2400, 120, 22);
+        jPanel1.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 2400, 120, -1));
 
         jTextField41.setBackground(new java.awt.Color(216, 216, 216));
         jTextField41.addActionListener(new java.awt.event.ActionListener() {
@@ -1313,18 +1245,15 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField41ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField41);
-        jTextField41.setBounds(480, 2540, 220, 30);
+        jPanel1.add(jTextField41, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 2540, 220, 30));
 
         jLabel70.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel70.setText("Edad:");
-        jPanel1.add(jLabel70);
-        jLabel70.setBounds(20, 2400, 50, 22);
+        jPanel1.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2400, 50, -1));
 
         jLabel71.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel71.setText("Domicilio:");
-        jPanel1.add(jLabel71);
-        jLabel71.setBounds(20, 2480, 80, 22);
+        jPanel1.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2480, 80, -1));
 
         jTextField42.setBackground(new java.awt.Color(216, 216, 216));
         jTextField42.addActionListener(new java.awt.event.ActionListener() {
@@ -1332,8 +1261,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField42ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField42);
-        jTextField42.setBounds(20, 2360, 220, 30);
+        jPanel1.add(jTextField42, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2360, 220, 30));
 
         jTextField43.setBackground(new java.awt.Color(216, 216, 216));
         jTextField43.addActionListener(new java.awt.event.ActionListener() {
@@ -1341,8 +1269,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField43ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField43);
-        jTextField43.setBounds(250, 2360, 220, 30);
+        jPanel1.add(jTextField43, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 2360, 220, 30));
 
         jTextField44.setBackground(new java.awt.Color(216, 216, 216));
         jTextField44.addActionListener(new java.awt.event.ActionListener() {
@@ -1350,33 +1277,27 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField44ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField44);
-        jTextField44.setBounds(480, 2360, 220, 30);
+        jPanel1.add(jTextField44, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 2360, 220, 30));
 
         jLabel72.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel72.setText("Apellido Paterno:");
-        jPanel1.add(jLabel72);
-        jLabel72.setBounds(250, 2330, 140, 22);
+        jPanel1.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 2330, 120, -1));
 
         jLabel73.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel73.setText("Calle:");
-        jPanel1.add(jLabel73);
-        jLabel73.setBounds(270, 2590, 120, 22);
+        jPanel1.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 2590, 120, -1));
 
         jLabel74.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel74.setText("Estado:");
-        jPanel1.add(jLabel74);
-        jLabel74.setBounds(20, 2510, 60, 22);
+        jPanel1.add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2510, 60, -1));
 
         jLabel75.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel75.setText("Municipio:");
-        jPanel1.add(jLabel75);
-        jLabel75.setBounds(250, 2510, 120, 22);
+        jPanel1.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 2510, 120, -1));
 
         jLabel76.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel76.setText("Localidad:");
-        jPanel1.add(jLabel76);
-        jLabel76.setBounds(480, 2510, 120, 22);
+        jPanel1.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 2510, 120, -1));
 
         jTextField45.setBackground(new java.awt.Color(216, 216, 216));
         jTextField45.addActionListener(new java.awt.event.ActionListener() {
@@ -1384,8 +1305,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField45ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField45);
-        jTextField45.setBounds(20, 2540, 220, 30);
+        jPanel1.add(jTextField45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2540, 220, 30));
 
         jTextField46.setBackground(new java.awt.Color(216, 216, 216));
         jTextField46.addActionListener(new java.awt.event.ActionListener() {
@@ -1393,8 +1313,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField46ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField46);
-        jTextField46.setBounds(20, 2620, 240, 30);
+        jPanel1.add(jTextField46, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2620, 240, 30));
 
         jTextField47.setBackground(new java.awt.Color(216, 216, 216));
         jTextField47.addActionListener(new java.awt.event.ActionListener() {
@@ -1402,28 +1321,23 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField47ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField47);
-        jTextField47.setBounds(270, 2620, 250, 30);
+        jPanel1.add(jTextField47, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 2620, 250, 30));
 
         jLabel77.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel77.setText("Madre/Esposa/Tutora");
-        jPanel1.add(jLabel77);
-        jLabel77.setBounds(20, 2290, 190, 25);
+        jPanel1.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2290, 190, -1));
 
         jLabel78.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel78.setText("Nombres:");
-        jPanel1.add(jLabel78);
-        jLabel78.setBounds(20, 2720, 80, 22);
+        jPanel1.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2720, 80, -1));
 
         jLabel79.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel79.setText("Apellido Paterno:");
-        jPanel1.add(jLabel79);
-        jLabel79.setBounds(250, 2720, 130, 22);
+        jPanel1.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 2720, 120, -1));
 
         jLabel80.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel80.setText("Apellido Materno:");
-        jPanel1.add(jLabel80);
-        jLabel80.setBounds(480, 2720, 130, 22);
+        jPanel1.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 2720, 130, -1));
 
         jTextField48.setBackground(new java.awt.Color(216, 216, 216));
         jTextField48.addActionListener(new java.awt.event.ActionListener() {
@@ -1431,8 +1345,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField48ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField48);
-        jTextField48.setBounds(480, 2750, 220, 30);
+        jPanel1.add(jTextField48, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 2750, 220, 30));
 
         jTextField49.setBackground(new java.awt.Color(216, 216, 216));
         jTextField49.addActionListener(new java.awt.event.ActionListener() {
@@ -1440,8 +1353,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField49ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField49);
-        jTextField49.setBounds(250, 2750, 220, 30);
+        jPanel1.add(jTextField49, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 2750, 220, 30));
 
         jTextField50.setBackground(new java.awt.Color(216, 216, 216));
         jTextField50.addActionListener(new java.awt.event.ActionListener() {
@@ -1449,23 +1361,19 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField50ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField50);
-        jTextField50.setBounds(20, 2750, 220, 30);
+        jPanel1.add(jTextField50, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2750, 220, 30));
 
         jLabel81.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel81.setText("Edad:");
-        jPanel1.add(jLabel81);
-        jLabel81.setBounds(20, 2790, 50, 22);
+        jPanel1.add(jLabel81, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2790, 50, -1));
 
         jLabel82.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel82.setText("Escolaridad:");
-        jPanel1.add(jLabel82);
-        jLabel82.setBounds(130, 2790, 120, 22);
+        jPanel1.add(jLabel82, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 2790, 120, -1));
 
         jLabel83.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel83.setText("Ingreso semanal:");
-        jPanel1.add(jLabel83);
-        jLabel83.setBounds(430, 2790, 120, 22);
+        jPanel1.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 2790, 120, -1));
 
         jTextField51.setBackground(new java.awt.Color(216, 216, 216));
         jTextField51.addActionListener(new java.awt.event.ActionListener() {
@@ -1473,8 +1381,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField51ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField51);
-        jTextField51.setBounds(430, 2820, 220, 30);
+        jPanel1.add(jTextField51, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 2820, 220, 30));
 
         jComboBox13.setBackground(new java.awt.Color(216, 216, 216));
         jComboBox13.addActionListener(new java.awt.event.ActionListener() {
@@ -1482,8 +1389,7 @@ public class Formulario extends javax.swing.JFrame {
                 jComboBox13ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox13);
-        jComboBox13.setBounds(130, 2820, 270, 30);
+        jPanel1.add(jComboBox13, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 2820, 270, 30));
 
         jTextField52.setBackground(new java.awt.Color(216, 216, 216));
         jTextField52.addActionListener(new java.awt.event.ActionListener() {
@@ -1491,28 +1397,23 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField52ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField52);
-        jTextField52.setBounds(20, 2820, 80, 30);
+        jPanel1.add(jTextField52, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2820, 80, 30));
 
         jLabel84.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel84.setText("Domicilio:");
-        jPanel1.add(jLabel84);
-        jLabel84.setBounds(20, 2870, 80, 22);
+        jPanel1.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2870, 80, -1));
 
         jLabel85.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel85.setText("Estado:");
-        jPanel1.add(jLabel85);
-        jLabel85.setBounds(20, 2900, 60, 22);
+        jPanel1.add(jLabel85, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2900, 60, -1));
 
         jLabel86.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel86.setText("Municipio:");
-        jPanel1.add(jLabel86);
-        jLabel86.setBounds(250, 2900, 120, 22);
+        jPanel1.add(jLabel86, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 2900, 120, -1));
 
         jLabel87.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel87.setText("Localidad:");
-        jPanel1.add(jLabel87);
-        jLabel87.setBounds(480, 2900, 120, 22);
+        jPanel1.add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 2900, 120, -1));
 
         jTextField53.setBackground(new java.awt.Color(216, 216, 216));
         jTextField53.addActionListener(new java.awt.event.ActionListener() {
@@ -1520,8 +1421,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField53ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField53);
-        jTextField53.setBounds(480, 2930, 220, 30);
+        jPanel1.add(jTextField53, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 2930, 220, 30));
 
         jTextField54.setBackground(new java.awt.Color(216, 216, 216));
         jTextField54.addActionListener(new java.awt.event.ActionListener() {
@@ -1529,8 +1429,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField54ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField54);
-        jTextField54.setBounds(250, 2930, 220, 30);
+        jPanel1.add(jTextField54, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 2930, 220, 30));
 
         jTextField55.setBackground(new java.awt.Color(216, 216, 216));
         jTextField55.addActionListener(new java.awt.event.ActionListener() {
@@ -1538,13 +1437,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField55ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField55);
-        jTextField55.setBounds(20, 2930, 220, 30);
+        jPanel1.add(jTextField55, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2930, 220, 30));
 
         jLabel88.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel88.setText("Colonia:");
-        jPanel1.add(jLabel88);
-        jLabel88.setBounds(20, 2980, 60, 22);
+        jPanel1.add(jLabel88, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 2980, 60, -1));
 
         jTextField56.setBackground(new java.awt.Color(216, 216, 216));
         jTextField56.addActionListener(new java.awt.event.ActionListener() {
@@ -1552,8 +1449,7 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField56ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField56);
-        jTextField56.setBounds(20, 3010, 240, 30);
+        jPanel1.add(jTextField56, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 3010, 240, 30));
 
         jTextField57.setBackground(new java.awt.Color(216, 216, 216));
         jTextField57.addActionListener(new java.awt.event.ActionListener() {
@@ -1561,13 +1457,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField57ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField57);
-        jTextField57.setBounds(270, 3010, 250, 30);
+        jPanel1.add(jTextField57, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 3010, 250, 30));
 
         jLabel89.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel89.setText("Calle:");
-        jPanel1.add(jLabel89);
-        jLabel89.setBounds(270, 2980, 120, 22);
+        jPanel1.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 2980, 120, -1));
 
         jTextField58.setBackground(new java.awt.Color(216, 216, 216));
         jTextField58.addActionListener(new java.awt.event.ActionListener() {
@@ -1575,13 +1469,11 @@ public class Formulario extends javax.swing.JFrame {
                 jTextField58ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField58);
-        jTextField58.setBounds(530, 3010, 160, 30);
+        jPanel1.add(jTextField58, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 3010, 160, 30));
 
         jLabel90.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel90.setText("Número de casa:");
-        jPanel1.add(jLabel90);
-        jLabel90.setBounds(530, 2980, 120, 22);
+        jPanel1.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 2980, 120, -1));
 
         jToggleButton1.setBackground(new java.awt.Color(216, 216, 216));
         jToggleButton1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -1591,109 +1483,30 @@ public class Formulario extends javax.swing.JFrame {
                 jToggleButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jToggleButton1);
-        jToggleButton1.setBounds(530, 3070, 150, 40);
+        jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 3070, 150, 40));
 
         jLabel95.setText("jLabel95");
         jLabel95.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UTyP.png"))); // NOI18N
         jLabel95.setEnabled(false);
-        jPanel1.add(jLabel95);
-        jLabel95.setBounds(240, 10, 50, 30);
+        jPanel1.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 50, 30));
 
         jLabel91.setText("jLabel91");
         jLabel91.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo sinaloa.png"))); // NOI18N
         jLabel91.setEnabled(false);
-        jPanel1.add(jLabel91);
-        jLabel91.setBounds(350, 16, 70, 20);
+        jPanel1.add(jLabel91, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 16, 70, 20));
 
         jLabel92.setText("jLabel92");
         jLabel92.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo sep.png"))); // NOI18N
         jLabel92.setEnabled(false);
-        jPanel1.add(jLabel92);
-        jLabel92.setBounds(480, 10, 80, 22);
+        jPanel1.add(jLabel92, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 80, -1));
 
-        jTextArea4.setBackground(new java.awt.Color(216, 216, 216));
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane5.setViewportView(jTextArea4);
+        jScrollPane1.setViewportView(jPanel1);
 
-        jPanel1.add(jScrollPane5);
-        jScrollPane5.setBounds(380, 1000, 300, 60);
+        jPanel5.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 60, 750, 420);
 
-        jTextArea5.setBackground(new java.awt.Color(216, 216, 216));
-        jTextArea5.setColumns(20);
-        jTextArea5.setRows(5);
-        jScrollPane6.setViewportView(jTextArea5);
-
-        jPanel1.add(jScrollPane6);
-        jScrollPane6.setBounds(320, 1090, 360, 86);
-
-        cbxOtro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbxOtro.setText("Otro");
-        cbxOtro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxOtroActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cbxOtro);
-        cbxOtro.setBounds(330, 690, 70, 24);
-
-        cbxCarton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbxCarton.setText("Cartón");
-        cbxCarton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxCartonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cbxCarton);
-        cbxCarton.setBounds(260, 690, 70, 24);
-
-        cbxPalma.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbxPalma.setText("Palma");
-        cbxPalma.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxPalmaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cbxPalma);
-        cbxPalma.setBounds(190, 690, 70, 24);
-
-        cbxTejas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbxTejas.setText("Tejas");
-        cbxTejas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxTejasActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cbxTejas);
-        cbxTejas.setBounds(120, 690, 70, 24);
-
-        cbxMaterial.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbxMaterial.setText("Material");
-        cbxMaterial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxMaterialActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cbxMaterial);
-        cbxMaterial.setBounds(30, 690, 73, 24);
-
-        jLabel93.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel93.setText("Números de cuartos para dormir:");
-        jPanel1.add(jLabel93);
-        jLabel93.setBounds(380, 810, 290, 22);
-
-        jTextField59.setBackground(new java.awt.Color(216, 216, 216));
-        jTextField59.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField59ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField59);
-        jTextField59.setBounds(30, 840, 80, 30);
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(220, 560, 720, 3130);
+        getContentPane().add(jPanel5);
+        jPanel5.setBounds(0, 0, 750, 530);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1766,6 +1579,22 @@ public class Formulario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
+
+    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox4ActionPerformed
+
+    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox5ActionPerformed
+
+    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox6ActionPerformed
+
     private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField18ActionPerformed
@@ -1786,6 +1615,10 @@ public class Formulario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
     private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox5ActionPerformed
@@ -1793,6 +1626,10 @@ public class Formulario extends javax.swing.JFrame {
     private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox6ActionPerformed
+
+    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox7ActionPerformed
 
     private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
         // TODO add your handling code here:
@@ -2030,30 +1867,6 @@ public class Formulario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-    private void cbxOtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxOtroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxOtroActionPerformed
-
-    private void cbxCartonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCartonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxCartonActionPerformed
-
-    private void cbxPalmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxPalmaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxPalmaActionPerformed
-
-    private void cbxTejasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTejasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxTejasActionPerformed
-
-    private void cbxMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMaterialActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxMaterialActionPerformed
-
-    private void jTextField59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField59ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField59ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -2083,15 +1896,10 @@ public class Formulario extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        java.awt.EventQueue.invokeLater(() -> new Formulario().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new VerFormulario().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox cbxCarton;
-    private javax.swing.JCheckBox cbxMaterial;
-    private javax.swing.JCheckBox cbxOtro;
-    private javax.swing.JCheckBox cbxPalma;
-    private javax.swing.JCheckBox cbxTejas;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -2108,6 +1916,11 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox20;
     private javax.swing.JCheckBox jCheckBox21;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -2116,6 +1929,8 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox12;
     private javax.swing.JComboBox<String> jComboBox13;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
@@ -2139,12 +1954,14 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
@@ -2211,7 +2028,6 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
-    private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
     private javax.swing.JLabel jLabel95;
     private javax.swing.JPanel jPanel1;
@@ -2223,13 +2039,11 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea jTextArea5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -2283,7 +2097,6 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField56;
     private javax.swing.JTextField jTextField57;
     private javax.swing.JTextField jTextField58;
-    private javax.swing.JTextField jTextField59;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
