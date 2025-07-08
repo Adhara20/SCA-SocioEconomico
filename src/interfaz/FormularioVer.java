@@ -12,14 +12,14 @@ import javax.swing.UnsupportedLookAndFeelException;
  *
  * @author jobno
  */
-public class Formulario3 extends javax.swing.JFrame {
+public class FormularioVer extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Formulario3.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormularioVer.class.getName());
 
     /**
      * Creates new form MenuEstudiantes
      */
-    public Formulario3() {
+    public FormularioVer() {
         initComponents();
         DarEstilos();
     }
@@ -40,9 +40,6 @@ public class Formulario3 extends javax.swing.JFrame {
 
         jPanel5 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        BotonCancelar = new javax.swing.JButton();
-        botonCompletarForm = new javax.swing.JButton();
-        botonGuardar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -251,55 +248,15 @@ public class Formulario3 extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(43, 138, 127));
 
-        BotonCancelar.setBackground(new java.awt.Color(188, 29, 42));
-        BotonCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        BotonCancelar.setText("Cancelar");
-        BotonCancelar.setBorderPainted(false);
-
-        botonCompletarForm.setBackground(new java.awt.Color(63, 164, 218));
-        botonCompletarForm.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botonCompletarForm.setText("Completar formulario");
-        botonCompletarForm.setBorderPainted(false);
-
-        botonGuardar.setBackground(new java.awt.Color(46, 212, 40));
-        botonGuardar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botonGuardar.setText("Guardar");
-        botonGuardar.setBorderPainted(false);
-        botonGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonGuardarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(BotonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 403, Short.MAX_VALUE)
-                .addComponent(botonCompletarForm, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(149, 149, 149)
-                    .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(511, Short.MAX_VALUE)))
+            .addGap(0, 760, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(botonCompletarForm, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(botonGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGap(0, 40, Short.MAX_VALUE)
         );
 
         jPanel5.add(jPanel3);
@@ -1872,10 +1829,6 @@ public class Formulario3 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-    private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonGuardarActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -1905,13 +1858,10 @@ public class Formulario3 extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        java.awt.EventQueue.invokeLater(() -> new Formulario3().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FormularioVer().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonCancelar;
-    private javax.swing.JButton botonCompletarForm;
-    private javax.swing.JButton botonGuardar;
     private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox11;
     private javax.swing.JCheckBox jCheckBox12;

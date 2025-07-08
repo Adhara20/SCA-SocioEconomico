@@ -1132,7 +1132,7 @@ public class FormularioBaseEditar extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtEstadoCV);
-        txtEstadoCV.setBounds(20, 1810, 60, 30);
+        txtEstadoCV.setBounds(20, 1810, 150, 30);
 
         jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel57.setText("9.-¿fumas, bebes alchol o alguna otra addición?");
@@ -1781,17 +1781,9 @@ public class FormularioBaseEditar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelAlumnoActionPerformed
 
-    private void txtNumPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumPlantasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumPlantasActionPerformed
-
     private void txtTiempoCasadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTiempoCasadosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTiempoCasadosActionPerformed
-
-    private void txtNumCuartosDormirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumCuartosDormirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumCuartosDormirActionPerformed
 
     private void cbxMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMaterialActionPerformed
         // TODO add your handling code here:
@@ -2033,14 +2025,6 @@ public class FormularioBaseEditar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCuartoPropioActionPerformed
 
-    private void txtNumIntegrantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumIntegrantesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumIntegrantesActionPerformed
-
-    private void txtCompartidoConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCompartidoConActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCompartidoConActionPerformed
-
     private void txtEstadoCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstadoCasaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEstadoCasaActionPerformed
@@ -2049,9 +2033,25 @@ public class FormularioBaseEditar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPatioCocheraActionPerformed
 
+    private void txtNumIntegrantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumIntegrantesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumIntegrantesActionPerformed
+
+    private void txtCompartidoConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCompartidoConActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCompartidoConActionPerformed
+
+    private void txtNumCuartosDormirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumCuartosDormirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumCuartosDormirActionPerformed
+
     private void txtNumPiezasCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumPiezasCasaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNumPiezasCasaActionPerformed
+
+    private void txtNumPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumPlantasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumPlantasActionPerformed
 
     /**
      * @param args the command line arguments
