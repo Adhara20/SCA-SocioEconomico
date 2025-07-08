@@ -16,14 +16,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author jobno
  */
-public class MenuEstudiantes extends javax.swing.JFrame {
+public class MenuSolicitudes extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuEstudiantes.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuSolicitudes.class.getName());
 
     /**
      * Creates new form MenuEstudiantes
      */
-    public MenuEstudiantes() {
+    public MenuSolicitudes() {
         initComponents();
         DarEstilos();
     }
@@ -125,9 +125,9 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 100, 27));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setBackground(new java.awt.Color(80, 80, 80));
+        jButton1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Solicitudes");
         jButton1.setMargin(new java.awt.Insets(2, 0, 3, 0));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -137,9 +137,8 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 100, 27));
 
-        jButton4.setBackground(new java.awt.Color(80, 80, 80));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setBackground(new java.awt.Color(204, 204, 204));
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("Estudiantes");
         jButton4.setMargin(new java.awt.Insets(2, 0, 3, 0));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -228,7 +227,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        java.awt.EventQueue.invokeLater(() -> new MenuEstudiantes().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new MenuSolicitudes().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -33,16 +33,14 @@ private static final java.util.logging.Logger logger = java.util.logging.Logger.
     
     public void DarEstilos(){
         
-        campoUsuario.putClientProperty("Component.arc",      20);
         campoUsuario.putClientProperty("JComponent.roundRect", true);
 
-        campoContra.putClientProperty("Component.arc",      20);
+
         campoContra.putClientProperty("JComponent.roundRect", true);
 
         //esta linea es afuerza no c pq
         botonLogin.putClientProperty("JButton.buttonType", "roundRect");
-        //esta linea indica que el componente sera modificado en todas sus esquinas 
-        botonLogin.putClientProperty("Component.arc",      10);
+
         //esta linea es algo como para mostrar va afueraz asi
         botonLogin.putClientProperty("JComponent.roundRect", true);
 

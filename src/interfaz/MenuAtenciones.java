@@ -16,14 +16,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author jobno
  */
-public class MenuEstudiantes extends javax.swing.JFrame {
+public class MenuAtenciones extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuEstudiantes.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuAtenciones.class.getName());
 
     /**
      * Creates new form MenuEstudiantes
      */
-    public MenuEstudiantes() {
+    public MenuAtenciones() {
         initComponents();
         DarEstilos();
     }
@@ -113,9 +113,9 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(168, 204, 193));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setBackground(new java.awt.Color(80, 80, 80));
+        jButton2.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Atenciones");
         jButton2.setMargin(new java.awt.Insets(2, 0, 3, 0));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +127,6 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Solicitudes");
         jButton1.setMargin(new java.awt.Insets(2, 0, 3, 0));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -137,9 +136,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 100, 27));
 
-        jButton4.setBackground(new java.awt.Color(80, 80, 80));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setBackground(new java.awt.Color(204, 204, 204));
         jButton4.setText("Estudiantes");
         jButton4.setMargin(new java.awt.Insets(2, 0, 3, 0));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +146,6 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         });
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, -1));
 
-        campoBusqueda.setBackground(new java.awt.Color(255, 255, 255));
         campoBusqueda.setFont(new java.awt.Font("Poppins Medium", 0, 10)); // NOI18N
         campoBusqueda.setForeground(new java.awt.Color(102, 102, 102));
         campoBusqueda.setText("Ingresa la Matricula del Alumno");
@@ -157,7 +153,6 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 720, 23));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -228,7 +223,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        java.awt.EventQueue.invokeLater(() -> new MenuEstudiantes().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new MenuAtenciones().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
