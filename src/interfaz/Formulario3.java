@@ -251,18 +251,18 @@ public class Formulario3 extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(43, 138, 127));
 
-        BotonCancelar.setBackground(new java.awt.Color(188, 29, 42));
-        BotonCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        BotonCancelar.setBackground(new java.awt.Color(255, 102, 102));
+        BotonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         BotonCancelar.setText("Cancelar");
         BotonCancelar.setBorderPainted(false);
 
         botonCompletarForm.setBackground(new java.awt.Color(63, 164, 218));
-        botonCompletarForm.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botonCompletarForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         botonCompletarForm.setText("Completar formulario");
         botonCompletarForm.setBorderPainted(false);
 
-        botonGuardar.setBackground(new java.awt.Color(46, 212, 40));
-        botonGuardar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botonGuardar.setBackground(new java.awt.Color(153, 255, 153));
+        botonGuardar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         botonGuardar.setText("Guardar");
         botonGuardar.setBorderPainted(false);
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -292,13 +292,13 @@ public class Formulario3 extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(BotonCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(botonCompletarForm, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(botonGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(botonGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 

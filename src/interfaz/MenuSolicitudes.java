@@ -68,12 +68,12 @@ public class MenuSolicitudes extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        botonAtenciones = new javax.swing.JButton();
+        botonSolicitudes = new javax.swing.JButton();
+        botonEstudiantes = new javax.swing.JButton();
         campoBusqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla_estudiantes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,42 +113,39 @@ public class MenuSolicitudes extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(168, 204, 193));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Atenciones");
-        jButton2.setMargin(new java.awt.Insets(2, 0, 3, 0));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonAtenciones.setBackground(new java.awt.Color(204, 204, 204));
+        botonAtenciones.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        botonAtenciones.setText("Atenciones");
+        botonAtenciones.setMargin(new java.awt.Insets(2, 0, 3, 0));
+        botonAtenciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonAtencionesActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 100, 27));
+        jPanel2.add(botonAtenciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 100, 27));
 
-        jButton1.setBackground(new java.awt.Color(80, 80, 80));
-        jButton1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Solicitudes");
-        jButton1.setMargin(new java.awt.Insets(2, 0, 3, 0));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonSolicitudes.setBackground(new java.awt.Color(80, 80, 80));
+        botonSolicitudes.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        botonSolicitudes.setForeground(new java.awt.Color(255, 255, 255));
+        botonSolicitudes.setText("Solicitudes");
+        botonSolicitudes.setMargin(new java.awt.Insets(2, 0, 3, 0));
+        botonSolicitudes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonSolicitudesActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 100, 27));
+        jPanel2.add(botonSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 100, 27));
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 204));
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("Estudiantes");
-        jButton4.setMargin(new java.awt.Insets(2, 0, 3, 0));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        botonEstudiantes.setBackground(new java.awt.Color(204, 204, 204));
+        botonEstudiantes.setText("Estudiantes");
+        botonEstudiantes.setMargin(new java.awt.Insets(2, 0, 3, 0));
+        botonEstudiantes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                botonEstudiantesActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, -1));
+        jPanel2.add(botonEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, -1));
 
-        campoBusqueda.setBackground(new java.awt.Color(255, 255, 255));
         campoBusqueda.setFont(new java.awt.Font("Poppins Medium", 0, 10)); // NOI18N
         campoBusqueda.setForeground(new java.awt.Color(102, 102, 102));
         campoBusqueda.setText("Ingresa la Matricula del Alumno");
@@ -156,19 +153,18 @@ public class MenuSolicitudes extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 720, 23));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_estudiantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Matricula", "Estudiante", "Carrera", "Grupo", "Fecha de Registro"
+                "Fecha de Ekaboracion", "Estudiante", "Motivo", "Estatus"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla_estudiantes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 720, 430));
 
@@ -186,17 +182,17 @@ public class MenuSolicitudes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botonAtencionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtencionesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botonAtencionesActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonSolicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSolicitudesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonSolicitudesActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void botonEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEstudiantesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_botonEstudiantesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,15 +227,15 @@ public class MenuSolicitudes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAtenciones;
+    private javax.swing.JButton botonEstudiantes;
+    private javax.swing.JButton botonSolicitudes;
     private javax.swing.JTextField campoBusqueda;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabla_estudiantes;
     // End of variables declaration//GEN-END:variables
 }
