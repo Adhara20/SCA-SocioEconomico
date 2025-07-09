@@ -21,15 +21,15 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
      */
     public VisualizarEstudiante() {
         initComponents();
-        DarEstilos();
+        //DarEstilos();
     }
     
-    public void DarEstilos(){
+    //public void DarEstilos(){
         
-        campoBusqueda.putClientProperty("Component.arc",      20);
-        campoBusqueda.putClientProperty("JComponent.roundRect", true);
+      //  campoBusqueda.putClientProperty("Component.arc",      20);
+      //  campoBusqueda.putClientProperty("JComponent.roundRect", true);
 
-    }
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,10 +48,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jPanel16 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jPanel17 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -61,14 +58,10 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel9 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -77,6 +70,10 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        txtNombre = new javax.swing.JTextField();
+        txtMatricula = new javax.swing.JTextField();
+        txtGrupo = new javax.swing.JTextField();
+        txtCarrera = new javax.swing.JTextField();
 
         jPanel8.setBackground(new java.awt.Color(204, 204, 204));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -105,66 +102,24 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(43, 138, 127));
 
-        jPanel16.setBackground(new java.awt.Color(255, 0, 0));
-        jPanel16.setForeground(new java.awt.Color(255, 0, 0));
-
-        jLabel14.setText("Cancelar");
-
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel14)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addComponent(jLabel14)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-
-        jPanel17.setBackground(new java.awt.Color(51, 255, 51));
-
-        jLabel15.setText("Guardar");
-
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel15)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addComponent(jLabel15)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
+        jButton1.setBackground(new java.awt.Color(102, 255, 51));
+        jButton1.setText("Crear solicitud");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(431, Short.MAX_VALUE)
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91))
+                .addContainerGap(570, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(86, 86, 86))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, -1, -1));
@@ -216,21 +171,6 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 720, 23));
 
-        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 160, 20));
-
         jLabel1.setText("Nombre:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
@@ -240,46 +180,8 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         jLabel3.setText("Grupo:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
 
-        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, 20));
-
-        jPanel7.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 100, 20));
-
         jLabel4.setText("Carrera:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
-
-        jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 130, -1));
 
         jPanel9.setBackground(new java.awt.Color(204, 204, 204));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -327,6 +229,19 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 720, 60));
 
+        txtNombre.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 100, -1));
+
+        txtMatricula.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 80, -1));
+
+        txtGrupo.setEditable(false);
+        txtGrupo.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(txtGrupo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 80, -1));
+
+        txtCarrera.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(txtCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 90, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -340,10 +255,6 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,14 +289,12 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -401,19 +310,18 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTextField txtCarrera;
+    private javax.swing.JTextField txtGrupo;
+    private javax.swing.JTextField txtMatricula;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
