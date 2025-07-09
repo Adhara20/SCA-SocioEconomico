@@ -2,10 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package interfaces;
+package interfaz;
+
+import clases.Carrera;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import clases.Conexion;
+import java.sql.Connection;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 
 /**
@@ -14,6 +27,10 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class CrearEstudiante extends javax.swing.JFrame {
     
+     Conexion conexion = new Conexion();
+     Connection con = conexion.con;
+
+     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CrearEstudiante.class.getName());
 
     /**
@@ -22,36 +39,34 @@ public class CrearEstudiante extends javax.swing.JFrame {
     public CrearEstudiante() {
         initComponents();
         CargarCarreras();
-    }
-    public void CargarCarreras(){
-        try{
-            Estudiante estudiante = new Estudiante();
-            Estudiante est = estudiante.con;
-            
-            String sql = "SELECT nombre, matricula,grupo FROM Estudiante ";
-            
-            while(datos.next()){
-            String nombre = datos.getString("nombre");
-            String matricula = datos.getString("matricula");
-            String grupo = datos.getString("grupo")
-            Carrera carrera = new Carrera (nombre, matricula, grupo);
-            txtfkrol.addItem(rol);
+        
+           }     
+    public void CargarCarreras() {
+        try {
+            String sql = "SELECT idCarrera, nombreCarrera, nivelCarrera, estatusCarrera FROM carrera";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet datos = ps.executeQuery();
+
+            while (datos.next()) {
+                int idCarrera = datos.getInt("idCarrera");
+                String nombreCarrera = datos.getString("nombreCarrera");
+                String nivelCarrera = datos.getString("nivelCarrera");
+                String estatusCarrera = datos.getString("estatusCarrera");
+
+                Carrera carrera = new Carrera(idCarrera, nombreCarrera, nivelCarrera, estatusCarrera);
+                comboboxCarrera.addItem(carrera);
+            }
+
+            datos.close();
+            ps.close();
+            // No cierres la conexión `con` si la necesitas más adelante
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al cargar carreras: " + e);
         }
-                
-        }catch(Exception e){
-
-        }
-    }     
-
     }
-    
-    String nombre = txtnombre.getText();
-    String matricula = txtmatricula.getText();
-    String grupo = txtgrupo.getText();
-    Estudiante fkestudiante = (Estudiante)txtestudiante.getSelectedItem();
-    int idestudiante = fkestudiante.getid();
 
-    Estudiante estudiante = new Estudiante(nombre, matricula, grupo); 
+   
     
     
     
@@ -72,10 +87,8 @@ public class CrearEstudiante extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jPanel16 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jPanel17 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
+        btnCancelar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -85,22 +98,22 @@ public class CrearEstudiante extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        Nombre = new javax.swing.JLabel();
+        Matricula = new javax.swing.JLabel();
+        Grupo = new javax.swing.JLabel();
+        carrera = new javax.swing.JLabel();
+        comboboxCarrera = new javax.swing.JComboBox<>();
         jPanel9 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaHistorial = new javax.swing.JTable();
         jPanel15 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tablaSolicitudes = new javax.swing.JTable();
+        txtNombre = new javax.swing.JTextField();
+        txtMatricula = new javax.swing.JTextField();
+        txtGrupo = new javax.swing.JTextField();
 
         jPanel8.setBackground(new java.awt.Color(204, 204, 204));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -129,65 +142,35 @@ public class CrearEstudiante extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(43, 138, 127));
 
-        jPanel16.setBackground(new java.awt.Color(255, 0, 0));
-        jPanel16.setForeground(new java.awt.Color(255, 0, 0));
+        btnCancelar.setBackground(new java.awt.Color(255, 0, 0));
+        btnCancelar.setText("Cancelar");
 
-        jLabel14.setText("Cancelar");
-
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel14)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addComponent(jLabel14)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-
-        jPanel17.setBackground(new java.awt.Color(51, 255, 51));
-
-        jLabel15.setText("Guardar");
-
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel15)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addComponent(jLabel15)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
+        btnGuardar.setBackground(new java.awt.Color(51, 255, 51));
+        btnGuardar.setText("Aceptar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(431, Short.MAX_VALUE)
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91))
+                .addContainerGap(435, Short.MAX_VALUE)
+                .addComponent(btnCancelar)
+                .addGap(31, 31, 31)
+                .addComponent(btnGuardar)
+                .addGap(106, 106, 106))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -240,70 +223,25 @@ public class CrearEstudiante extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 720, 23));
 
-        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
+        Nombre.setText("Nombre:");
+        jPanel1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
+        Matricula.setText("Matricula:");
+        jPanel1.add(Matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 160, 20));
+        Grupo.setText("Grupo:");
+        jPanel1.add(Grupo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
 
-        jLabel1.setText("Nombre:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        carrera.setText("Carrera:");
+        jPanel1.add(carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
 
-        jLabel2.setText("Matricula:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
-
-        jLabel3.setText("Grupo:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
-
-        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, 20));
-
-        jPanel7.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 100, 20));
-
-        jLabel4.setText("Carrera:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
-
-        jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        comboboxCarrera.setBackground(new java.awt.Color(204, 204, 204));
+        comboboxCarrera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                comboboxCarreraActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 130, -1));
+        jPanel1.add(comboboxCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 130, -1));
 
         jPanel9.setBackground(new java.awt.Color(204, 204, 204));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -313,7 +251,7 @@ public class CrearEstudiante extends javax.swing.JFrame {
 
         jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 720, 23));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -324,7 +262,7 @@ public class CrearEstudiante extends javax.swing.JFrame {
                 "Fecha elaboracion", "Motivo", "Estatus"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaHistorial);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 720, 60));
 
@@ -336,7 +274,7 @@ public class CrearEstudiante extends javax.swing.JFrame {
 
         jPanel1.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 720, 23));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tablaSolicitudes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -347,9 +285,18 @@ public class CrearEstudiante extends javax.swing.JFrame {
                 "Fecha elaboracion", "Motivo", "Estatus"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tablaSolicitudes);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 720, 60));
+
+        txtNombre.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 150, -1));
+
+        txtMatricula.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 90, -1));
+
+        txtGrupo.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(txtGrupo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 110, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -365,9 +312,39 @@ public class CrearEstudiante extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void comboboxCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxCarreraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_comboboxCarreraActionPerformed
+
+    public String fechaActual() {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    return sdf.format(new Date());
+}
+
+    
+    
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        
+        try {
+        Carrera carreraSeleccionada = (Carrera) comboboxCarrera.getSelectedItem();
+        int idCarrera = carreraSeleccionada.getIdCarrera();
+            
+            PreparedStatement guardar = con.prepareStatement("INSERT INTO alumno (nombreAlumno,matricula,idCarrera,grupo,telefonoAlumno,estatus,fechaRegistro) VALUES (?,?,?,?,?,?,?)");
+            guardar.setString(1, txtNombre.getText());
+            guardar.setString(2, txtMatricula.getText());
+            guardar.setInt(3, idCarrera);
+            guardar.setString(4, txtGrupo.getText());
+            guardar.setString(5, "0");
+            guardar.setString(6, "A");
+            guardar.setString(7, fechaActual());
+            guardar.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Guardado");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e + "No guardado");
+        }
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -402,17 +379,17 @@ public class CrearEstudiante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel Grupo;
+    private javax.swing.JLabel Matricula;
+    private javax.swing.JLabel Nombre;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JLabel carrera;
+    private javax.swing.JComboBox<Carrera> comboboxCarrera;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -425,19 +402,59 @@ public class CrearEstudiante extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable tablaHistorial;
+    private javax.swing.JTable tablaSolicitudes;
+    private javax.swing.JTextField txtGrupo;
+    private javax.swing.JTextField txtMatricula;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
+
+    /*private void cargarcombo(JComboBox c) {
+        DefaultComboBoxModel combo=new DefaultComboBoxModel();
+        c.setModel(combo);
+        Lista_carreras lc=new Lista_carreras();
+        try{
+            Statement st=con.createStatement();
+            ResultSet rs=st.executeQuery("SELECT nombreCarrera FROM carrera;");
+            while (rs.next()){
+                Carrera car=new Carrera();
+                car.setNombreCarrera(rs.getString(1));
+                lc.AgregarCarreras(car);
+                combo.addElement(car.getNombreCarrera());
+                System.out.println("Exito");
+            }
+                
+        } catch (Exception e){
+            System.out.println("Fallo");
+        }
+    }*/
+   /* private void cargarcombo(JComboBox c) {
+    DefaultComboBoxModel combo = new DefaultComboBoxModel();
+    c.setModel(combo);
+
+    // Lista_carreras y Carrera deberían estar bien definidos
+    Lista_carreras lc = new Lista_carreras();
+
+    try {
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("SELECT nombreCarrera FROM carrera;");
+        while (rs.next()) {
+            Carrera car = new Carrera();
+            car.setNombreCarrera(rs.getString(1));
+            lc.AgregarCarreras(car);
+            combo.addElement(car.getNombreCarrera());
+            System.out.println("Éxito");
+        }
+    } catch (Exception e) {
+        System.out.println("Fallo: " + e);
+    }
+} */
+
 }
