@@ -161,7 +161,7 @@ public class MenuSolicitudes extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Fecha de Ekaboracion", "Estudiante", "Motivo", "Estatus"
+                "Fecha de Elaboracion", "Estudiante", "Motivo", "Estatus"
             }
         ));
         jScrollPane1.setViewportView(tabla_estudiantes);
