@@ -16,14 +16,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author jobno
  */
-public class MenuEstudiantes extends javax.swing.JFrame {
+public class MenuSolicitudes extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuEstudiantes.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuSolicitudes.class.getName());
 
     /**
      * Creates new form MenuEstudiantes
      */
-    public MenuEstudiantes() {
+    public MenuSolicitudes() {
         initComponents();
         DarEstilos();
     }
@@ -73,7 +73,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         botonEstudiantes = new javax.swing.JButton();
         campoBusqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla_estudiantes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,8 +124,9 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         });
         jPanel2.add(botonAtenciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 100, 27));
 
-        botonSolicitudes.setBackground(new java.awt.Color(204, 204, 204));
-        botonSolicitudes.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        botonSolicitudes.setBackground(new java.awt.Color(80, 80, 80));
+        botonSolicitudes.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        botonSolicitudes.setForeground(new java.awt.Color(255, 255, 255));
         botonSolicitudes.setText("Solicitudes");
         botonSolicitudes.setMargin(new java.awt.Insets(2, 0, 3, 0));
         botonSolicitudes.addActionListener(new java.awt.event.ActionListener() {
@@ -135,9 +136,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         });
         jPanel2.add(botonSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 100, 27));
 
-        botonEstudiantes.setBackground(new java.awt.Color(80, 80, 80));
-        botonEstudiantes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botonEstudiantes.setForeground(new java.awt.Color(255, 255, 255));
+        botonEstudiantes.setBackground(new java.awt.Color(204, 204, 204));
         botonEstudiantes.setText("Estudiantes");
         botonEstudiantes.setMargin(new java.awt.Insets(2, 0, 3, 0));
         botonEstudiantes.addActionListener(new java.awt.event.ActionListener() {
@@ -154,18 +153,18 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 720, 23));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_estudiantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Matricula", "Estudiante", "Carrera", "Grupo", "Fecha de Registro"
+                "Fecha de Ekaboracion", "Estudiante", "Motivo", "Estatus"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla_estudiantes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 720, 430));
 
@@ -224,7 +223,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        java.awt.EventQueue.invokeLater(() -> new MenuEstudiantes().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new MenuSolicitudes().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -237,6 +236,6 @@ public class MenuEstudiantes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabla_estudiantes;
     // End of variables declaration//GEN-END:variables
 }
