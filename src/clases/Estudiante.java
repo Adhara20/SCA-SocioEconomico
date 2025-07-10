@@ -15,6 +15,8 @@ public class Estudiante {
         this.matricula = matricula;
         this.grupo = grupo;
         this.telefono = telefono;
+        
+        
 }
 
     
