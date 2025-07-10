@@ -19,7 +19,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
     /**
      * Creates new form MenuEstudiantes
      */
-    public VisualizarEstudiante() {
+    public VisualizarEstudiante(int idAlumno) {
         initComponents();
         //DarEstilos();
     }
@@ -285,7 +285,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        java.awt.EventQueue.invokeLater(() -> new VisualizarEstudiante().setVisible(true));
+        //java.awt.EventQueue.invokeLater(() -> new VisualizarEstudiante().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
