@@ -18,8 +18,10 @@ public class Carrera {
         this.estatusCarrera = estatusCarrera;
     }
 
-    public Carrera() {
+    public Carrera(String nombreCarrera) {
+        this.nombreCarrera = nombreCarrera;
     }
+    
 
     public int getIdCarrera() {
         return idCarrera;

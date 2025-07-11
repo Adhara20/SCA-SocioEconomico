@@ -3,9 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
+import clases.Carrera;
 import clases.Conexion;
+import clases.Estudiante;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -26,6 +30,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
     public MenuEstudiantes() {
         initComponents();
         DarEstilos();
+        mostrarEstudiante();
     }
     
     public void DarEstilos(){
@@ -35,7 +40,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
     }
     
-    public void mostrarUsuario(){
+    public void mostrarEstudiante(){
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Matricula");
         modelo.addColumn("Estudiante");
@@ -47,8 +52,29 @@ public class MenuEstudiantes extends javax.swing.JFrame {
             Conexion conexion = new Conexion();
             Connection con = conexion.con;
             
-            String sql = "";
-        
+            String sql = "SELECT a.*,c.nombreCarrera FROM alumno a INNER JOIN carrera c ON a.idCarrera=c.idCarrera;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet datos = ps.executeQuery();
+            while(datos.next()){
+            String matricula = datos.getString("matricula");
+            String estudiante = datos.getString("nombreAlumno");
+            String carrera = datos.getString("nombreCarrera");
+            String grupo = datos.getString("grupo");
+            String fecha = datos.getString("fechaRegistro");
+            Estudiante alumno = new Estudiante(matricula, estudiante, grupo, fecha);
+            Carrera carreras = new Carrera(carrera);
+                
+            
+            modelo.addRow(new Object[]{
+            alumno.getMatricula(),
+            alumno.getNombre(),
+            carreras.getNombreCarrera(),
+            alumno.getGrupo(),
+            alumno.getFechaRegistro()
+            });
+            }
+            tabla_estudiantes.setModel(modelo);
+            
         }catch(Exception e){
             showMessageDialog(null, "Error al cargar los datos" + e.getMessage());
         }
@@ -73,7 +99,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         botonEstudiantes = new javax.swing.JButton();
         campoBusqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla_estudiantes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,7 +180,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 720, 23));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_estudiantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -165,7 +191,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
                 "Matricula", "Estudiante", "Carrera", "Grupo", "Fecha de Registro"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla_estudiantes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 720, 430));
 
@@ -237,6 +263,6 @@ public class MenuEstudiantes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabla_estudiantes;
     // End of variables declaration//GEN-END:variables
 }
