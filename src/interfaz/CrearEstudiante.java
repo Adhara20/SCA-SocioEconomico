@@ -329,7 +329,9 @@ public class CrearEstudiante extends javax.swing.JFrame {
         Carrera carreraSeleccionada = (Carrera) comboboxCarrera.getSelectedItem();
         int idCarrera = carreraSeleccionada.getIdCarrera();
             
-            PreparedStatement guardar = con.prepareStatement("INSERT INTO alumno (nombreAlumno,matricula,idCarrera,grupo,telefonoAlumno,estatus,fechaRegistro) VALUES (?,?,?,?,?,?,?)");
+            String sql = "INSERT INTO alumno (nombreAlumno,matricula,idCarrera,grupo,telefonoAlumno,estatus,fechaRegistro) VALUES (?,?,?,?,?,?,?)";
+            PreparedStatement guardar = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            
             guardar.setString(1, txtNombre.getText());
             guardar.setString(2, txtMatricula.getText());
             guardar.setInt(3, idCarrera);
@@ -337,14 +339,33 @@ public class CrearEstudiante extends javax.swing.JFrame {
             guardar.setString(5, "0");
             guardar.setString(6, "A");
             guardar.setString(7, fechaActual());
+            
             guardar.executeUpdate();
+            
+            ResultSet rs = guardar.getGeneratedKeys();
+            int idAlumnoGenerado = -1;
+            if (rs.next()){
+                idAlumnoGenerado = rs.getInt(1);
+            }
+            
+            rs.close();
+            guardar.close();
+            
             JOptionPane.showMessageDialog(null, "Guardado");
+
             /*VisualizarEstudiante perfil = new VisualizarEstudiante();
             //Indicamos que se hace visible
             perfil.setVisible(true);
             //cerramos esta ventana
             dispose();
             //[Este es para mostrar la ventanta del perfil del estudiante creado, faltan ajustes]*/
+
+
+            
+            VisualizarEstudiante ve = new VisualizarEstudiante(idAlumnoGenerado);
+            ve.setVisible(true);
+            this.dispose();
+            
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e + "No guardado");

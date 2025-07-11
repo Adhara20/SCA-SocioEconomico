@@ -3,7 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
+import clases.Conexion;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -15,12 +20,14 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class VisualizarEstudiante extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VisualizarEstudiante.class.getName());
+    
 
     /**
      * Creates new form MenuEstudiantes
      */
-    public VisualizarEstudiante() {
+    public VisualizarEstudiante(int idAlumno) {
         initComponents();
+        cargarDatos(idAlumno);
         //DarEstilos();
     }
     
@@ -30,6 +37,33 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
       //  campoBusqueda.putClientProperty("JComponent.roundRect", true);
 
 //    }
+    public void cargarDatos(int idAlumno){
+        try{
+            Conexion conexion = new Conexion();
+            Connection con = conexion.con;
+            String sql = "SELECT a.*, c.nombreCarrera FROM carrera c INNER JOIN alumno a ON c.idCarrera = a.idCarrera WHERE idAlumno = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idAlumno);
+            ResultSet datos = ps.executeQuery();
+            
+            if(datos.next()){
+                String nombreAlumno = datos.getString("nombreAlumno");
+                txtNombre.setText(nombreAlumno);
+                
+                String matricula = datos.getString("matricula");
+                txtMatricula.setText(matricula);
+                
+                String grupo = datos.getString("grupo");
+                txtGrupo.setText(grupo);
+                
+                String fkcarrera = datos.getString("nombreCarrera");
+                txtCarrera.setText(fkcarrera);
+            }
+            
+        }catch(Exception e){
+                showMessageDialog(null, "Error al cargar los datos" + e.getMessage());
+        };
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -285,7 +319,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        java.awt.EventQueue.invokeLater(() -> new VisualizarEstudiante().setVisible(true));
+        //java.awt.EventQueue.invokeLater(() -> new VisualizarEstudiante().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
