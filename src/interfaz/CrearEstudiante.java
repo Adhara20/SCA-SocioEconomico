@@ -39,8 +39,23 @@ public class CrearEstudiante extends javax.swing.JFrame {
     public CrearEstudiante() {
         initComponents();
         CargarCarreras();
+        DarEstilos();
         
-           }     
+        
+           }  
+    public void DarEstilos(){
+        
+      txtNombre.putClientProperty("JComponent.roundRect", true);
+      
+      txtMatricula.putClientProperty("JComponent.roundRect", true);
+      
+      txtGrupo.putClientProperty("JComponent.roundRect", true);
+      
+      //comboboxCarrera.putClientProperty("JComponent.roundRect", true);
+      
+      
+
+    }
     public void CargarCarreras() {
         try {
             String sql = "SELECT idCarrera, nombreCarrera, nivelCarrera, estatusCarrera FROM carrera";

@@ -32,42 +32,74 @@ public class MenuSolicitudes extends javax.swing.JFrame {
     public MenuSolicitudes() {
         initComponents();
         DarEstilos();
-        mostrarListaSolicitudes();
+        mostrarListaSolicitudes();/*Mandar a llamar la función para mostrar 
+        la lista de solicitudes que haya guardadas*/
     }
     
-    public void DarEstilos(){
+    public void DarEstilos(){/*A toda está función de DarEstilos
+        no le moví nadita*/
         
         campoBusqueda.putClientProperty("Component.arc",      20);
         campoBusqueda.putClientProperty("JComponent.roundRect", true);
 
     }
     
-    public void mostrarListaSolicitudes(){
-        DefaultTableModel modelo = new DefaultTableModel();
+    public void mostrarListaSolicitudes(){/* Es la función 
+        para mostra la lista*/
+        DefaultTableModel modelo = new DefaultTableModel();/*
+        Sepa para que sea, pero se queda*/
         modelo.addColumn("Fecha de Elaboracio");
+        /*Le pones la primera columna que tengas en la tablá*/
         modelo.addColumn("Estudiante");
         modelo.addColumn("Estatus");
         modelo.addColumn("Motivo");
+        /*Pones el resto de campos, misma sintaxis modelo.addColumn("")*/
         
-        
+        //Inicias el try, yo copie y pegué del de Tareas
         try {
             Conexion conexion = new Conexion();
             Connection con = conexion.con;
+            //Se queda igual
             
+            //De aquí...
             String sql = "SELECT s.idSolicitud, s.fecha, a.idAlumno, a.nombreAlumno, s.estatus, s.motivo FROM alumno a INNER JOIN solicitud s WHERE a.idAlumno=s.idAlumno;";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet datos = ps.executeQuery();
-            while (datos.next()){
+            while (datos.next()){//a aquí se queda igual,
+                //solo adaptas la consulta
                 int idSolicitud = datos.getInt("idSolicitud");
+                /*Mando a llamar el id de la solicitud, sería el id
+                de lo que quieras mandar a llamar, depende el orden 
+                del constructor en la clase creo*/
                 String fecha = datos.getString("fecha");
                 int idAlumno = datos.getInt("idAlumno");
                 String nombreAlumno = datos.getString("nombreAlumno");
-                String estatus = datos.getString("estatus");
-                String motivo =datos.getString("motivo");
+                //Pongo el resto de datos
                 
+                /*Este es para cuando tengo un CHAR, ejemplo, 1 y para
+                decir que 1 sea equivalente a algo como "Socioeconomico"
+                y es lo que me va a mostrar*/
+                String estatus1 = datos.getString("estatus");
+                String estatus;
+                if(estatus1.equals("1")){
+                    estatus = "Pendiente";
+                }else{
+                    estatus = "Completada";
+                };
+                //Mismo ejemplo  que el anterior pero con motivo
+                String motivo = datos.getString("motivo");
+                if(motivo == "1"){
+                    motivo = "Socioeconomico";
+                }else if (motivo == "2"){
+                    motivo = "Salud";
+                }else{
+                    motivo = "Familiar";
+                };
+                
+                //Aqui se que tiene que ver con las clases que utilicez
                 Estudiante est = new Estudiante(idAlumno, nombreAlumno);
-                
                 Solicitud soli = new Solicitud(idSolicitud, nombreAlumno, fecha, estatus, motivo);
+                //
                 modelo.addRow(new Object[]{
                 soli.getFecha(),
                 est.getNombre(),

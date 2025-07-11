@@ -28,15 +28,20 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
     public VisualizarEstudiante(int idAlumno) {
         initComponents();
         cargarDatos(idAlumno);
-        //DarEstilos();
+        DarEstilos();
     }
     
-    //public void DarEstilos(){
+    public void DarEstilos(){
         
-      //  campoBusqueda.putClientProperty("Component.arc",      20);
-      //  campoBusqueda.putClientProperty("JComponent.roundRect", true);
+      txtNombre.putClientProperty("JComponent.roundRect", true);
+      
+      txtMatricula.putClientProperty("JComponent.roundRect", true);
+      
+      txtGrupo.putClientProperty("JComponent.roundRect", true);
+      
+      txtCarrera.putClientProperty("JComponent.roundRect", true);
 
-//    }
+    }
     public void cargarDatos(int idAlumno){
         try{
             Conexion conexion = new Conexion();
@@ -263,9 +268,11 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 720, 60));
 
+        txtNombre.setEditable(false);
         txtNombre.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 100, -1));
 
+        txtMatricula.setEditable(false);
         txtMatricula.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 80, -1));
 
@@ -273,6 +280,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         txtGrupo.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(txtGrupo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 80, -1));
 
+        txtCarrera.setEditable(false);
         txtCarrera.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(txtCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 90, -1));
 
