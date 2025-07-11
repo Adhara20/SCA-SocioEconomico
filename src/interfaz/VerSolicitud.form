@@ -61,9 +61,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="btnRegresar" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace pref="514" max="32767" attributes="0"/>
-                      <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
+
+                      <Component id="btnCancelar" min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace pref="489" max="32767" attributes="0"/>
+                      <Component id="btnFormulario" min="-2" max="-2" attributes="0"/>
+
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -73,8 +75,10 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnRegresar" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btnGuardar" min="-2" pref="30" max="-2" attributes="0"/>
+
+                          <Component id="btnCancelar" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btnFormulario" min="-2" pref="30" max="-2" attributes="0"/>
+
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -82,7 +86,9 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnRegresar">
+
+            <Component class="javax.swing.JButton" name="btnCancelar">
+
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="a7" green="b2" red="53" type="rgb"/>
@@ -91,25 +97,29 @@
                   <Font name="Segoe UI" size="12" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/regresar.png"/>
+
+                  <Image iconType="2" name="C:\POO\NetBeansProjects\repo\SCA-SocioEconomico\src\Imagenes\regresar.png"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegresarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnGuardar">
+            <Component class="javax.swing.JButton" name="btnFormulario">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="ff" red="99" type="rgb"/>
+                  <Color blue="ff" green="99" red="66" type="rgb"/>
+
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Llenar Formulario"/>
+
+                <Property name="text" type="java.lang.String" value="Ingresar al Formulario"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFormularioActionPerformed"/>
+
               </Events>
             </Component>
           </SubComponents>

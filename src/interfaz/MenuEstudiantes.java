@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
+
 import clases.Carrera;
 import clases.Conexion;
 import clases.Estudiante;
@@ -40,7 +41,9 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
     }
     
+
     public void mostrarEstudiante(){
+
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Matricula");
         modelo.addColumn("Estudiante");
@@ -52,6 +55,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
             Conexion conexion = new Conexion();
             Connection con = conexion.con;
             
+
             String sql = "SELECT a.*,c.nombreCarrera FROM alumno a INNER JOIN carrera c ON a.idCarrera=c.idCarrera;";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet datos = ps.executeQuery();
@@ -75,6 +79,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
             }
             tabla_estudiantes.setModel(modelo);
             
+
         }catch(Exception e){
             showMessageDialog(null, "Error al cargar los datos" + e.getMessage());
         }

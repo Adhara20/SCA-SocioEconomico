@@ -30,6 +30,7 @@ public class Solicitud {
         this.argumentacion = argumentacion;
     }
 
+
     public Solicitud(int idSolicitud, String idAlumno, String fecha, String estatus, String motivo) {
         this.idSolicitud = idSolicitud;
         this.idAlumno = idAlumno;
@@ -38,7 +39,6 @@ public class Solicitud {
         this.motivo = motivo;
     }
     
-
     public Solicitud(String idAlumno, String motivo, String telefonoSolicitud, String canaliza, String familiar, String telefonoFamiliar, String tipo, String argumentacion) {
         this.idAlumno = idAlumno;
         this.motivo = motivo;
