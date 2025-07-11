@@ -4,12 +4,18 @@
  */
 package interfaz;
 import clases.Conexion;
+import clases.Estudiante;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.Connection;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
+import clases.Solicitud;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -26,6 +32,7 @@ public class MenuSolicitudes extends javax.swing.JFrame {
     public MenuSolicitudes() {
         initComponents();
         DarEstilos();
+        mostrarListaSolicitudes();
     }
     
     public void DarEstilos(){
@@ -35,22 +42,43 @@ public class MenuSolicitudes extends javax.swing.JFrame {
 
     }
     
-    public void mostrarUsuario(){
+    public void mostrarListaSolicitudes(){
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Matricula");
+        modelo.addColumn("Fecha de Elaboracio");
         modelo.addColumn("Estudiante");
-        modelo.addColumn("Carrera");
-        modelo.addColumn("Grupo");
-        modelo.addColumn("Fecha Registro");
+        modelo.addColumn("Estatus");
+        modelo.addColumn("Motivo");
+        
         
         try {
             Conexion conexion = new Conexion();
             Connection con = conexion.con;
             
-            String sql = "";
-        
+            String sql = "SELECT s.idSolicitud, s.fecha, a.idAlumno, a.nombreAlumno, s.estatus, s.motivo FROM alumno a INNER JOIN solicitud s WHERE a.idAlumno=s.idAlumno;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet datos = ps.executeQuery();
+            while (datos.next()){
+                int idSolicitud = datos.getInt("idSolicitud");
+                String fecha = datos.getString("fecha");
+                int idAlumno = datos.getInt("idAlumno");
+                String nombreAlumno = datos.getString("nombreAlumno");
+                String estatus = datos.getString("estatus");
+                String motivo =datos.getString("motivo");
+                
+                Estudiante est = new Estudiante(idAlumno, nombreAlumno);
+                
+                Solicitud soli = new Solicitud(idSolicitud, nombreAlumno, fecha, estatus, motivo);
+                modelo.addRow(new Object[]{
+                soli.getFecha(),
+                est.getNombre(),
+                soli.getEstatus(),
+                soli.getMotivo(),
+                
+            });
+            }
+        tabla_solicitudes.setModel(modelo);
         }catch(Exception e){
-            showMessageDialog(null, "Error al cargar los datos" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al cargar los datos"+e.getMessage());
         }
             
         };
@@ -73,7 +101,7 @@ public class MenuSolicitudes extends javax.swing.JFrame {
         botonEstudiantes = new javax.swing.JButton();
         campoBusqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabla_estudiantes = new javax.swing.JTable();
+        tabla_solicitudes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,7 +181,7 @@ public class MenuSolicitudes extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 720, 23));
 
-        tabla_estudiantes.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_solicitudes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -164,7 +192,7 @@ public class MenuSolicitudes extends javax.swing.JFrame {
                 "Fecha de Elaboracion", "Estudiante", "Motivo", "Estatus"
             }
         ));
-        jScrollPane1.setViewportView(tabla_estudiantes);
+        jScrollPane1.setViewportView(tabla_solicitudes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 720, 430));
 
@@ -236,6 +264,6 @@ public class MenuSolicitudes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabla_estudiantes;
+    private javax.swing.JTable tabla_solicitudes;
     // End of variables declaration//GEN-END:variables
 }

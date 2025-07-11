@@ -30,6 +30,15 @@ public class Solicitud {
         this.argumentacion = argumentacion;
     }
 
+    public Solicitud(int idSolicitud, String idAlumno, String fecha, String estatus, String motivo) {
+        this.idSolicitud = idSolicitud;
+        this.idAlumno = idAlumno;
+        this.fecha = fecha;
+        this.estatus = estatus;
+        this.motivo = motivo;
+    }
+    
+
     public Solicitud(String idAlumno, String motivo, String telefonoSolicitud, String canaliza, String familiar, String telefonoFamiliar, String tipo, String argumentacion) {
         this.idAlumno = idAlumno;
         this.motivo = motivo;
