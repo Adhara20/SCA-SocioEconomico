@@ -351,7 +351,7 @@ public class CrearEstudiante extends javax.swing.JFrame {
             guardar.setString(2, txtMatricula.getText());
             guardar.setInt(3, idCarrera);
             guardar.setString(4, txtGrupo.getText());
-            guardar.setString(5, "0");
+            guardar.setString(5, null);
             guardar.setString(6, "A");
             guardar.setString(7, fechaActual());
             
