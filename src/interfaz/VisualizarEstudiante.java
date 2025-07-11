@@ -20,7 +20,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class VisualizarEstudiante extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VisualizarEstudiante.class.getName());
-    
+   
 
     /**
      * Creates new form MenuEstudiantes
