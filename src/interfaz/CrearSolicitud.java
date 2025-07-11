@@ -16,7 +16,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-/**
+/** 
  *
  * @author jobno
  */
@@ -29,9 +29,9 @@ public class CrearSolicitud extends javax.swing.JFrame {
     /**
      * Creates new form RegistrarAlumno
      */
-    public CrearSolicitud(String idAlumno, String dondeRegresa) {
+    public CrearSolicitud(String regresa1,String idAlumno) {
+        regresa = regresa1;
         id = idAlumno;
-        regresa = dondeRegresa;
         initComponents();
         darEstilos();
         cargarDatos(id);
@@ -188,7 +188,6 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         btnCancelar.setBackground(new java.awt.Color(255, 102, 102));
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(0, 0, 0));
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,7 +197,6 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         btnGuardar.setBackground(new java.awt.Color(153, 255, 153));
         btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,7 +246,6 @@ public class CrearSolicitud extends javax.swing.JFrame {
         panelDatosGenerales.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Formato Solicitud");
         panelDatosGenerales.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, -1, 20));
 
@@ -256,13 +253,11 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Fecha:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         campoFecha.setBackground(new java.awt.Color(195, 210, 197));
         campoFecha.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoFecha.setForeground(new java.awt.Color(0, 0, 0));
         campoFecha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,13 +268,11 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Estatus:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
 
         campoEstatus.setBackground(new java.awt.Color(195, 210, 197));
         campoEstatus.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoEstatus.setForeground(new java.awt.Color(0, 0, 0));
         campoEstatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoEstatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,13 +283,11 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Nombre:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         campoMatricula.setBackground(new java.awt.Color(195, 210, 197));
         campoMatricula.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoMatricula.setForeground(new java.awt.Color(0, 0, 0));
         campoMatricula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,19 +298,16 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Matricula:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Grupo:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, -1));
 
         campoGrupo.setBackground(new java.awt.Color(195, 210, 197));
         campoGrupo.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoGrupo.setForeground(new java.awt.Color(0, 0, 0));
         campoGrupo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoGrupo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -330,13 +318,11 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Carrera:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         campoNombre.setBackground(new java.awt.Color(195, 210, 197));
         campoNombre.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoNombre.setForeground(new java.awt.Color(0, 0, 0));
         campoNombre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         campoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -347,13 +333,11 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Canaliza:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 80, -1));
 
         campoCanaliza.setBackground(new java.awt.Color(195, 210, 197));
         campoCanaliza.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoCanaliza.setForeground(new java.awt.Color(0, 0, 0));
         campoCanaliza.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         campoCanaliza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,24 +348,20 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         comboMotivo.setBackground(new java.awt.Color(195, 210, 197));
         comboMotivo.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        comboMotivo.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(comboMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 150, -1));
 
         jLabel10.setBackground(new java.awt.Color(0, 0, 0));
         jLabel10.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Argumentacion:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, 20));
 
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
         jLabel11.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Familiar:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
 
         campoFamiliar.setBackground(new java.awt.Color(195, 210, 197));
         campoFamiliar.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoFamiliar.setForeground(new java.awt.Color(0, 0, 0));
         campoFamiliar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         campoFamiliar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -392,7 +372,6 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         campoTelefonoFamiliar.setBackground(new java.awt.Color(195, 210, 197));
         campoTelefonoFamiliar.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoTelefonoFamiliar.setForeground(new java.awt.Color(0, 0, 0));
         campoTelefonoFamiliar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoTelefonoFamiliar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -403,19 +382,16 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
         jLabel12.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Motivo:");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, -1, -1));
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
         jLabel13.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Telefono Familiar:");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 120, -1));
 
         campoTelefono.setBackground(new java.awt.Color(195, 210, 197));
         campoTelefono.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoTelefono.setForeground(new java.awt.Color(0, 0, 0));
         campoTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -426,14 +402,12 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Telefono:");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
         campoArgumentacion.setBackground(new java.awt.Color(195, 210, 197));
         campoArgumentacion.setColumns(20);
         campoArgumentacion.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoArgumentacion.setForeground(new java.awt.Color(0, 0, 0));
         campoArgumentacion.setRows(5);
         jScrollPane1.setViewportView(campoArgumentacion);
 
@@ -441,7 +415,6 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         campoCarrera.setBackground(new java.awt.Color(195, 210, 197));
         campoCarrera.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoCarrera.setForeground(new java.awt.Color(0, 0, 0));
         campoCarrera.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         campoCarrera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -452,12 +425,10 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
         comboTipo.setBackground(new java.awt.Color(195, 210, 197));
         comboTipo.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        comboTipo.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(comboTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 150, -1));
 
         jLabel15.setBackground(new java.awt.Color(0, 0, 0));
         jLabel15.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Tipo:");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, -1, -1));
 
@@ -524,9 +495,9 @@ public class CrearSolicitud extends javax.swing.JFrame {
         // TODO add your handling code here:
         String idAlumno = id;
         String motivo = (String) comboMotivo.getSelectedItem();
-        if(motivo == "Socioeconomico"){
+        if(motivo.equals("Socioeconomico")){
             motivo = "1";
-        }else if (motivo == "Salud"){
+        }else if (motivo.equals("Salud")){
             motivo = "2";
         }else{
             motivo = "3";
@@ -537,9 +508,9 @@ public class CrearSolicitud extends javax.swing.JFrame {
         String familiar = campoFamiliar.getText();
         String telefonoFamiliar = campoTelefonoFamiliar.getText();
         String tipo = (String) comboTipo.getSelectedItem();
-        if(tipo =="Llamada"){
+        if(tipo.equals("Llamada")){
             tipo = "1";
-        }else if(tipo == "Oficina"){
+        }else if(tipo.equals("Oficina") ){
             tipo = "2";
         }else{
             tipo = "3";
@@ -551,15 +522,12 @@ public class CrearSolicitud extends javax.swing.JFrame {
             showMessageDialog(null, "Guardado" );
             
             int idSoli = ConocerIdSolicitud();
-          
-            VerSolicitud soli = new VerSolicitud(regresa, idSoli);
+            VerSolicitud soli = new VerSolicitud(regresa,idSoli);
             soli.setVisible(true);
             soli.setLocationRelativeTo(null);
             //cambiamos de pantalla
             dispose();
-        }else{
-            
-        };
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
@@ -589,7 +557,7 @@ public class CrearSolicitud extends javax.swing.JFrame {
         }
         
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new CrearSolicitud("1", "login").setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new CrearSolicitud( "anterior" ,"1").setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

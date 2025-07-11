@@ -9,6 +9,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
@@ -21,11 +22,12 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class VerSolicitud extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VerSolicitud.class.getName());
-
+    int idSolicitud;
     /**
      * Creates new form verSolicitud
      */
     public VerSolicitud(String regresa,int idSoli ) {
+        idSolicitud = idSoli;
         initComponents();
         darEstilos();
         cargarDatos(idSoli);
@@ -91,7 +93,7 @@ public class VerSolicitud extends javax.swing.JFrame {
                 
                 String estatus1 = datos.getString("estatus");
                 String estatus;
-                if(estatus1.equals("1")){
+                if(estatus1.equals("0")){
                     estatus = "Pendiente";
                 }else{
                     estatus = "Completada";
@@ -108,9 +110,9 @@ public class VerSolicitud extends javax.swing.JFrame {
                 campoGrupo.setText(grupo);
                 
                 String motivo = datos.getString("motivo");
-                if(motivo == "1"){
+                if(motivo.equals("1")){
                     motivo = "Socioeconomico";
-                }else if (motivo == "2"){
+                }else if (motivo.equals("2")){
                     motivo = "Salud";
                 }else{
                     motivo = "Familiar";
@@ -133,9 +135,9 @@ public class VerSolicitud extends javax.swing.JFrame {
                 campoTelefonoFamiliar.setText(telefonoFamiliar);
                 
                 String tipo =  datos.getString("tipo");
-                if(tipo == "1"){
+                if(tipo.equals("1")){
                     tipo = "Llamada";
-                }else if (tipo == "2"){
+                }else if (tipo.equals("2")){
                     tipo = "Oficina";
                 }else{
                    tipo = "Visita";
@@ -166,7 +168,7 @@ public class VerSolicitud extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
+        btnFormulario = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         panelDatosGenerales = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -207,21 +209,19 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         btnCancelar.setBackground(new java.awt.Color(83, 178, 167));
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(0, 0, 0));
-        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/regresar.png"))); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon("C:\\POO\\NetBeansProjects\\repo\\SCA-SocioEconomico\\src\\Imagenes\\regresar.png")); // NOI18N
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
 
-        btnGuardar.setBackground(new java.awt.Color(153, 255, 153));
-        btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
-        btnGuardar.setText("Llenar Formulario");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        btnFormulario.setBackground(new java.awt.Color(102, 153, 255));
+        btnFormulario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnFormulario.setText("Ingresar al Formulario");
+        btnFormulario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                btnFormularioActionPerformed(evt);
             }
         });
 
@@ -232,17 +232,17 @@ public class VerSolicitud extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 514, Short.MAX_VALUE)
-                .addComponent(btnGuardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 489, Short.MAX_VALUE)
+                .addComponent(btnFormulario)
                 .addGap(19, 19, 19))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -267,7 +267,6 @@ public class VerSolicitud extends javax.swing.JFrame {
         panelDatosGenerales.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Formato Solicitud");
         panelDatosGenerales.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, -1, 20));
 
@@ -275,13 +274,11 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Fecha:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         campoMotivo.setBackground(new java.awt.Color(195, 210, 197));
         campoMotivo.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoMotivo.setForeground(new java.awt.Color(0, 0, 0));
         campoMotivo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoMotivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -292,13 +289,11 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Estatus:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
 
         campoEstatus.setBackground(new java.awt.Color(195, 210, 197));
         campoEstatus.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoEstatus.setForeground(new java.awt.Color(0, 0, 0));
         campoEstatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoEstatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,13 +304,11 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Nombre:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         campoMatricula.setBackground(new java.awt.Color(195, 210, 197));
         campoMatricula.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoMatricula.setForeground(new java.awt.Color(0, 0, 0));
         campoMatricula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -326,19 +319,16 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Matricula:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Grupo:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, -1));
 
         campoGrupo.setBackground(new java.awt.Color(195, 210, 197));
         campoGrupo.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoGrupo.setForeground(new java.awt.Color(0, 0, 0));
         campoGrupo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoGrupo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -349,13 +339,11 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Carrera:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         campoNombre.setBackground(new java.awt.Color(195, 210, 197));
         campoNombre.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoNombre.setForeground(new java.awt.Color(0, 0, 0));
         campoNombre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         campoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,13 +354,11 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Canaliza:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 80, -1));
 
         campoCanaliza.setBackground(new java.awt.Color(195, 210, 197));
         campoCanaliza.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoCanaliza.setForeground(new java.awt.Color(0, 0, 0));
         campoCanaliza.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         campoCanaliza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -383,19 +369,16 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jLabel10.setBackground(new java.awt.Color(0, 0, 0));
         jLabel10.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Argumentacion:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, 20));
 
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
         jLabel11.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Familiar:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
 
         campoFamiliar.setBackground(new java.awt.Color(195, 210, 197));
         campoFamiliar.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoFamiliar.setForeground(new java.awt.Color(0, 0, 0));
         campoFamiliar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         campoFamiliar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -406,7 +389,6 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         campoTelefonoFamiliar.setBackground(new java.awt.Color(195, 210, 197));
         campoTelefonoFamiliar.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoTelefonoFamiliar.setForeground(new java.awt.Color(0, 0, 0));
         campoTelefonoFamiliar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoTelefonoFamiliar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -417,19 +399,16 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
         jLabel12.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Motivo:");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, -1, -1));
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
         jLabel13.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Telefono Familiar:");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 120, -1));
 
         campoTelefono.setBackground(new java.awt.Color(195, 210, 197));
         campoTelefono.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoTelefono.setForeground(new java.awt.Color(0, 0, 0));
         campoTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -440,14 +419,12 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Telefono:");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
         campoArgumentacion.setBackground(new java.awt.Color(195, 210, 197));
         campoArgumentacion.setColumns(20);
         campoArgumentacion.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoArgumentacion.setForeground(new java.awt.Color(0, 0, 0));
         campoArgumentacion.setRows(5);
         jScrollPane1.setViewportView(campoArgumentacion);
 
@@ -455,7 +432,6 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         campoCarrera.setBackground(new java.awt.Color(195, 210, 197));
         campoCarrera.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoCarrera.setForeground(new java.awt.Color(0, 0, 0));
         campoCarrera.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         campoCarrera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -466,13 +442,11 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jLabel15.setBackground(new java.awt.Color(0, 0, 0));
         jLabel15.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Tipo:");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, -1, -1));
 
         campoTipo.setBackground(new java.awt.Color(195, 210, 197));
         campoTipo.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoTipo.setForeground(new java.awt.Color(0, 0, 0));
         campoTipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -483,7 +457,6 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         campoFecha.setBackground(new java.awt.Color(195, 210, 197));
         campoFecha.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        campoFecha.setForeground(new java.awt.Color(0, 0, 0));
         campoFecha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -511,10 +484,49 @@ public class VerSolicitud extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFormularioActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_btnGuardarActionPerformed
+        try{
+        Conexion conexion = new Conexion();
+        Connection con = conexion.con;
+        
+        String sql = "SELECT estatus, estatusNotificado FROM atencion WHERE idSolicitud = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, idSolicitud);
+        ResultSet datos = ps.executeQuery();
+        
+        
+        if(datos.next()){
+            String estatus = datos.getString("estatus");
+            String estatusNotificado = datos.getString("estatusNotificado");
+            if((estatus.equals("3") || estatus.equals("4")) && estatusNotificado.equals("1")){
+                //aqui queda pendiente para hacer una instancia a una pantalla de atencion completada
+                
+            }else{
+                String id = Integer.toString(idSolicitud);
+                EditarAtencion editar = new EditarAtencion(id);
+                editar.setVisible(true);
+                editar.setLocationRelativeTo(null);
+                //cambiamos de pantalla
+                dispose();
+            }
+        }else{
+                String id = Integer.toString(idSolicitud);
+                EditarAtencion editar = new EditarAtencion(id);
+                editar.setVisible(true);
+                editar.setLocationRelativeTo(null);
+                //cambiamos de pantalla
+                dispose();
+        }
+        datos.close();
+        ps.close();
+        con.close();
+        
+        }catch(Exception e){
+            showMessageDialog(null, "Error al cambiar de pantalla" + e.getMessage());
+        }
+    }//GEN-LAST:event_btnFormularioActionPerformed
 
     private void campoMotivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoMotivoActionPerformed
         // TODO add your handling code here:
@@ -590,12 +602,12 @@ public class VerSolicitud extends javax.swing.JFrame {
             e.printStackTrace();
         }
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new VerSolicitud("login",1).setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new VerSolicitud("login", 3).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnFormulario;
     private javax.swing.JTextArea campoArgumentacion;
     private javax.swing.JTextField campoCanaliza;
     private javax.swing.JTextField campoCarrera;
