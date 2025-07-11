@@ -39,8 +39,23 @@ public class CrearEstudiante extends javax.swing.JFrame {
     public CrearEstudiante() {
         initComponents();
         CargarCarreras();
+        DarEstilos();
         
-           }     
+        
+           }  
+    public void DarEstilos(){
+        
+      txtNombre.putClientProperty("JComponent.roundRect", true);
+      
+      txtMatricula.putClientProperty("JComponent.roundRect", true);
+      
+      txtGrupo.putClientProperty("JComponent.roundRect", true);
+      
+      //comboboxCarrera.putClientProperty("JComponent.roundRect", true);
+      
+      
+
+    }
     public void CargarCarreras() {
         try {
             String sql = "SELECT idCarrera, nombreCarrera, nivelCarrera, estatusCarrera FROM carrera";
@@ -352,11 +367,21 @@ public class CrearEstudiante extends javax.swing.JFrame {
             guardar.close();
             
             JOptionPane.showMessageDialog(null, "Guardado");
+
+            /*VisualizarEstudiante perfil = new VisualizarEstudiante();
+            //Indicamos que se hace visible
+            perfil.setVisible(true);
+            //cerramos esta ventana
+            dispose();
+            //[Este es para mostrar la ventanta del perfil del estudiante creado, faltan ajustes]*/
+
+
             
             VisualizarEstudiante ve = new VisualizarEstudiante(idAlumnoGenerado);
             ve.setVisible(true);
             this.dispose();
             
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e + "No guardado");
         }
@@ -433,45 +458,5 @@ public class CrearEstudiante extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 
-    /*private void cargarcombo(JComboBox c) {
-        DefaultComboBoxModel combo=new DefaultComboBoxModel();
-        c.setModel(combo);
-        Lista_carreras lc=new Lista_carreras();
-        try{
-            Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("SELECT nombreCarrera FROM carrera;");
-            while (rs.next()){
-                Carrera car=new Carrera();
-                car.setNombreCarrera(rs.getString(1));
-                lc.AgregarCarreras(car);
-                combo.addElement(car.getNombreCarrera());
-                System.out.println("Exito");
-            }
-                
-        } catch (Exception e){
-            System.out.println("Fallo");
-        }
-    }*/
-   /* private void cargarcombo(JComboBox c) {
-    DefaultComboBoxModel combo = new DefaultComboBoxModel();
-    c.setModel(combo);
-
-    // Lista_carreras y Carrera deberían estar bien definidos
-    Lista_carreras lc = new Lista_carreras();
-
-    try {
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("SELECT nombreCarrera FROM carrera;");
-        while (rs.next()) {
-            Carrera car = new Carrera();
-            car.setNombreCarrera(rs.getString(1));
-            lc.AgregarCarreras(car);
-            combo.addElement(car.getNombreCarrera());
-            System.out.println("Éxito");
-        }
-    } catch (Exception e) {
-        System.out.println("Fallo: " + e);
-    }
-} */
 
 }
