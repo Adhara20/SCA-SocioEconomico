@@ -3,14 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
-
-import clases.Carrera;
 import clases.Conexion;
-import clases.Estudiante;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -21,17 +16,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author jobno
  */
-public class MenuEstudiantes extends javax.swing.JFrame {
+public class MenuAtenciones extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuEstudiantes.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuAtenciones.class.getName());
 
     /**
      * Creates new form MenuEstudiantes
      */
-    public MenuEstudiantes() {
+    public MenuAtenciones() {
         initComponents();
         DarEstilos();
-        mostrarEstudiante();
     }
     
     public void DarEstilos(){
@@ -41,9 +35,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
     }
     
-
-    public void mostrarEstudiante(){
-
+    public void mostrarUsuario(){
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Matricula");
         modelo.addColumn("Estudiante");
@@ -55,31 +47,8 @@ public class MenuEstudiantes extends javax.swing.JFrame {
             Conexion conexion = new Conexion();
             Connection con = conexion.con;
             
-
-            String sql = "SELECT a.*,c.nombreCarrera FROM alumno a INNER JOIN carrera c ON a.idCarrera=c.idCarrera;";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet datos = ps.executeQuery();
-            while(datos.next()){
-            String matricula = datos.getString("matricula");
-            String estudiante = datos.getString("nombreAlumno");
-            String carrera = datos.getString("nombreCarrera");
-            String grupo = datos.getString("grupo");
-            String fecha = datos.getString("fechaRegistro");
-            Estudiante alumno = new Estudiante(matricula, estudiante, grupo, fecha);
-            Carrera carreras = new Carrera(carrera);
-                
-            
-            modelo.addRow(new Object[]{
-            alumno.getMatricula(),
-            alumno.getNombre(),
-            carreras.getNombreCarrera(),
-            alumno.getGrupo(),
-            alumno.getFechaRegistro()
-            });
-            }
-            tabla_estudiantes.setModel(modelo);
-            
-
+            String sql = "";
+        
         }catch(Exception e){
             showMessageDialog(null, "Error al cargar los datos" + e.getMessage());
         }
@@ -99,12 +68,12 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        botonAtenciones = new javax.swing.JButton();
-        botonSolicitudes = new javax.swing.JButton();
-        botonEstudiantes = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         campoBusqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabla_estudiantes = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -144,39 +113,38 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(168, 204, 193));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        botonAtenciones.setBackground(new java.awt.Color(204, 204, 204));
-        botonAtenciones.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        botonAtenciones.setText("Atenciones");
-        botonAtenciones.setMargin(new java.awt.Insets(2, 0, 3, 0));
-        botonAtenciones.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setBackground(new java.awt.Color(80, 80, 80));
+        jButton2.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Atenciones");
+        jButton2.setMargin(new java.awt.Insets(2, 0, 3, 0));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAtencionesActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(botonAtenciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 100, 27));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 100, 27));
 
-        botonSolicitudes.setBackground(new java.awt.Color(204, 204, 204));
-        botonSolicitudes.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        botonSolicitudes.setText("Solicitudes");
-        botonSolicitudes.setMargin(new java.awt.Insets(2, 0, 3, 0));
-        botonSolicitudes.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        jButton1.setText("Solicitudes");
+        jButton1.setMargin(new java.awt.Insets(2, 0, 3, 0));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonSolicitudesActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(botonSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 100, 27));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 100, 27));
 
-        botonEstudiantes.setBackground(new java.awt.Color(80, 80, 80));
-        botonEstudiantes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botonEstudiantes.setForeground(new java.awt.Color(255, 255, 255));
-        botonEstudiantes.setText("Estudiantes");
-        botonEstudiantes.setMargin(new java.awt.Insets(2, 0, 3, 0));
-        botonEstudiantes.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setBackground(new java.awt.Color(204, 204, 204));
+        jButton4.setText("Estudiantes");
+        jButton4.setMargin(new java.awt.Insets(2, 0, 3, 0));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonEstudiantesActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
-        jPanel2.add(botonEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, -1));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, -1));
 
         campoBusqueda.setFont(new java.awt.Font("Poppins Medium", 0, 10)); // NOI18N
         campoBusqueda.setForeground(new java.awt.Color(102, 102, 102));
@@ -185,7 +153,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 720, 23));
 
-        tabla_estudiantes.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -196,7 +164,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
                 "Matricula", "Estudiante", "Carrera", "Grupo", "Fecha de Registro"
             }
         ));
-        jScrollPane1.setViewportView(tabla_estudiantes);
+        jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 720, 430));
 
@@ -214,17 +182,17 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonAtencionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtencionesActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botonAtencionesActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void botonSolicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSolicitudesActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botonSolicitudesActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void botonEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEstudiantesActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botonEstudiantesActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,19 +223,19 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        java.awt.EventQueue.invokeLater(() -> new MenuEstudiantes().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new MenuAtenciones().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonAtenciones;
-    private javax.swing.JButton botonEstudiantes;
-    private javax.swing.JButton botonSolicitudes;
     private javax.swing.JTextField campoBusqueda;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabla_estudiantes;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

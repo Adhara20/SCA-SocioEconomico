@@ -3,85 +3,114 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
-
-import clases.Carrera;
 import clases.Conexion;
 import clases.Estudiante;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
+import clases.Solicitud;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 
 
 /**
  *
  * @author jobno
  */
-public class MenuEstudiantes extends javax.swing.JFrame {
+public class MenuSolicitudes extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuEstudiantes.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuSolicitudes.class.getName());
 
     /**
      * Creates new form MenuEstudiantes
      */
-    public MenuEstudiantes() {
+    public MenuSolicitudes() {
         initComponents();
         DarEstilos();
-        mostrarEstudiante();
+        mostrarListaSolicitudes();/*Mandar a llamar la función para mostrar 
+        la lista de solicitudes que haya guardadas*/
     }
     
-    public void DarEstilos(){
+    public void DarEstilos(){/*A toda está función de DarEstilos
+        no le moví nadita*/
         
         campoBusqueda.putClientProperty("Component.arc",      20);
         campoBusqueda.putClientProperty("JComponent.roundRect", true);
 
     }
     
-
-    public void mostrarEstudiante(){
-
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Matricula");
+    public void mostrarListaSolicitudes(){/* Es la función 
+        para mostra la lista*/
+        DefaultTableModel modelo = new DefaultTableModel();/*
+        Sepa para que sea, pero se queda*/
+        modelo.addColumn("Fecha de Elaboracio");
+        /*Le pones la primera columna que tengas en la tablá*/
         modelo.addColumn("Estudiante");
-        modelo.addColumn("Carrera");
-        modelo.addColumn("Grupo");
-        modelo.addColumn("Fecha Registro");
+        modelo.addColumn("Estatus");
+        modelo.addColumn("Motivo");
+        /*Pones el resto de campos, misma sintaxis modelo.addColumn("")*/
         
+        //Inicias el try, yo copie y pegué del de Tareas
         try {
             Conexion conexion = new Conexion();
             Connection con = conexion.con;
+            //Se queda igual
             
-
-            String sql = "SELECT a.*,c.nombreCarrera FROM alumno a INNER JOIN carrera c ON a.idCarrera=c.idCarrera;";
+            //De aquí...
+            String sql = "SELECT s.idSolicitud, s.fecha, a.idAlumno, a.nombreAlumno, s.estatus, s.motivo FROM alumno a INNER JOIN solicitud s WHERE a.idAlumno=s.idAlumno;";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet datos = ps.executeQuery();
-            while(datos.next()){
-            String matricula = datos.getString("matricula");
-            String estudiante = datos.getString("nombreAlumno");
-            String carrera = datos.getString("nombreCarrera");
-            String grupo = datos.getString("grupo");
-            String fecha = datos.getString("fechaRegistro");
-            Estudiante alumno = new Estudiante(matricula, estudiante, grupo, fecha);
-            Carrera carreras = new Carrera(carrera);
+            while (datos.next()){//a aquí se queda igual,
+                //solo adaptas la consulta
+                int idSolicitud = datos.getInt("idSolicitud");
+                /*Mando a llamar el id de la solicitud, sería el id
+                de lo que quieras mandar a llamar, depende el orden 
+                del constructor en la clase creo*/
+                String fecha = datos.getString("fecha");
+                int idAlumno = datos.getInt("idAlumno");
+                String nombreAlumno = datos.getString("nombreAlumno");
+                //Pongo el resto de datos
                 
-            
-            modelo.addRow(new Object[]{
-            alumno.getMatricula(),
-            alumno.getNombre(),
-            carreras.getNombreCarrera(),
-            alumno.getGrupo(),
-            alumno.getFechaRegistro()
+                /*Este es para cuando tengo un CHAR, ejemplo, 1 y para
+                decir que 1 sea equivalente a algo como "Socioeconomico"
+                y es lo que me va a mostrar*/
+                String estatus1 = datos.getString("estatus");
+                String estatus;
+                if(estatus1.equals("1")){
+                    estatus = "Pendiente";
+                }else{
+                    estatus = "Completada";
+                };
+                //Mismo ejemplo  que el anterior pero con motivo
+                String motivo = datos.getString("motivo");
+                if(motivo == "1"){
+                    motivo = "Socioeconomico";
+                }else if (motivo == "2"){
+                    motivo = "Salud";
+                }else{
+                    motivo = "Familiar";
+                };
+                
+                //Aqui se que tiene que ver con las clases que utilicez
+                Estudiante est = new Estudiante(idAlumno, nombreAlumno);
+                Solicitud soli = new Solicitud(idSolicitud, nombreAlumno, fecha, estatus, motivo);
+                //
+                modelo.addRow(new Object[]{
+                soli.getFecha(),
+                est.getNombre(),
+                soli.getEstatus(),
+                soli.getMotivo(),
+                
             });
             }
-            tabla_estudiantes.setModel(modelo);
-            
-
+        tabla_solicitudes.setModel(modelo);
         }catch(Exception e){
-            showMessageDialog(null, "Error al cargar los datos" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al cargar los datos"+e.getMessage());
         }
             
         };
@@ -104,7 +133,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         botonEstudiantes = new javax.swing.JButton();
         campoBusqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabla_estudiantes = new javax.swing.JTable();
+        tabla_solicitudes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -155,8 +184,9 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         });
         jPanel2.add(botonAtenciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 100, 27));
 
-        botonSolicitudes.setBackground(new java.awt.Color(204, 204, 204));
-        botonSolicitudes.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        botonSolicitudes.setBackground(new java.awt.Color(80, 80, 80));
+        botonSolicitudes.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        botonSolicitudes.setForeground(new java.awt.Color(255, 255, 255));
         botonSolicitudes.setText("Solicitudes");
         botonSolicitudes.setMargin(new java.awt.Insets(2, 0, 3, 0));
         botonSolicitudes.addActionListener(new java.awt.event.ActionListener() {
@@ -166,9 +196,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         });
         jPanel2.add(botonSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 100, 27));
 
-        botonEstudiantes.setBackground(new java.awt.Color(80, 80, 80));
-        botonEstudiantes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botonEstudiantes.setForeground(new java.awt.Color(255, 255, 255));
+        botonEstudiantes.setBackground(new java.awt.Color(204, 204, 204));
         botonEstudiantes.setText("Estudiantes");
         botonEstudiantes.setMargin(new java.awt.Insets(2, 0, 3, 0));
         botonEstudiantes.addActionListener(new java.awt.event.ActionListener() {
@@ -185,18 +213,18 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 720, 23));
 
-        tabla_estudiantes.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_solicitudes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Matricula", "Estudiante", "Carrera", "Grupo", "Fecha de Registro"
+                "Fecha de Elaboracion", "Estudiante", "Motivo", "Estatus"
             }
         ));
-        jScrollPane1.setViewportView(tabla_estudiantes);
+        jScrollPane1.setViewportView(tabla_solicitudes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 720, 430));
 
@@ -255,7 +283,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        java.awt.EventQueue.invokeLater(() -> new MenuEstudiantes().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new MenuSolicitudes().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -268,6 +296,6 @@ public class MenuEstudiantes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabla_estudiantes;
+    private javax.swing.JTable tabla_solicitudes;
     // End of variables declaration//GEN-END:variables
 }

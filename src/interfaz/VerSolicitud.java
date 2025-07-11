@@ -9,7 +9,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.swing.JOptionPane;
+
 
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
@@ -22,12 +22,16 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class VerSolicitud extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VerSolicitud.class.getName());
+
     int idSolicitud;
+
     /**
      * Creates new form verSolicitud
      */
     public VerSolicitud(String regresa,int idSoli ) {
+
         idSolicitud = idSoli;
+
         initComponents();
         darEstilos();
         cargarDatos(idSoli);
@@ -93,7 +97,9 @@ public class VerSolicitud extends javax.swing.JFrame {
                 
                 String estatus1 = datos.getString("estatus");
                 String estatus;
+
                 if(estatus1.equals("0")){
+
                     estatus = "Pendiente";
                 }else{
                     estatus = "Completada";
@@ -110,9 +116,11 @@ public class VerSolicitud extends javax.swing.JFrame {
                 campoGrupo.setText(grupo);
                 
                 String motivo = datos.getString("motivo");
+
                 if(motivo.equals("1")){
                     motivo = "Socioeconomico";
                 }else if (motivo.equals("2")){
+
                     motivo = "Salud";
                 }else{
                     motivo = "Familiar";
@@ -135,9 +143,11 @@ public class VerSolicitud extends javax.swing.JFrame {
                 campoTelefonoFamiliar.setText(telefonoFamiliar);
                 
                 String tipo =  datos.getString("tipo");
+
                 if(tipo.equals("1")){
                     tipo = "Llamada";
                 }else if (tipo.equals("2")){
+
                     tipo = "Oficina";
                 }else{
                    tipo = "Visita";
@@ -167,8 +177,10 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+
         btnCancelar = new javax.swing.JButton();
         btnFormulario = new javax.swing.JButton();
+
         jPanel4 = new javax.swing.JPanel();
         panelDatosGenerales = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -207,6 +219,7 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(43, 138, 127));
 
+
         btnCancelar.setBackground(new java.awt.Color(83, 178, 167));
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCancelar.setIcon(new javax.swing.ImageIcon("C:\\POO\\NetBeansProjects\\repo\\SCA-SocioEconomico\\src\\Imagenes\\regresar.png")); // NOI18N
@@ -222,6 +235,7 @@ public class VerSolicitud extends javax.swing.JFrame {
         btnFormulario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFormularioActionPerformed(evt);
+
             }
         });
 
@@ -231,9 +245,11 @@ public class VerSolicitud extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
+
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 489, Short.MAX_VALUE)
                 .addComponent(btnFormulario)
+
                 .addGap(19, 19, 19))
         );
         jPanel3Layout.setVerticalGroup(
@@ -241,8 +257,10 @@ public class VerSolicitud extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+
                 .addContainerGap())
         );
 
@@ -479,6 +497,7 @@ public class VerSolicitud extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
 
@@ -527,6 +546,7 @@ public class VerSolicitud extends javax.swing.JFrame {
             showMessageDialog(null, "Error al cambiar de pantalla" + e.getMessage());
         }
     }//GEN-LAST:event_btnFormularioActionPerformed
+
 
     private void campoMotivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoMotivoActionPerformed
         // TODO add your handling code here:
@@ -602,12 +622,14 @@ public class VerSolicitud extends javax.swing.JFrame {
             e.printStackTrace();
         }
         /* Create and display the form */
+
         java.awt.EventQueue.invokeLater(() -> new VerSolicitud("login", 3).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnFormulario;
+
     private javax.swing.JTextArea campoArgumentacion;
     private javax.swing.JTextField campoCanaliza;
     private javax.swing.JTextField campoCarrera;

@@ -16,7 +16,9 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-/** 
+
+/**
+
  *
  * @author jobno
  */
@@ -29,6 +31,7 @@ public class CrearSolicitud extends javax.swing.JFrame {
     /**
      * Creates new form RegistrarAlumno
      */
+
     public CrearSolicitud(String regresa1,String idAlumno) {
         regresa = regresa1;
         id = idAlumno;
@@ -209,10 +212,12 @@ public class CrearSolicitud extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+
                 .addContainerGap(530, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
                 .addGap(18, 18, 18)
                 .addComponent(btnGuardar)
+
                 .addGap(19, 19, 19))
         );
         jPanel3Layout.setVerticalGroup(
@@ -495,9 +500,11 @@ public class CrearSolicitud extends javax.swing.JFrame {
         // TODO add your handling code here:
         String idAlumno = id;
         String motivo = (String) comboMotivo.getSelectedItem();
+
         if(motivo.equals("Socioeconomico")){
             motivo = "1";
         }else if (motivo.equals("Salud")){
+
             motivo = "2";
         }else{
             motivo = "3";
@@ -508,9 +515,11 @@ public class CrearSolicitud extends javax.swing.JFrame {
         String familiar = campoFamiliar.getText();
         String telefonoFamiliar = campoTelefonoFamiliar.getText();
         String tipo = (String) comboTipo.getSelectedItem();
+
         if(tipo.equals("Llamada")){
             tipo = "1";
         }else if(tipo.equals("Oficina") ){
+
             tipo = "2";
         }else{
             tipo = "3";
@@ -522,12 +531,16 @@ public class CrearSolicitud extends javax.swing.JFrame {
             showMessageDialog(null, "Guardado" );
             
             int idSoli = ConocerIdSolicitud();
+
             VerSolicitud soli = new VerSolicitud(regresa,idSoli);
+
             soli.setVisible(true);
             soli.setLocationRelativeTo(null);
             //cambiamos de pantalla
             dispose();
+
         }
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
@@ -557,7 +570,9 @@ public class CrearSolicitud extends javax.swing.JFrame {
         }
         
         /* Create and display the form */
+
         java.awt.EventQueue.invokeLater(() -> new CrearSolicitud( "anterior" ,"1").setVisible(true));
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
