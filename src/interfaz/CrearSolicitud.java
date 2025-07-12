@@ -94,12 +94,16 @@ public class CrearSolicitud extends javax.swing.JFrame {
                 campoEstatus.putClientProperty("JComponent.roundRect", true);
                 campoEstatus.setEditable(false);
                 campoNombre.putClientProperty("JComponent.roundRect", true);
+                campoNombre.setEditable(false);
                 
                 campoMatricula.putClientProperty("JComponent.roundRect", true);
+                campoMatricula.setEditable(false);
                 
                 campoGrupo.putClientProperty("JComponent.roundRect", true);
+                campoGrupo.setEditable(false);
                 
                 campoCarrera.putClientProperty("JComponent.roundRect", true);
+                campoCarrera.setEditable(false);
                 
                 campoCanaliza.putClientProperty("JComponent.roundRect", true);
                 
