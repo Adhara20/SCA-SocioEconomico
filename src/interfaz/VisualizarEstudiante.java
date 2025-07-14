@@ -20,12 +20,16 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class VisualizarEstudiante extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VisualizarEstudiante.class.getName());
+    String idAl;
+    
    
 
     /**
      * Creates new form MenuEstudiantes
      */
     public VisualizarEstudiante(int idAlumno) {
+        int idAlu=idAlumno;
+        idAl=Integer.toString(idAlu);
         initComponents();
         cargarDatos(idAlumno);
         DarEstilos();
@@ -86,9 +90,8 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        botonCrearSoli = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
@@ -113,6 +116,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         txtMatricula = new javax.swing.JTextField();
         txtGrupo = new javax.swing.JTextField();
         txtCarrera = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
 
         jPanel8.setBackground(new java.awt.Color(204, 204, 204));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,44 +143,34 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(43, 138, 127));
-
-        jButton1.setBackground(new java.awt.Color(102, 255, 51));
-        jButton1.setText("Crear solicitud");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(570, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(86, 86, 86))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-        );
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, -1, -1));
-
         jPanel4.setBackground(new java.awt.Color(43, 138, 127));
+
+        botonCrearSoli.setBackground(new java.awt.Color(102, 153, 255));
+        botonCrearSoli.setText("Crear solicitud");
+        botonCrearSoli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCrearSoliActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(598, Short.MAX_VALUE)
+                .addComponent(botonCrearSoli)
+                .addGap(16, 16, 16))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botonCrearSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -284,6 +278,21 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         txtCarrera.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(txtCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 90, -1));
 
+        jPanel5.setBackground(new java.awt.Color(43, 138, 127));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -292,11 +301,22 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonCrearSoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearSoliActionPerformed
+     CrearSolicitud crearSoli= new CrearSolicitud("VisualizarEstudiante",idAl);
+     crearSoli.setVisible(true);
+     crearSoli.setLocationRelativeTo(null);
+     dispose();
+     
+
+    }//GEN-LAST:event_botonCrearSoliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,7 +351,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botonCrearSoli;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -353,8 +373,8 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
