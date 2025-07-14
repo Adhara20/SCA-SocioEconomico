@@ -251,18 +251,18 @@ public class VerFormulario extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(43, 138, 127));
 
-        jButton2.setBackground(new java.awt.Color(188, 29, 42));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setText("Guardar");
+        jButton2.setBackground(new java.awt.Color(255, 102, 102));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton2.setText("Cancelar");
         jButton2.setBorderPainted(false);
 
-        jButton3.setBackground(new java.awt.Color(63, 164, 218));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(102, 153, 255));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton3.setText("Completar formulario");
         jButton3.setBorderPainted(false);
 
-        jButton4.setBackground(new java.awt.Color(46, 212, 40));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton4.setBackground(new java.awt.Color(153, 255, 153));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton4.setText("Guardar");
         jButton4.setBorderPainted(false);
 
