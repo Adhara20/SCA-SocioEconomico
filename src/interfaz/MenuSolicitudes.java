@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import clases.Solicitud;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
@@ -34,6 +35,7 @@ public class MenuSolicitudes extends javax.swing.JFrame {
         DarEstilos();
         mostrarListaSolicitudes();/*Mandar a llamar la función para mostrar 
         la lista de solicitudes que haya guardadas*/
+        
     }
     
     public void DarEstilos(){/*A toda está función de DarEstilos
@@ -65,6 +67,8 @@ public class MenuSolicitudes extends javax.swing.JFrame {
             String sql = "SELECT s.idSolicitud, s.fecha, a.idAlumno, a.nombreAlumno, s.estatus, s.motivo FROM alumno a INNER JOIN solicitud s WHERE a.idAlumno=s.idAlumno;";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet datos = ps.executeQuery();
+            ArrayList<Solicitud> datosSolicitud = new ArrayList<>();
+            
             while (datos.next()){//a aquí se queda igual,
                 //solo adaptas la consulta
                 int idSolicitud = datos.getInt("idSolicitud");
@@ -107,8 +111,25 @@ public class MenuSolicitudes extends javax.swing.JFrame {
                 soli.getMotivo(),
                 
             });
+                datosSolicitud.add(soli);
             }
         tabla_solicitudes.setModel(modelo);
+        tabla_solicitudes.addMouseListener(new java.awt.event.MouseAdapter(){
+            public void mouseClicked(java.awt.event.MouseEvent evt){
+            //La fila que seleccione
+            int row =tabla_solicitudes.rowAtPoint(evt.getPoint());
+            //La columna que seleccione
+            int col =tabla_solicitudes.columnAtPoint(evt.getPoint());
+
+            if((col==0)||(col==1)||(col==2)||(col==3)){
+                Solicitud soli= datosSolicitud.get(row);
+                int id = soli.getIdSolicitud();
+                VerSolicitud o = new VerSolicitud("menu 1", id);
+                o.setVisible(true);
+                dispose();//Cierra la pantalla actual
+            }
+        }
+        });
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error al cargar los datos"+e.getMessage());
         }
@@ -285,7 +306,7 @@ public class MenuSolicitudes extends javax.swing.JFrame {
         }
         java.awt.EventQueue.invokeLater(() -> new MenuSolicitudes().setVisible(true));
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAtenciones;
     private javax.swing.JButton botonEstudiantes;

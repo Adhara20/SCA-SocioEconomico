@@ -5,6 +5,7 @@
 package interfaz;
 
 import clases.Conexion;
+import clases.Solicitud;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,6 +25,8 @@ public class VerSolicitud extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VerSolicitud.class.getName());
 
     int idSolicitud;
+    //Solicitud solic;
+    
 
     /**
      * Creates new form verSolicitud
@@ -31,6 +34,7 @@ public class VerSolicitud extends javax.swing.JFrame {
     public VerSolicitud(String regresa,int idSoli ) {
 
         idSolicitud = idSoli;
+        //this.solic = soli;
 
         initComponents();
         darEstilos();

@@ -4,6 +4,7 @@
  */
 package interfaz;
 import clases.Conexion;
+import clases.Estudiante;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
