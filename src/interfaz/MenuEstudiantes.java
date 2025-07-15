@@ -196,6 +196,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
                 "Matricula", "Estudiante", "Carrera", "Grupo", "Fecha de Registro"
             }
         ));
+        tabla_estudiantes.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(tabla_estudiantes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 720, 430));

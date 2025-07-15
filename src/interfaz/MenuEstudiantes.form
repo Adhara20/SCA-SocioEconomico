@@ -220,6 +220,7 @@
                     <Column editable="true" title="Fecha de Registro" type="java.lang.Object"/>
                   </Table>
                 </Property>
+                <Property name="columnSelectionAllowed" type="boolean" value="true"/>
               </Properties>
             </Component>
           </SubComponents>
