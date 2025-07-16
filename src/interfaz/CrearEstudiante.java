@@ -220,7 +220,7 @@ public class CrearEstudiante extends javax.swing.JFrame {
                 comboboxCarreraActionPerformed(evt);
             }
         });
-        jPanel1.add(comboboxCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 130, -1));
+        jPanel1.add(comboboxCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 230, -1));
 
         jPanel9.setBackground(new java.awt.Color(204, 204, 204));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -243,7 +243,7 @@ public class CrearEstudiante extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablaHistorial);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 720, 60));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 720, 90));
 
         jPanel15.setBackground(new java.awt.Color(204, 204, 204));
         jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -266,16 +266,16 @@ public class CrearEstudiante extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tablaSolicitudes);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 720, 60));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 720, 130));
 
         txtNombre.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 150, -1));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 160, -1));
 
         txtMatricula.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 90, -1));
+        jPanel1.add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 100, -1));
 
         txtGrupo.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(txtGrupo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 110, -1));
+        jPanel1.add(txtGrupo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 80, -1));
 
         jPanel5.setBackground(new java.awt.Color(43, 138, 127));
 
