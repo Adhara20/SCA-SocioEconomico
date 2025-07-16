@@ -11,6 +11,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -59,13 +60,16 @@ public class MenuEstudiantes extends javax.swing.JFrame {
             String sql = "SELECT a.*,c.nombreCarrera FROM alumno a INNER JOIN carrera c ON a.idCarrera=c.idCarrera;";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet datos = ps.executeQuery();
+            ArrayList<Estudiante> datosEstudiante = new ArrayList<>();
+            
             while(datos.next()){
+            int id= datos.getInt("idAlumno");
             String matricula = datos.getString("matricula");
             String estudiante = datos.getString("nombreAlumno");
             String carrera = datos.getString("nombreCarrera");
             String grupo = datos.getString("grupo");
             String fecha = datos.getString("fechaRegistro");
-            Estudiante alumno = new Estudiante(matricula, estudiante, grupo, fecha);
+            Estudiante alumno = new Estudiante( id, matricula, estudiante, grupo, fecha);
             Carrera carreras = new Carrera(carrera);
                 
             
@@ -76,10 +80,26 @@ public class MenuEstudiantes extends javax.swing.JFrame {
             alumno.getGrupo(),
             alumno.getFechaRegistro()
             });
+            datosEstudiante.add(alumno);
             }
             tabla_estudiantes.setModel(modelo);
-            
+            tabla_estudiantes.addMouseListener(new java.awt.event.MouseAdapter(){
+            public void mouseClicked(java.awt.event.MouseEvent evt){
+            //La fila que seleccione
+            int row =tabla_estudiantes.rowAtPoint(evt.getPoint());
+            //La columna que seleccione
+            int col =tabla_estudiantes.columnAtPoint(evt.getPoint());
 
+            if((col==0)||(col==1)||(col==2)||(col==3)||(col==4)){
+                Estudiante alumno= datosEstudiante.get(row);
+                int idE = alumno.getId();
+                VisualizarEstudiante o = new VisualizarEstudiante(idE);
+                o.setVisible(true);
+                dispose();//Cierra la pantalla actual
+            }
+        }
+        });
+            
         }catch(Exception e){
             showMessageDialog(null, "Error al cargar los datos" + e.getMessage());
         }

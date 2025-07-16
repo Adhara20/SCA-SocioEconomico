@@ -36,6 +36,16 @@ public class Estudiante {
         this.grupo = grupo;
         this.fechaRegistro = fechaRegistro;
     }
+
+    public Estudiante(int id, String nombre, String matricula, String grupo, String fechaRegistro) {
+        this.id = id;
+        this.nombre = nombre;
+        this.matricula = matricula;
+        this.grupo = grupo;
+        this.fechaRegistro = fechaRegistro;
+    }
+    //Menu estudiantes.
+    
    
    
 
