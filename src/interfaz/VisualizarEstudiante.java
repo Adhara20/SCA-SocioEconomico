@@ -46,9 +46,8 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         Sepa para que sea, pero se queda*/
         modelo.addColumn("Fecha de Elaboracio");
         /*Le pones la primera columna que tengas en la tablá*/
-        modelo.addColumn("Estudiante");
-        modelo.addColumn("Estatus");
         modelo.addColumn("Motivo");
+        modelo.addColumn("Estatus");
         /*Pones el resto de campos, misma sintaxis modelo.addColumn("")*/
         
         //Inicias el try, yo copie y pegué del de Tareas
@@ -86,9 +85,9 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
                 };
                 //Mismo ejemplo  que el anterior pero con motivo
                 String motivo = datos.getString("motivo");
-                if(motivo == "1"){
+                if(motivo.equals("1") ){
                     motivo = "Socioeconomico";
-                }else if (motivo == "2"){
+                }else if (motivo.equals("2") ){
                     motivo = "Salud";
                 }else{
                     motivo = "Familiar";
@@ -101,9 +100,8 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
                 modelo.addRow(new Object[]{
                 soli.getFecha(),
                 //est.getNombre(),
-                soli.getEstatus(),
                 soli.getMotivo(),
-                
+                soli.getEstatus(),
             });
                 datosSolicitud.add(soli);
             }
@@ -441,7 +439,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        //java.awt.EventQueue.invokeLater(() -> new VisualizarEstudiante().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new VisualizarEstudiante(1).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
