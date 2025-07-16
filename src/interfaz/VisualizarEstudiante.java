@@ -5,13 +5,17 @@
 package interfaz;
 import clases.Conexion;
 import clases.Estudiante;
+import clases.Solicitud;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -34,8 +38,97 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         initComponents();
         cargarDatos(idAlumno);
         DarEstilos();
+        mostrarListaSolicitudes();
     }
-    
+    public void mostrarListaSolicitudes(){/* Es la función 
+        para mostra la lista*/
+        DefaultTableModel modelo = new DefaultTableModel();/*
+        Sepa para que sea, pero se queda*/
+        modelo.addColumn("Fecha de Elaboracio");
+        /*Le pones la primera columna que tengas en la tablá*/
+        modelo.addColumn("Estudiante");
+        modelo.addColumn("Estatus");
+        modelo.addColumn("Motivo");
+        /*Pones el resto de campos, misma sintaxis modelo.addColumn("")*/
+        
+        //Inicias el try, yo copie y pegué del de Tareas
+        try {
+            Conexion conexion = new Conexion();
+            Connection con = conexion.con;
+            //Se queda igual
+            
+            //De aquí...
+            String sql = "SELECT s.idSolicitud, s.fecha, a.idAlumno, a.nombreAlumno, s.estatus, s.motivo FROM alumno a INNER JOIN solicitud s WHERE a.idAlumno=s.idAlumno;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet datos = ps.executeQuery();
+            ArrayList<Solicitud> datosSolicitud = new ArrayList<>();
+            
+            while (datos.next()){//a aquí se queda igual,
+                //solo adaptas la consulta
+                int idSolicitud = datos.getInt("idSolicitud");
+                /*Mando a llamar el id de la solicitud, sería el id
+                de lo que quieras mandar a llamar, depende el orden 
+                del constructor en la clase creo*/
+                String fecha = datos.getString("fecha");
+                int idAlumno = datos.getInt("idAlumno");
+                String nombreAlumno = datos.getString("nombreAlumno");
+                //Pongo el resto de datos
+                
+                /*Este es para cuando tengo un CHAR, ejemplo, 1 y para
+                decir que 1 sea equivalente a algo como "Socioeconomico"
+                y es lo que me va a mostrar*/
+                String estatus1 = datos.getString("estatus");
+                String estatus;
+                if(estatus1.equals("1")){
+                    estatus = "Pendiente";
+                }else{
+                    estatus = "Completada";
+                };
+                //Mismo ejemplo  que el anterior pero con motivo
+                String motivo = datos.getString("motivo");
+                if(motivo == "1"){
+                    motivo = "Socioeconomico";
+                }else if (motivo == "2"){
+                    motivo = "Salud";
+                }else{
+                    motivo = "Familiar";
+                };
+                
+                //Aqui se que tiene que ver con las clases que utilicez
+                Estudiante est = new Estudiante(idAlumno, nombreAlumno);
+                Solicitud soli = new Solicitud(idSolicitud, nombreAlumno, fecha, estatus, motivo);
+                //
+                modelo.addRow(new Object[]{
+                soli.getFecha(),
+                //est.getNombre(),
+                soli.getEstatus(),
+                soli.getMotivo(),
+                
+            });
+                datosSolicitud.add(soli);
+            }
+        tabla_solicitudes.setModel(modelo);
+        tabla_solicitudes.addMouseListener(new java.awt.event.MouseAdapter(){
+            public void mouseClicked(java.awt.event.MouseEvent evt){
+            //La fila que seleccione
+            int row =tabla_solicitudes.rowAtPoint(evt.getPoint());
+            //La columna que seleccione
+            int col =tabla_solicitudes.columnAtPoint(evt.getPoint());
+
+            if((col==0)||(col==1)||(col==2)){
+                Solicitud soli= datosSolicitud.get(row);
+                int id = soli.getIdSolicitud();
+                VerSolicitud o = new VerSolicitud("menu 1", id);
+                o.setVisible(true);
+                dispose();//Cierra la pantalla actual
+            }
+        }
+        });
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error al cargar los datos"+e.getMessage());
+        }
+            
+        };
     public void DarEstilos(){
         
       txtNombre.putClientProperty("JComponent.roundRect", true);
@@ -112,7 +205,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tabla_solicitudes = new javax.swing.JTable();
         txtNombre = new javax.swing.JTextField();
         txtMatricula = new javax.swing.JTextField();
         txtGrupo = new javax.swing.JTextField();
@@ -238,7 +331,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 720, 60));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 720, 150));
 
         jPanel15.setBackground(new java.awt.Color(204, 204, 204));
         jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -248,7 +341,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
 
         jPanel1.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 720, 23));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_solicitudes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -259,17 +352,17 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
                 "Fecha elaboracion", "Motivo", "Estatus"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tabla_solicitudes);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 720, 60));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 720, 130));
 
         txtNombre.setEditable(false);
         txtNombre.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 100, -1));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 160, -1));
 
         txtMatricula.setEditable(false);
         txtMatricula.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 80, -1));
+        jPanel1.add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 100, -1));
 
         txtGrupo.setEditable(false);
         txtGrupo.setBackground(new java.awt.Color(204, 204, 204));
@@ -277,7 +370,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
 
         txtCarrera.setEditable(false);
         txtCarrera.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(txtCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 90, -1));
+        jPanel1.add(txtCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 230, -1));
 
         jPanel5.setBackground(new java.awt.Color(43, 138, 127));
 
@@ -381,7 +474,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable tabla_solicitudes;
     private javax.swing.JTextField txtCarrera;
     private javax.swing.JTextField txtGrupo;
     private javax.swing.JTextField txtMatricula;
