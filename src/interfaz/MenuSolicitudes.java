@@ -92,9 +92,9 @@ public class MenuSolicitudes extends javax.swing.JFrame {
                 };
                 //Mismo ejemplo  que el anterior pero con motivo
                 String motivo = datos.getString("motivo");
-                if(motivo == "1"){
+                if(motivo.equals("1")){
                     motivo = "Socioeconomico";
-                }else if (motivo == "2"){
+                }else if (motivo.equals("2") ){
                     motivo = "Salud";
                 }else{
                     motivo = "Familiar";
