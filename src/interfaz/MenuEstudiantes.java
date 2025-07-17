@@ -117,6 +117,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        botonAñadirAlumno = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         botonAtenciones = new javax.swing.JButton();
@@ -133,15 +134,30 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(43, 138, 127));
 
+        botonAñadirAlumno.setBackground(new java.awt.Color(102, 153, 255));
+        botonAñadirAlumno.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        botonAñadirAlumno.setText("Nuevo Alumno");
+        botonAñadirAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAñadirAlumnoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(598, Short.MAX_VALUE)
+                .addComponent(botonAñadirAlumno)
+                .addGap(16, 16, 16))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botonAñadirAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, -1, -1));
@@ -247,6 +263,15 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botonEstudiantesActionPerformed
 
+    private void botonAñadirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAñadirAlumnoActionPerformed
+         CrearEstudiante ver = new CrearEstudiante();
+            //Indicamos que se hace visible
+            ver.setVisible(true);
+            //cerramos esta ventana
+            dispose();
+
+    }//GEN-LAST:event_botonAñadirAlumnoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -281,6 +306,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAtenciones;
+    private javax.swing.JButton botonAñadirAlumno;
     private javax.swing.JButton botonEstudiantes;
     private javax.swing.JButton botonSolicitudes;
     private javax.swing.JTextField campoBusqueda;

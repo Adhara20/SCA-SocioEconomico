@@ -26,9 +26,6 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VisualizarEstudiante.class.getName());
     String idAl;
-    
-   
-
     /**
      * Creates new form MenuEstudiantes
      */
@@ -38,9 +35,9 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         initComponents();
         cargarDatos(idAlumno);
         DarEstilos();
-        mostrarListaSolicitudes();
+        mostrarListaSolicitudes(idAl);
     }
-    public void mostrarListaSolicitudes(){/* Es la función 
+    public void mostrarListaSolicitudes(String id){/* Es la función 
         para mostra la lista*/
         DefaultTableModel modelo = new DefaultTableModel();/*
         Sepa para que sea, pero se queda*/
@@ -57,9 +54,13 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
             //Se queda igual
             
             //De aquí...
-            String sql = "SELECT s.idSolicitud, s.fecha, a.idAlumno, a.nombreAlumno, s.estatus, s.motivo FROM alumno a INNER JOIN solicitud s WHERE a.idAlumno=s.idAlumno;";
+            String sql = "SELECT s.idSolicitud, s.fecha, a.idAlumno, a.nombreAlumno, s.estatus, s.motivo FROM alumno a INNER JOIN solicitud s ON a.idAlumno = s.idAlumno WHERE a.idAlumno = ?;";
+            //SELECT s.idSolicitud, s.fecha, a.idAlumno, a.nombreAlumno, s.estatus, s.motivo FROM alumno a INNER JOIN solicitud s ON a.idAlumno=s.idAlumno WHERE s.idAlumno=?;
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, id);//Agregue esto para que solo filtre las solicitudes con el id del estudiante seleccionado
             ResultSet datos = ps.executeQuery();
+            //ps.setInt(1, Integer.parseInt(idAl));
+            //ps.setInt(1, idAlumno);
             ArrayList<Solicitud> datosSolicitud = new ArrayList<>();
             
             while (datos.next()){//a aquí se queda igual,
@@ -69,7 +70,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
                 de lo que quieras mandar a llamar, depende el orden 
                 del constructor en la clase creo*/
                 String fecha = datos.getString("fecha");
-                int idAlumno = datos.getInt("idAlumno");
+                int idA = datos.getInt("idAlumno");
                 String nombreAlumno = datos.getString("nombreAlumno");
                 //Pongo el resto de datos
                 
@@ -94,7 +95,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
                 };
                 
                 //Aqui se que tiene que ver con las clases que utilicez
-                Estudiante est = new Estudiante(idAlumno, nombreAlumno);
+                Estudiante est = new Estudiante(idA, nombreAlumno);
                 Solicitud soli = new Solicitud(idSolicitud, nombreAlumno, fecha, estatus, motivo);
                 //
                 modelo.addRow(new Object[]{
@@ -123,7 +124,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         }
         });
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Error al cargar los datos"+e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al cargar los datos solicitudes"+e.getMessage());
         }
             
         };
@@ -162,7 +163,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
             }
             
         }catch(Exception e){
-                showMessageDialog(null, "Error al cargar los datos" + e.getMessage());
+                showMessageDialog(null, "Error al cargar los datos alumnos" + e.getMessage());
         };
     }
 
