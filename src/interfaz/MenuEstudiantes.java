@@ -252,11 +252,15 @@ public class MenuEstudiantes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonAtencionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtencionesActionPerformed
-        // TODO add your handling code here:
+        MenuAtenciones ma = new MenuAtenciones();           
+            ma.setVisible(true);           
+            dispose();
     }//GEN-LAST:event_botonAtencionesActionPerformed
 
     private void botonSolicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSolicitudesActionPerformed
-        // TODO add your handling code here:
+        MenuSolicitudes ms = new MenuSolicitudes();
+            ms.setVisible(true);
+            dispose();
     }//GEN-LAST:event_botonSolicitudesActionPerformed
 
     private void botonEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEstudiantesActionPerformed
