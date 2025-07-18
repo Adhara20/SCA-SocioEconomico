@@ -6,9 +6,12 @@ package interfaz;
 import clases.Atencion;
 import clases.Conexion;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JFrame;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -19,7 +22,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author Lizbeth
  */
 public class EditarAtencion extends javax.swing.JFrame {
-    
+    JFrame regresar;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(EditarAtencion.class.getName());
     boolean existe;
     String idsoli;
@@ -27,7 +30,8 @@ public class EditarAtencion extends javax.swing.JFrame {
     /**
      * Creates new form MenuEstudiantes
      */
-    public EditarAtencion(String idSolicitud) {
+    public EditarAtencion(JFrame pantalla ,String idSolicitud) {
+        regresar = pantalla;
         idsoli = idSolicitud;
         existe = consultarAtencion(idsoli);
         initComponents();
@@ -38,6 +42,13 @@ public class EditarAtencion extends javax.swing.JFrame {
             iniciarAtencion(idSolicitud);
             cargarDatos(idSolicitud);
         }
+        
+        this.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                cargarDatos(idSolicitud);
+            }
+        });
     }
     
     public void iniciarAtencion(String idSolicitud){
@@ -656,19 +667,12 @@ public class EditarAtencion extends javax.swing.JFrame {
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
         // TODO add your handling code here:
-        
+        regresar.setVisible(true);
+        dispose();
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFormularioActionPerformed
         // TODO add your handling code here:
-
-
-
-   
-        
-       
-
-       
     }//GEN-LAST:event_botonFormularioActionPerformed
 
     private void comboEstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstatusActionPerformed
@@ -677,6 +681,34 @@ public class EditarAtencion extends javax.swing.JFrame {
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         // TODO add your handling code here:
+        String estatus = (String) comboEstatus.getSelectedItem();
+        if(estatus.equals("Formulario Pendiente")){
+                estatus = ("1");
+        }else if(estatus.equals("Esperando Respuesta")){
+            estatus = ("2");
+        }else if(estatus.equals("Aprobado")){
+            estatus = ("3");
+        }else if(estatus.equals("Rechazado")){
+            estatus = ("4");
+        }
+        
+        String noti;
+        
+        if(notificado.isSelected()){
+            noti = "1";
+        }else{
+            noti = "0";
+        }
+        String id = idsoli;
+     
+        String resumen = campoResumen.getText();
+        
+        Atencion at = new Atencion(estatus, noti, id, resumen);
+        if(at.actualizar()){
+            showMessageDialog(null, "Guardado" );
+        }else{
+            showMessageDialog(null, "estatus: " + estatus + " notificado: "+ noti+ " id: "+ id + " resumen: " + resumen );
+        } 
     }//GEN-LAST:event_botonGuardarActionPerformed
  
     /**
@@ -708,7 +740,7 @@ public class EditarAtencion extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         } 
-        java.awt.EventQueue.invokeLater(() -> new EditarAtencion("3").setVisible(true));
+        //java.awt.EventQueue.invokeLater(() -> new EditarAtencion("13").setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

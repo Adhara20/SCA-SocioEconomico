@@ -12,9 +12,12 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 import clases.Solicitud;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
@@ -24,7 +27,7 @@ import javax.swing.JOptionPane;
  * @author jobno
  */
 public class MenuSolicitudes extends javax.swing.JFrame {
-    
+    JFrame actual = this;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuSolicitudes.class.getName());
 
     /**
@@ -33,9 +36,18 @@ public class MenuSolicitudes extends javax.swing.JFrame {
     public MenuSolicitudes() {
         initComponents();
         DarEstilos();
-        mostrarListaSolicitudes();/*Mandar a llamar la función para mostrar 
-        la lista de solicitudes que haya guardadas*/
         
+        
+        this.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                refrescar();
+            }
+        });
+    } 
+    
+    public void refrescar(){
+        mostrarListaSolicitudes();
     }
     
     public void DarEstilos(){/*A toda está función de DarEstilos
@@ -85,7 +97,7 @@ public class MenuSolicitudes extends javax.swing.JFrame {
                 y es lo que me va a mostrar*/
                 String estatus1 = datos.getString("estatus");
                 String estatus;
-                if(estatus1.equals("1")){
+                if(estatus1.equals("0")){
                     estatus = "Pendiente";
                 }else{
                     estatus = "Completada";
@@ -124,9 +136,10 @@ public class MenuSolicitudes extends javax.swing.JFrame {
             if((col==0)||(col==1)||(col==2)||(col==3)){
                 Solicitud soli= datosSolicitud.get(row);
                 int id = soli.getIdSolicitud();
-                VerSolicitud o = new VerSolicitud("menu 1", id);
+                VerSolicitud o = new VerSolicitud(actual, id);
                 o.setVisible(true);
-                dispose();//Cierra la pantalla actual
+                o.setLocationRelativeTo(null);
+                dispose();
             }
         }
         });
@@ -268,6 +281,7 @@ public class MenuSolicitudes extends javax.swing.JFrame {
         MenuAtenciones ver = new MenuAtenciones();
             //Indicamos que se hace visible
             ver.setVisible(true);
+            ver.setLocationRelativeTo(null);
             //cerramos esta ventana
             dispose();
     }//GEN-LAST:event_botonAtencionesActionPerformed
@@ -281,6 +295,7 @@ public class MenuSolicitudes extends javax.swing.JFrame {
         MenuEstudiantes ver = new MenuEstudiantes();
             //Indicamos que se hace visible
             ver.setVisible(true);
+            ver.setLocationRelativeTo(null);
             //cerramos esta ventana
             dispose();
     }//GEN-LAST:event_botonEstudiantesActionPerformed

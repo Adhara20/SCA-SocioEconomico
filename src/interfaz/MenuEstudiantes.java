@@ -160,7 +160,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, -1, -1));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(43, 138, 127));
 
@@ -235,7 +235,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         tabla_estudiantes.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(tabla_estudiantes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 720, 430));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 720, 420));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -253,13 +253,15 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
     private void botonAtencionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtencionesActionPerformed
         MenuAtenciones ma = new MenuAtenciones();           
-            ma.setVisible(true);           
+            ma.setVisible(true);
+            ma.setLocationRelativeTo(null);
             dispose();
     }//GEN-LAST:event_botonAtencionesActionPerformed
 
     private void botonSolicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSolicitudesActionPerformed
         MenuSolicitudes ms = new MenuSolicitudes();
             ms.setVisible(true);
+            ms.setLocationRelativeTo(null);
             dispose();
     }//GEN-LAST:event_botonSolicitudesActionPerformed
 
@@ -271,6 +273,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
          CrearEstudiante ver = new CrearEstudiante();
             //Indicamos que se hace visible
             ver.setVisible(true);
+            ver.setLocationRelativeTo(null);
             //cerramos esta ventana
             dispose();
 

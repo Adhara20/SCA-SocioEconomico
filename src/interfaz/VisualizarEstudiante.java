@@ -7,10 +7,13 @@ import clases.Conexion;
 import clases.Estudiante;
 import clases.Solicitud;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
@@ -23,20 +26,34 @@ import javax.swing.table.DefaultTableModel;
  * @author jobno
  */
 public class VisualizarEstudiante extends javax.swing.JFrame {
-    
+    JFrame actual = this;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VisualizarEstudiante.class.getName());
     String idAl;
+    int idAlu;
     /**
      * Creates new form MenuEstudiantes
      */
     public VisualizarEstudiante(int idAlumno) {
-        int idAlu=idAlumno;
+        idAlu=idAlumno;
         idAl=Integer.toString(idAlu);
         initComponents();
-        cargarDatos(idAlumno);
+        refrescar();
+        
+        this.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                refrescar();
+            }
+        });
+    }
+    
+    public void refrescar(){
+        cargarDatos(idAlu);
         DarEstilos();
         mostrarListaSolicitudes(idAl);
     }
+            
+            
     public void mostrarListaSolicitudes(String id){/* Es la función 
         para mostra la lista*/
         DefaultTableModel modelo = new DefaultTableModel();/*
@@ -79,7 +96,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
                 y es lo que me va a mostrar*/
                 String estatus1 = datos.getString("estatus");
                 String estatus;
-                if(estatus1.equals("1")){
+                if(estatus1.equals("0")){
                     estatus = "Pendiente";
                 }else{
                     estatus = "Completada";
@@ -117,7 +134,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
             if((col==0)||(col==1)||(col==2)){
                 Solicitud soli= datosSolicitud.get(row);
                 int id = soli.getIdSolicitud();
-                VerSolicitud o = new VerSolicitud("menu 1", id);
+                VerSolicitud o = new VerSolicitud(actual, id);
                 o.setVisible(true);
                 dispose();//Cierra la pantalla actual
             }
@@ -182,6 +199,8 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         botonCrearSoli = new javax.swing.JButton();
@@ -230,6 +249,8 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         jPanel12.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, -1, -1));
 
         jPanel11.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 720, 23));
+
+        jScrollPane3.setViewportView(jEditorPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -403,10 +424,10 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonCrearSoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearSoliActionPerformed
-     CrearSolicitud crearSoli= new CrearSolicitud("VisualizarEstudiante",idAl);
+     CrearSolicitud crearSoli= new CrearSolicitud(this ,idAl);
      crearSoli.setVisible(true);
      crearSoli.setLocationRelativeTo(null);
-     dispose();
+     this.setVisible(false);
      
 
     }//GEN-LAST:event_botonCrearSoliActionPerformed
@@ -440,11 +461,12 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        java.awt.EventQueue.invokeLater(() -> new VisualizarEstudiante(1).setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new VisualizarEstudiante(5).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCrearSoli;
+    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -472,6 +494,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable tabla_solicitudes;
     private javax.swing.JTextField txtCarrera;

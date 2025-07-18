@@ -5,11 +5,13 @@
 package interfaz;
 
 import clases.Conexion;
-import clases.Solicitud;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JFrame;
 
 
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -22,8 +24,9 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class VerSolicitud extends javax.swing.JFrame {
     
+    JFrame regresa, actual;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VerSolicitud.class.getName());
-
+    
     int idSolicitud;
     //Solicitud solic;
     
@@ -31,14 +34,26 @@ public class VerSolicitud extends javax.swing.JFrame {
     /**
      * Creates new form verSolicitud
      */
-    public VerSolicitud(String regresa,int idSoli ) {
-
+    public VerSolicitud(JFrame pantalla,int idSoli ) {
+        actual = this;
+        regresa = pantalla;
         idSolicitud = idSoli;
         //this.solic = soli;
 
         initComponents();
         darEstilos();
-        cargarDatos(idSoli);
+        refrescar(idSoli);
+        
+        this.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                refrescar(idSoli);
+            }
+        });
+    }
+    
+    public void refrescar(int id1){
+        cargarDatos(id1);
     }
     
     public void darEstilos(){
@@ -504,7 +519,8 @@ public class VerSolicitud extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-
+        regresa.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFormularioActionPerformed
@@ -528,19 +544,20 @@ public class VerSolicitud extends javax.swing.JFrame {
                 
             }else{
                 String id = Integer.toString(idSolicitud);
-                EditarAtencion editar = new EditarAtencion(id);
+                EditarAtencion editar = new EditarAtencion(actual,id);
                 editar.setVisible(true);
                 editar.setLocationRelativeTo(null);
                 //cambiamos de pantalla
-                dispose();
+                this.setVisible(false);
             }
         }else{
                 String id = Integer.toString(idSolicitud);
-                EditarAtencion editar = new EditarAtencion(id);
+                EditarAtencion editar = new EditarAtencion(actual,id);
+                
                 editar.setVisible(true);
                 editar.setLocationRelativeTo(null);
-                //cambiamos de pantalla
-                dispose();
+                this.setVisible(false);
+                
         }
         datos.close();
         ps.close();
@@ -627,7 +644,7 @@ public class VerSolicitud extends javax.swing.JFrame {
         }
         /* Create and display the form */
 
-        java.awt.EventQueue.invokeLater(() -> new VerSolicitud("login", 3).setVisible(true));
+        //java.awt.EventQueue.invokeLater(() -> new VerSolicitud("login", 13).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JFrame;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -23,17 +24,17 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author jobno
  */
 public class CrearSolicitud extends javax.swing.JFrame {
-    
+    JFrame regresa;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CrearSolicitud.class.getName());
     String id;
     int idSolicitud;
-    String regresa;
+
     /**
      * Creates new form RegistrarAlumno
      */
 
-    public CrearSolicitud(String regresa1,String idAlumno) {
-        regresa = regresa1;
+    public CrearSolicitud(JFrame pantalla,String idAlumno) {
+        regresa = pantalla;
         id = idAlumno;
         initComponents();
         darEstilos();
@@ -100,7 +101,7 @@ public class CrearSolicitud extends javax.swing.JFrame {
                 campoMatricula.setEditable(false);
                 
                 campoGrupo.putClientProperty("JComponent.roundRect", true);
-                campoGrupo.setEditable(false);
+                
                 
                 campoCarrera.putClientProperty("JComponent.roundRect", true);
                 campoCarrera.setEditable(false);
@@ -497,7 +498,8 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-         
+         regresa.setVisible(true);
+         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -513,8 +515,25 @@ public class CrearSolicitud extends javax.swing.JFrame {
         }else{
             motivo = "3";
         };
-        
+        String nombre = campoNombre.getText();
+        System.out.println(nombre);
         String telefonoSolicitud = campoTelefono.getText();
+        String grupo = campoGrupo.getText();
+        try{
+        Conexion conexion = new Conexion();
+        Connection con = conexion.con;
+
+        String sql = "UPDATE alumno SET nombreAlumno = ?, telefonoAlumno = ?, grupo = ? WHERE idAlumno = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, nombre);       
+        ps.setString(2, telefonoSolicitud);
+        ps.setString(3, grupo);
+        ps.setString(4, id);
+        ps.executeUpdate();
+        }catch (Exception e){
+            System.out.println("error al actualizar: " + e);
+        }
+        
         String canaliza = campoCanaliza.getText();
         String familiar = campoFamiliar.getText();
         String telefonoFamiliar = campoTelefonoFamiliar.getText();
@@ -544,6 +563,7 @@ public class CrearSolicitud extends javax.swing.JFrame {
             dispose();
 
         }
+        
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -575,7 +595,7 @@ public class CrearSolicitud extends javax.swing.JFrame {
         
         /* Create and display the form */
 
-        java.awt.EventQueue.invokeLater(() -> new CrearSolicitud( "anterior" ,"1").setVisible(true));
+        //java.awt.EventQueue.invokeLater(() -> new CrearSolicitud( "anterior" ,"1").setVisible(true));
 
     }
 

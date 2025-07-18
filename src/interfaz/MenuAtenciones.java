@@ -191,6 +191,7 @@ public class MenuAtenciones extends javax.swing.JFrame {
         MenuSolicitudes ver = new MenuSolicitudes();
             //Indicamos que se hace visible
             ver.setVisible(true);
+            ver.setLocationRelativeTo(null);
             //cerramos esta ventana
             dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -199,6 +200,7 @@ public class MenuAtenciones extends javax.swing.JFrame {
         MenuEstudiantes ver = new MenuEstudiantes();
             //Indicamos que se hace visible
             ver.setVisible(true);
+            ver.setLocationRelativeTo(null);
             //cerramos esta ventana
             dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
