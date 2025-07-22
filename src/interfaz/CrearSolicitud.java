@@ -125,6 +125,8 @@ public class CrearSolicitud extends javax.swing.JFrame {
                 comboTipo.addItem("Llamada");
                 comboTipo.addItem("Oficina");
                 comboTipo.addItem("Visita");
+                
+                btnlogo.setBorderPainted(false);
     }
     
     public int ConocerIdSolicitud(){
@@ -157,6 +159,7 @@ public class CrearSolicitud extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        btnlogo = new javax.swing.JButton();
         panelDatosGenerales = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -217,12 +220,10 @@ public class CrearSolicitud extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-
                 .addContainerGap(530, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
                 .addGap(18, 18, 18)
                 .addComponent(btnGuardar)
-
                 .addGap(19, 19, 19))
         );
         jPanel3Layout.setVerticalGroup(
@@ -238,17 +239,11 @@ public class CrearSolicitud extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 720, 40));
 
         jPanel4.setBackground(new java.awt.Color(43, 138, 127));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
+        btnlogo.setBackground(new java.awt.Color(43, 138, 127));
+        btnlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo2.png"))); // NOI18N
+        jPanel4.add(btnlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 40));
 
@@ -602,6 +597,7 @@ public class CrearSolicitud extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnlogo;
     private javax.swing.JTextArea campoArgumentacion;
     private javax.swing.JTextField campoCanaliza;
     private javax.swing.JTextField campoCarrera;

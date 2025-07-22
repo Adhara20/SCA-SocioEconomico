@@ -44,7 +44,8 @@ public class CrearEstudiante extends javax.swing.JFrame {
         
            }  
     public void DarEstilos(){
-        
+      
+      btnlogo.setBorderPainted(false);
       txtNombre.putClientProperty("JComponent.roundRect", true);
       
       txtMatricula.putClientProperty("JComponent.roundRect", true);
@@ -52,8 +53,12 @@ public class CrearEstudiante extends javax.swing.JFrame {
       txtGrupo.putClientProperty("JComponent.roundRect", true);
       
       //comboboxCarrera.putClientProperty("JComponent.roundRect", true);
-      
-      
+      comboboxCarrera.putClientProperty("JComponent.roundRect", true);
+                
+      comboSexo.putClientProperty("JComponent.roundRect", true);
+                
+      comboSexo.addItem("F");
+      comboSexo.addItem("M");
 
     }
     public void CargarCarreras() {
@@ -102,6 +107,7 @@ public class CrearEstudiante extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        btnlogo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
@@ -129,6 +135,8 @@ public class CrearEstudiante extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        carrera1 = new javax.swing.JLabel();
+        comboSexo = new javax.swing.JComboBox<>();
 
         jPanel8.setBackground(new java.awt.Color(204, 204, 204));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -156,19 +164,13 @@ public class CrearEstudiante extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(43, 138, 127));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
+        btnlogo.setBackground(new java.awt.Color(43, 138, 127));
+        btnlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo2.png"))); // NOI18N
+        jPanel4.add(btnlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 40));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -212,7 +214,7 @@ public class CrearEstudiante extends javax.swing.JFrame {
         jPanel1.add(Grupo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
 
         carrera.setText("Carrera:");
-        jPanel1.add(carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
+        jPanel1.add(carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, -1));
 
         comboboxCarrera.setBackground(new java.awt.Color(204, 204, 204));
         comboboxCarrera.addActionListener(new java.awt.event.ActionListener() {
@@ -220,7 +222,7 @@ public class CrearEstudiante extends javax.swing.JFrame {
                 comboboxCarreraActionPerformed(evt);
             }
         });
-        jPanel1.add(comboboxCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 230, -1));
+        jPanel1.add(comboboxCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 170, -1));
 
         jPanel9.setBackground(new java.awt.Color(204, 204, 204));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -291,6 +293,11 @@ public class CrearEstudiante extends javax.swing.JFrame {
         btnCancelar.setBackground(new java.awt.Color(255, 102, 102));
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -314,6 +321,17 @@ public class CrearEstudiante extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, -1, -1));
+
+        carrera1.setText("Sexo:");
+        jPanel1.add(carrera1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, -1, -1));
+
+        comboSexo.setBackground(new java.awt.Color(204, 204, 204));
+        comboSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSexoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(comboSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 100, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -346,7 +364,7 @@ public class CrearEstudiante extends javax.swing.JFrame {
         Carrera carreraSeleccionada = (Carrera) comboboxCarrera.getSelectedItem();
         int idCarrera = carreraSeleccionada.getIdCarrera();
             
-            String sql = "INSERT INTO alumno (nombreAlumno,matricula,idCarrera,grupo,telefonoAlumno,estatus,fechaRegistro) VALUES (?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO alumno (nombreAlumno,matricula,idCarrera,grupo,telefonoAlumno,estatus,fechaRegistro, sexo) VALUES (?,?,?,?,?,?,?, ?)";
             PreparedStatement guardar = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
             guardar.setString(1, txtNombre.getText());
@@ -356,6 +374,7 @@ public class CrearEstudiante extends javax.swing.JFrame {
             guardar.setString(5, null);
             guardar.setString(6, "A");
             guardar.setString(7, fechaActual());
+            guardar.setString(8, (String) comboSexo.getSelectedItem());
             
             guardar.executeUpdate();
             
@@ -389,6 +408,18 @@ public class CrearEstudiante extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        MenuEstudiantes menu = new MenuEstudiantes();
+        menu.setVisible(true);
+        menu.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void comboSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSexoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboSexoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -428,7 +459,10 @@ public class CrearEstudiante extends javax.swing.JFrame {
     private javax.swing.JLabel Nombre;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnlogo;
     private javax.swing.JLabel carrera;
+    private javax.swing.JLabel carrera1;
+    private javax.swing.JComboBox<String> comboSexo;
     private javax.swing.JComboBox<Carrera> comboboxCarrera;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

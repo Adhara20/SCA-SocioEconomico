@@ -9,10 +9,12 @@ import clases.Solicitud;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashSet;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -39,6 +41,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         initComponents();
         refrescar();
         
+        //cada que el usuario hace visible una pagina este evento se ejecuta y refresca la tabla 
         this.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentShown(ComponentEvent e) {
@@ -124,6 +127,12 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
                 datosSolicitud.add(soli);
             }
         tabla_solicitudes.setModel(modelo);
+        
+        //esta linea remueve el los eventos para que no se agregue de manera repetida este evento al ejecutar la funcion refrescar
+        for (MouseListener listener : tabla_solicitudes.getMouseListeners()) {
+            tabla_solicitudes.removeMouseListener(listener);
+        }
+        
         tabla_solicitudes.addMouseListener(new java.awt.event.MouseAdapter(){
             public void mouseClicked(java.awt.event.MouseEvent evt){
             //La fila que seleccione
@@ -136,6 +145,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
                 int id = soli.getIdSolicitud();
                 VerSolicitud o = new VerSolicitud(actual, id);
                 o.setVisible(true);
+                o.setLocationRelativeTo(null);
                 dispose();//Cierra la pantalla actual
             }
         }
@@ -146,6 +156,9 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
             
         };
     public void DarEstilos(){
+        
+      btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/regresar.png")));
+      btnlogo.setBorderPainted(false);
         
       txtNombre.putClientProperty("JComponent.roundRect", true);
       
@@ -204,6 +217,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         botonCrearSoli = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
@@ -229,6 +243,7 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         txtGrupo = new javax.swing.JTextField();
         txtCarrera = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
+        btnlogo = new javax.swing.JButton();
 
         jPanel8.setBackground(new java.awt.Color(204, 204, 204));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -267,12 +282,23 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
             }
         });
 
+        btnCancelar.setBackground(new java.awt.Color(83, 178, 167));
+        btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/regresar.png"))); // NOI18N
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(598, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 544, Short.MAX_VALUE)
                 .addComponent(botonCrearSoli)
                 .addGap(16, 16, 16))
         );
@@ -280,7 +306,9 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(botonCrearSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonCrearSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -393,19 +421,13 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
         jPanel1.add(txtCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 230, -1));
 
         jPanel5.setBackground(new java.awt.Color(43, 138, 127));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
+        btnlogo.setBackground(new java.awt.Color(43, 138, 127));
+        btnlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo2.png"))); // NOI18N
+        jPanel5.add(btnlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -431,6 +453,14 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
      
 
     }//GEN-LAST:event_botonCrearSoliActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        MenuEstudiantes re = new MenuEstudiantes();
+        re.setVisible(true);
+        re.setLocationRelativeTo(null);
+        dispose();   
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -466,6 +496,8 @@ public class VisualizarEstudiante extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCrearSoli;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnlogo;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
