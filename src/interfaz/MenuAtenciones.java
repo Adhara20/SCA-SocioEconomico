@@ -26,6 +26,7 @@ public class MenuAtenciones extends javax.swing.JFrame {
     public MenuAtenciones() {
         initComponents();
         DarEstilos();
+        //pendientes la funcion refrescar
     }
     
     public void DarEstilos(){
