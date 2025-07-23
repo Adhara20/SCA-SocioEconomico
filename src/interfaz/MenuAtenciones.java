@@ -29,10 +29,11 @@ public class MenuAtenciones extends javax.swing.JFrame {
     }
     
     public void DarEstilos(){
+        btnlogo.setBorderPainted(false);
         
         campoBusqueda.putClientProperty("Component.arc",      20);
         campoBusqueda.putClientProperty("JComponent.roundRect", true);
-
+        btnBusqueda.setBorderPainted(false);
     }
     
     public void mostrarUsuario(){
@@ -70,10 +71,12 @@ public class MenuAtenciones extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        btnBusqueda = new javax.swing.JButton();
         campoBusqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
+        btnlogo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,6 +134,15 @@ public class MenuAtenciones extends javax.swing.JFrame {
         });
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, -1));
 
+        btnBusqueda.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/busqueda.png"))); // NOI18N
+        btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 20, 20));
+
         campoBusqueda.setFont(new java.awt.Font("Poppins Medium", 0, 10)); // NOI18N
         campoBusqueda.setForeground(new java.awt.Color(102, 102, 102));
         campoBusqueda.setText("Ingresa la Matricula del Alumno");
@@ -154,19 +166,13 @@ public class MenuAtenciones extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 720, 430));
 
         jPanel5.setBackground(new java.awt.Color(43, 138, 127));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
+        btnlogo.setBackground(new java.awt.Color(43, 138, 127));
+        btnlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo2.png"))); // NOI18N
+        jPanel5.add(btnlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -191,6 +197,7 @@ public class MenuAtenciones extends javax.swing.JFrame {
         MenuSolicitudes ver = new MenuSolicitudes();
             //Indicamos que se hace visible
             ver.setVisible(true);
+            ver.setLocationRelativeTo(null);
             //cerramos esta ventana
             dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -199,9 +206,20 @@ public class MenuAtenciones extends javax.swing.JFrame {
         MenuEstudiantes ver = new MenuEstudiantes();
             //Indicamos que se hace visible
             ver.setVisible(true);
+            ver.setLocationRelativeTo(null);
             //cerramos esta ventana
             dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
+        // TODO add your handling code here:
+        //this.refrescar();
+
+        //para que regrese el texto si campoBusqueda esta vacio
+        if((campoBusqueda.getText()).equals("")){
+            campoBusqueda.setText("Ingresa la Matricula del Alumno");
+        }
+    }//GEN-LAST:event_btnBusquedaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,6 +254,8 @@ public class MenuAtenciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBusqueda;
+    private javax.swing.JButton btnlogo;
     private javax.swing.JTextField campoBusqueda;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

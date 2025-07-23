@@ -6,9 +6,12 @@ package interfaz;
 import clases.Atencion;
 import clases.Conexion;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JFrame;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -19,7 +22,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author Lizbeth
  */
 public class EditarAtencion extends javax.swing.JFrame {
-    
+    JFrame regresar;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(EditarAtencion.class.getName());
     boolean existe;
     String idsoli;
@@ -27,7 +30,8 @@ public class EditarAtencion extends javax.swing.JFrame {
     /**
      * Creates new form MenuEstudiantes
      */
-    public EditarAtencion(String idSolicitud) {
+    public EditarAtencion(JFrame pantalla ,String idSolicitud) {
+        regresar = pantalla;
         idsoli = idSolicitud;
         existe = consultarAtencion(idsoli);
         initComponents();
@@ -38,6 +42,13 @@ public class EditarAtencion extends javax.swing.JFrame {
             iniciarAtencion(idSolicitud);
             cargarDatos(idSolicitud);
         }
+        
+        this.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                cargarDatos(idSolicitud);
+            }
+        });
     }
     
     public void iniciarAtencion(String idSolicitud){
@@ -148,7 +159,7 @@ public class EditarAtencion extends javax.swing.JFrame {
             }
             String estatusNotificado = datos.getString("estatusNotificado");
             if(estatusNotificado.equals("1")){
-                
+               notificado.setSelected(true);
             }
             
             String nombre = datos.getString("nombreAlumno");
@@ -180,6 +191,7 @@ public class EditarAtencion extends javax.swing.JFrame {
  
 
     public void DarEstilos(){
+        btnlogo.setBorderPainted(false);
         notificado.setEnabled(false);
         CampoFecha.putClientProperty("JComponent.roundRect", true);
         CampoFecha.setEditable(false);
@@ -249,6 +261,7 @@ public class EditarAtencion extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        btnlogo = new javax.swing.JButton();
         resultadoError = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -321,17 +334,11 @@ public class EditarAtencion extends javax.swing.JFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel7.setBackground(new java.awt.Color(43, 138, 127));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
+        btnlogo.setBackground(new java.awt.Color(43, 138, 127));
+        btnlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo2.png"))); // NOI18N
+        jPanel7.add(btnlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
         jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 40));
 
@@ -364,16 +371,16 @@ public class EditarAtencion extends javax.swing.JFrame {
         jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 50, -1));
 
         jLabel2.setText("Motivo:");
-        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 50, -1));
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 50, -1));
 
         jLabel3.setText("Tipo:");
-        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 50, -1));
+        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 50, -1));
 
         jLabel4.setText("Canalización:");
-        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 90, -1));
+        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 90, -1));
 
         jLabel5.setText("Estatus:");
-        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 80, -1));
+        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 80, -1));
 
         jPanel2.setBackground(new java.awt.Color(168, 204, 193));
 
@@ -489,7 +496,7 @@ public class EditarAtencion extends javax.swing.JFrame {
                 campoCanalizacionActionPerformed(evt);
             }
         });
-        jPanel5.add(campoCanalizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 90, -1));
+        jPanel5.add(campoCanalizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 90, -1));
 
         campoMotivo.setBackground(new java.awt.Color(195, 210, 197));
         campoMotivo.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
@@ -499,7 +506,7 @@ public class EditarAtencion extends javax.swing.JFrame {
                 campoMotivoActionPerformed(evt);
             }
         });
-        jPanel5.add(campoMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 110, -1));
+        jPanel5.add(campoMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 150, -1));
 
         campoTipo.setBackground(new java.awt.Color(195, 210, 197));
         campoTipo.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
@@ -509,7 +516,7 @@ public class EditarAtencion extends javax.swing.JFrame {
                 campoTipoActionPerformed(evt);
             }
         });
-        jPanel5.add(campoTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 110, -1));
+        jPanel5.add(campoTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 110, -1));
 
         comboEstatus.setBackground(new java.awt.Color(195, 210, 197));
         comboEstatus.addActionListener(new java.awt.event.ActionListener() {
@@ -517,7 +524,7 @@ public class EditarAtencion extends javax.swing.JFrame {
                 comboEstatusActionPerformed(evt);
             }
         });
-        jPanel5.add(comboEstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 190, -1));
+        jPanel5.add(comboEstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 170, -1));
 
         CampoFecha.setBackground(new java.awt.Color(195, 210, 197));
         CampoFecha.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
@@ -656,19 +663,12 @@ public class EditarAtencion extends javax.swing.JFrame {
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
         // TODO add your handling code here:
-        
+        regresar.setVisible(true);
+        dispose();
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFormularioActionPerformed
         // TODO add your handling code here:
-
-
-
-   
-        
-       
-
-       
     }//GEN-LAST:event_botonFormularioActionPerformed
 
     private void comboEstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstatusActionPerformed
@@ -677,6 +677,34 @@ public class EditarAtencion extends javax.swing.JFrame {
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         // TODO add your handling code here:
+        String estatus = (String) comboEstatus.getSelectedItem();
+        if(estatus.equals("Formulario Pendiente")){
+                estatus = ("1");
+        }else if(estatus.equals("Esperando Respuesta")){
+            estatus = ("2");
+        }else if(estatus.equals("Aprobado")){
+            estatus = ("3");
+        }else if(estatus.equals("Rechazado")){
+            estatus = ("4");
+        }
+        
+        String noti;
+        
+        if(notificado.isSelected()){
+            noti = "1";
+        }else{
+            noti = "0";
+        }
+        String id = idsoli;
+     
+        String resumen = campoResumen.getText();
+        
+        Atencion at = new Atencion(estatus, noti, id, resumen);
+        if(at.actualizar()){
+            showMessageDialog(null, "Guardado" );
+        }else{
+            showMessageDialog(null, "estatus: " + estatus + " notificado: "+ noti+ " id: "+ id + " resumen: " + resumen );
+        } 
     }//GEN-LAST:event_botonGuardarActionPerformed
  
     /**
@@ -708,7 +736,7 @@ public class EditarAtencion extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         } 
-        java.awt.EventQueue.invokeLater(() -> new EditarAtencion("3").setVisible(true));
+        //java.awt.EventQueue.invokeLater(() -> new EditarAtencion("13").setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -717,6 +745,7 @@ public class EditarAtencion extends javax.swing.JFrame {
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonFormulario;
     private javax.swing.JButton botonGuardar;
+    private javax.swing.JButton btnlogo;
     private javax.swing.JTextField campoCanalizacion;
     private javax.swing.JTextField campoCarrera;
     private javax.swing.JTextField campoGrupo;

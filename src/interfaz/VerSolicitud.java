@@ -5,11 +5,13 @@
 package interfaz;
 
 import clases.Conexion;
-import clases.Solicitud;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JFrame;
 
 
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -22,8 +24,9 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class VerSolicitud extends javax.swing.JFrame {
     
+    JFrame regresa, actual;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VerSolicitud.class.getName());
-
+    
     int idSolicitud;
     //Solicitud solic;
     
@@ -31,17 +34,32 @@ public class VerSolicitud extends javax.swing.JFrame {
     /**
      * Creates new form verSolicitud
      */
-    public VerSolicitud(String regresa,int idSoli ) {
-
+    public VerSolicitud(JFrame pantalla,int idSoli ) {
+        actual = this;
+        regresa = pantalla;
         idSolicitud = idSoli;
         //this.solic = soli;
 
         initComponents();
         darEstilos();
-        cargarDatos(idSoli);
+        refrescar(idSoli);
+        
+        this.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                refrescar(idSoli);
+            }
+        });
+    }
+    
+    public void refrescar(int id1){
+        cargarDatos(id1);
     }
     
     public void darEstilos(){
+                btnlogo.setBorderPainted(false);
+                btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/regresar.png")));
+
                 campoArgumentacion.setLineWrap(true);
                 campoArgumentacion.setWrapStyleWord(true);
                 campoArgumentacion.setEditable(false);
@@ -181,11 +199,10 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-
         btnCancelar = new javax.swing.JButton();
         btnFormulario = new javax.swing.JButton();
-
         jPanel4 = new javax.swing.JPanel();
+        btnlogo = new javax.swing.JButton();
         panelDatosGenerales = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -223,10 +240,8 @@ public class VerSolicitud extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(43, 138, 127));
 
-
         btnCancelar.setBackground(new java.awt.Color(83, 178, 167));
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnCancelar.setIcon(new javax.swing.ImageIcon("C:\\POO\\NetBeansProjects\\repo\\SCA-SocioEconomico\\src\\Imagenes\\regresar.png")); // NOI18N
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -239,7 +254,6 @@ public class VerSolicitud extends javax.swing.JFrame {
         btnFormulario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFormularioActionPerformed(evt);
-
             }
         });
 
@@ -249,11 +263,9 @@ public class VerSolicitud extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 489, Short.MAX_VALUE)
                 .addComponent(btnFormulario)
-
                 .addGap(19, 19, 19))
         );
         jPanel3Layout.setVerticalGroup(
@@ -261,27 +273,19 @@ public class VerSolicitud extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-
                 .addContainerGap())
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 720, 40));
 
         jPanel4.setBackground(new java.awt.Color(43, 138, 127));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
+        btnlogo.setBackground(new java.awt.Color(43, 138, 127));
+        btnlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo2.png"))); // NOI18N
+        jPanel4.add(btnlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 40));
 
@@ -504,7 +508,8 @@ public class VerSolicitud extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-
+        regresa.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFormularioActionPerformed
@@ -528,19 +533,20 @@ public class VerSolicitud extends javax.swing.JFrame {
                 
             }else{
                 String id = Integer.toString(idSolicitud);
-                EditarAtencion editar = new EditarAtencion(id);
+                EditarAtencion editar = new EditarAtencion(actual,id);
                 editar.setVisible(true);
                 editar.setLocationRelativeTo(null);
                 //cambiamos de pantalla
-                dispose();
+                this.setVisible(false);
             }
         }else{
                 String id = Integer.toString(idSolicitud);
-                EditarAtencion editar = new EditarAtencion(id);
+                EditarAtencion editar = new EditarAtencion(actual,id);
+                
                 editar.setVisible(true);
                 editar.setLocationRelativeTo(null);
-                //cambiamos de pantalla
-                dispose();
+                this.setVisible(false);
+                
         }
         datos.close();
         ps.close();
@@ -627,13 +633,13 @@ public class VerSolicitud extends javax.swing.JFrame {
         }
         /* Create and display the form */
 
-        java.awt.EventQueue.invokeLater(() -> new VerSolicitud("login", 3).setVisible(true));
+        //java.awt.EventQueue.invokeLater(() -> new VerSolicitud("login", 13).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnFormulario;
-
+    private javax.swing.JButton btnlogo;
     private javax.swing.JTextArea campoArgumentacion;
     private javax.swing.JTextField campoCanaliza;
     private javax.swing.JTextField campoCarrera;
