@@ -32,14 +32,11 @@ public class Atencion {
         this.idSolicitud = idSolicitud;
     }
 
-    public Atencion(String estatus, String estatusNotificado, String idSolicitud, String resumenAtencion) {
-        this.estatus = estatus;
-        this.estatusNotificado = estatusNotificado;
-        this.idSolicitud = idSolicitud;
-        this.resumenAtencion = resumenAtencion;
-    }
+
     
     
+    
+
     public int getIdAtencion() {
         return idAtencion;
     }
@@ -121,28 +118,6 @@ public class Atencion {
             
         }catch(Exception e){
             showMessageDialog(null, "Error al cargar los datos en atencion");
-            return false;
-        }
-    }
-    
-    public boolean actualizar(){
-        try{
-            Conexion conexion = new Conexion();
-            Connection con = conexion.con;
-            
-            String sql = "UPDATE atencion SET estatus = ?, estatusNotificado = ?, resumenAtencion = ? WHERE idSolicitud = ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, estatus);
-            ps.setString(2, estatusNotificado);
-            ps.setString(3, resumenAtencion);
-            ps.setString(4, idSolicitud);
-            
-            ps.executeUpdate();
-            
-            return true;
-            
-        }catch(Exception e){
-            showMessageDialog(null, "Error al actualizar los datos en atencion");
             return false;
         }
     }
