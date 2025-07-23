@@ -101,7 +101,7 @@ public class Solicitud {
             Conexion conexion = new Conexion();
             Connection con = conexion.con;
             
-            String sql = "INSERT INTO solicitud VALUES (NULL, ?, NOW(),	0, ?, ?, ?, ?, ?, ?,?)";
+            String sql = "INSERT INTO solicitud VALUES (NULL, ?, NOW(),	1, ?, ?, ?, ?, ?, ?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, idAlumno);
             ps.setString(2, motivo);

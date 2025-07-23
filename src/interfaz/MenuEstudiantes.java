@@ -8,9 +8,6 @@ import clases.Carrera;
 import clases.Conexion;
 import clases.Estudiante;
 import com.formdev.flatlaf.FlatLightLaf;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,9 +15,7 @@ import java.util.ArrayList;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 
 
 /**
@@ -37,40 +32,14 @@ public class MenuEstudiantes extends javax.swing.JFrame {
     public MenuEstudiantes() {
         initComponents();
         DarEstilos();
-        refrescar();
-        evento();
-    }
-    
-    public void refrescar(){
         mostrarEstudiante();
     }
     
     public void DarEstilos(){
-        btnlogo.setBorderPainted(false);
-        btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/busqueda.png")));
-        btnBusqueda.setBorderPainted(false);
+        
         campoBusqueda.putClientProperty("Component.arc",      20);
         campoBusqueda.putClientProperty("JComponent.roundRect", true);
-        
-        //estilos a encabezado de la tabla 
-        JTableHeader header = tabla_estudiantes.getTableHeader();
-        header.setFont(new Font("Poppins", Font.BOLD, 12));
-        header.setBackground(new Color(180, 180, 180));
-        header.setForeground(Color.BLACK);
-        header.setOpaque(true);
-        
-    }
-    
-    //esta funcion sirve para agregar un evento que elimine el texto por defecto al hacer clic
-    public void evento(){
-        campoBusqueda.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                if (campoBusqueda.getText().equals("Ingresa la Matricula del Alumno")) {
-                    campoBusqueda.setText("");
-                }
-            }
-        });
+
     }
     
 
@@ -86,22 +55,11 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         try {
             Conexion conexion = new Conexion();
             Connection con = conexion.con;
-            String sql2 = "SELECT a.*,c.nombreCarrera FROM alumno a INNER JOIN carrera c ON a.idCarrera=c.idCarrera WHERE matricula = ?;"; 
-            PreparedStatement ps2 = con.prepareStatement(sql2);
-            ps2.setString(1, campoBusqueda.getText());
-            ResultSet datos2 = ps2.executeQuery();
-            ResultSet datos;
             
-            if(datos2.next()){
-                PreparedStatement ps3 = con.prepareStatement(sql2);
-                ps3.setString(1, campoBusqueda.getText());
-                datos = ps3.executeQuery();
-                System.out.println("alumno encontrado: " + datos2.getString("nombreAlumno"));
-            }else{
-                String sql = "SELECT a.*,c.nombreCarrera FROM alumno a INNER JOIN carrera c ON a.idCarrera=c.idCarrera;";
-                PreparedStatement ps = con.prepareStatement(sql);
-                datos = ps.executeQuery();
-            }
+
+            String sql = "SELECT a.*,c.nombreCarrera FROM alumno a INNER JOIN carrera c ON a.idCarrera=c.idCarrera;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet datos = ps.executeQuery();
             ArrayList<Estudiante> datosEstudiante = new ArrayList<>();
             
             while(datos.next()){
@@ -111,7 +69,7 @@ public class MenuEstudiantes extends javax.swing.JFrame {
             String carrera = datos.getString("nombreCarrera");
             String grupo = datos.getString("grupo");
             String fecha = datos.getString("fechaRegistro");
-            Estudiante alumno = new Estudiante( id, estudiante, matricula, grupo, fecha);
+            Estudiante alumno = new Estudiante( id, matricula, estudiante, grupo, fecha);
             Carrera carreras = new Carrera(carrera);
                 
             
@@ -125,20 +83,6 @@ public class MenuEstudiantes extends javax.swing.JFrame {
             datosEstudiante.add(alumno);
             }
             tabla_estudiantes.setModel(modelo);
-            
-            //con esto defines las medidas de la tabla
-            tabla_estudiantes.getColumnModel().getColumn(0).setPreferredWidth(80);  // Matrícula
-            tabla_estudiantes.getColumnModel().getColumn(1).setPreferredWidth(280); // Estudiante
-            tabla_estudiantes.getColumnModel().getColumn(2).setPreferredWidth(180); // Carrera
-            tabla_estudiantes.getColumnModel().getColumn(3).setPreferredWidth(60);  // Grupo
-            tabla_estudiantes.getColumnModel().getColumn(4).setPreferredWidth(120); // Fecha de Registro
-
-            
-            //esta linea remueve el los eventos para que no se agregue de manera repetida este evento al ejecutar la funcion refrescar
-            for (MouseListener listener : tabla_estudiantes.getMouseListeners()) {
-                tabla_estudiantes.removeMouseListener(listener);
-           }
-            
             tabla_estudiantes.addMouseListener(new java.awt.event.MouseAdapter(){
             public void mouseClicked(java.awt.event.MouseEvent evt){
             //La fila que seleccione
@@ -151,7 +95,6 @@ public class MenuEstudiantes extends javax.swing.JFrame {
                 int idE = alumno.getId();
                 VisualizarEstudiante o = new VisualizarEstudiante(idE);
                 o.setVisible(true);
-                o.setLocationRelativeTo(null);
                 dispose();//Cierra la pantalla actual
             }
         }
@@ -176,12 +119,10 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         botonAñadirAlumno = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        btnlogo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         botonAtenciones = new javax.swing.JButton();
         botonSolicitudes = new javax.swing.JButton();
         botonEstudiantes = new javax.swing.JButton();
-        btnBusqueda = new javax.swing.JButton();
         campoBusqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_estudiantes = new javax.swing.JTable();
@@ -219,16 +160,22 @@ public class MenuEstudiantes extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, -1, -1));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(43, 138, 127));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnlogo.setBackground(new java.awt.Color(43, 138, 127));
-        btnlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo2.png"))); // NOI18N
-        jPanel4.add(btnlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 40));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(168, 204, 193));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -267,15 +214,6 @@ public class MenuEstudiantes extends javax.swing.JFrame {
         });
         jPanel2.add(botonEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, -1));
 
-        btnBusqueda.setBackground(new java.awt.Color(255, 255, 255));
-        btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/busqueda.png"))); // NOI18N
-        btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBusquedaActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 20, 20));
-
         campoBusqueda.setFont(new java.awt.Font("Poppins Medium", 0, 10)); // NOI18N
         campoBusqueda.setForeground(new java.awt.Color(102, 102, 102));
         campoBusqueda.setText("Ingresa la Matricula del Alumno");
@@ -295,10 +233,9 @@ public class MenuEstudiantes extends javax.swing.JFrame {
             }
         ));
         tabla_estudiantes.setColumnSelectionAllowed(true);
-        tabla_estudiantes.setDragEnabled(true);
         jScrollPane1.setViewportView(tabla_estudiantes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 720, 420));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 720, 430));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -316,15 +253,13 @@ public class MenuEstudiantes extends javax.swing.JFrame {
 
     private void botonAtencionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtencionesActionPerformed
         MenuAtenciones ma = new MenuAtenciones();           
-            ma.setVisible(true);
-            ma.setLocationRelativeTo(null);
+            ma.setVisible(true);           
             dispose();
     }//GEN-LAST:event_botonAtencionesActionPerformed
 
     private void botonSolicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSolicitudesActionPerformed
         MenuSolicitudes ms = new MenuSolicitudes();
             ms.setVisible(true);
-            ms.setLocationRelativeTo(null);
             dispose();
     }//GEN-LAST:event_botonSolicitudesActionPerformed
 
@@ -333,24 +268,13 @@ public class MenuEstudiantes extends javax.swing.JFrame {
     }//GEN-LAST:event_botonEstudiantesActionPerformed
 
     private void botonAñadirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAñadirAlumnoActionPerformed
-CrearEstudiante ver = new CrearEstudiante();
+         CrearEstudiante ver = new CrearEstudiante();
             //Indicamos que se hace visible
             ver.setVisible(true);
-            ver.setLocationRelativeTo(null);
             //cerramos esta ventana
             dispose();
 
     }//GEN-LAST:event_botonAñadirAlumnoActionPerformed
-
-    private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
-        // TODO add your handling code here:
-        this.refrescar();
-        
-        //para que regrese el texto si campoBusqueda esta vacio
-        if((campoBusqueda.getText()).equals("")){
-            campoBusqueda.setText("Ingresa la Matricula del Alumno");
-        }
-    }//GEN-LAST:event_btnBusquedaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,8 +313,6 @@ CrearEstudiante ver = new CrearEstudiante();
     private javax.swing.JButton botonAñadirAlumno;
     private javax.swing.JButton botonEstudiantes;
     private javax.swing.JButton botonSolicitudes;
-    private javax.swing.JButton btnBusqueda;
-    private javax.swing.JButton btnlogo;
     private javax.swing.JTextField campoBusqueda;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

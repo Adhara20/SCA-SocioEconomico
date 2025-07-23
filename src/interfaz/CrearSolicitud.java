@@ -12,7 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import javax.swing.JFrame;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -24,17 +23,17 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author jobno
  */
 public class CrearSolicitud extends javax.swing.JFrame {
-    JFrame regresa;
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CrearSolicitud.class.getName());
     String id;
     int idSolicitud;
-
+    String regresa;
     /**
      * Creates new form RegistrarAlumno
      */
 
-    public CrearSolicitud(JFrame pantalla,String idAlumno) {
-        regresa = pantalla;
+    public CrearSolicitud(String regresa1,String idAlumno) {
+        regresa = regresa1;
         id = idAlumno;
         initComponents();
         darEstilos();
@@ -101,7 +100,7 @@ public class CrearSolicitud extends javax.swing.JFrame {
                 campoMatricula.setEditable(false);
                 
                 campoGrupo.putClientProperty("JComponent.roundRect", true);
-                
+                campoGrupo.setEditable(false);
                 
                 campoCarrera.putClientProperty("JComponent.roundRect", true);
                 campoCarrera.setEditable(false);
@@ -125,8 +124,6 @@ public class CrearSolicitud extends javax.swing.JFrame {
                 comboTipo.addItem("Llamada");
                 comboTipo.addItem("Oficina");
                 comboTipo.addItem("Visita");
-                
-                btnlogo.setBorderPainted(false);
     }
     
     public int ConocerIdSolicitud(){
@@ -159,7 +156,6 @@ public class CrearSolicitud extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        btnlogo = new javax.swing.JButton();
         panelDatosGenerales = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -220,10 +216,12 @@ public class CrearSolicitud extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+
                 .addContainerGap(530, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
                 .addGap(18, 18, 18)
                 .addComponent(btnGuardar)
+
                 .addGap(19, 19, 19))
         );
         jPanel3Layout.setVerticalGroup(
@@ -239,11 +237,17 @@ public class CrearSolicitud extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 720, 40));
 
         jPanel4.setBackground(new java.awt.Color(43, 138, 127));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnlogo.setBackground(new java.awt.Color(43, 138, 127));
-        btnlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo2.png"))); // NOI18N
-        jPanel4.add(btnlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 40));
 
@@ -493,8 +497,7 @@ public class CrearSolicitud extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-         regresa.setVisible(true);
-         dispose();
+         
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -510,25 +513,8 @@ public class CrearSolicitud extends javax.swing.JFrame {
         }else{
             motivo = "3";
         };
-        String nombre = campoNombre.getText();
-        System.out.println(nombre);
-        String telefonoSolicitud = campoTelefono.getText();
-        String grupo = campoGrupo.getText();
-        try{
-        Conexion conexion = new Conexion();
-        Connection con = conexion.con;
-
-        String sql = "UPDATE alumno SET nombreAlumno = ?, telefonoAlumno = ?, grupo = ? WHERE idAlumno = ?";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, nombre);       
-        ps.setString(2, telefonoSolicitud);
-        ps.setString(3, grupo);
-        ps.setString(4, id);
-        ps.executeUpdate();
-        }catch (Exception e){
-            System.out.println("error al actualizar: " + e);
-        }
         
+        String telefonoSolicitud = campoTelefono.getText();
         String canaliza = campoCanaliza.getText();
         String familiar = campoFamiliar.getText();
         String telefonoFamiliar = campoTelefonoFamiliar.getText();
@@ -558,7 +544,6 @@ public class CrearSolicitud extends javax.swing.JFrame {
             dispose();
 
         }
-        
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -590,14 +575,13 @@ public class CrearSolicitud extends javax.swing.JFrame {
         
         /* Create and display the form */
 
-        //java.awt.EventQueue.invokeLater(() -> new CrearSolicitud( "anterior" ,"1").setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new CrearSolicitud( "anterior" ,"1").setVisible(true));
 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnlogo;
     private javax.swing.JTextArea campoArgumentacion;
     private javax.swing.JTextField campoCanaliza;
     private javax.swing.JTextField campoCarrera;
